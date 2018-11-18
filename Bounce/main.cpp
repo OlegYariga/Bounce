@@ -1,4 +1,3 @@
-
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "drawMaps.h"
@@ -78,7 +77,7 @@ int main()
 
 
 
-	system("pause");
+	//system("pause");
 	// в дальнейшем, нужно переместить 
 	return 0;
 }

@@ -1,11 +1,8 @@
-﻿  Ball.cpp
-c:\program files\git\bounce\bounce\bounce\ball.cpp(20): warning C4305: аргумент: усечение из "double" в "float"
-c:\program files\git\bounce\bounce\bounce\ball.cpp(25): warning C4305: аргумент: усечение из "double" в "float"
-  main.cpp
-c:\program files\git\bounce\bounce\bounce\drawmaps.h(52): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+﻿  main.cpp
+c:\users\doc\desktop\bounce\bounce\bounce\drawMaps.h(52): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Создание кода
-  3 of 72 functions ( 4.2%) were compiled, the rest were copied from previous compilation.
+  0 of 70 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
-  Bounce.vcxproj -> C:\Program Files\Git\Bounce\Bounce\Release\Bounce.exe
+  Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
