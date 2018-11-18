@@ -3,6 +3,7 @@
 #include "drawMaps.h"
 #include "engine.h"
 #include "Ball.h"
+#include "Boost.h"
 //¬ будущем вынести это из MAIN
 
 #ifdef _DEBUG //здесь определ€ем, какой режим сборки включен (Debug или Release)
@@ -28,7 +29,7 @@ int main()
 
 	drawMap map_level1; // объ€вление объекта "уровень" отвечающего за начальную загрузку карты
 	Ball test;
-
+	Boost b1;
 	/* //музыка
 
 	sf::Music Main_theme;
@@ -59,7 +60,7 @@ int main()
 		
 
 
-
+		
 		window.draw(test.sprite);
 
 		if (Keyboard::isKeyPressed(Keyboard::Right))
@@ -69,8 +70,8 @@ int main()
 			test.KeyLeft();
 
 
-
-
+		//»Ћ№я
+		window.draw(b1.sprite);
 
 		window.display();//вывод всех изображений на экран
 	}
