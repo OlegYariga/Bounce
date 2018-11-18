@@ -3,7 +3,7 @@
 #include <SFML/Audio.hpp>
 #include "drawMaps.h"
 #include "engine.h"
-
+#include "Ball.h"
 //В будущем вынести это из MAIN
 
 #ifdef _DEBUG //здесь определяем, какой режим сборки включен (Debug или Release)
@@ -28,7 +28,8 @@ int main()
 	*/
 
 	drawMap map_level1; // объявление объекта "уровень" отвечающего за начальную загрузку карты
-	
+	Ball test;
+
 	/* //музыка
 
 	sf::Music Main_theme;
@@ -57,7 +58,20 @@ int main()
 
 		map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
 		
+
+
+
+		window.draw(test.sprite);
+
+		if (Keyboard::isKeyPressed(Keyboard::Right))
+			test.KeyRight();
 		
+		if (Keyboard::isKeyPressed(Keyboard::Left))
+			test.KeyLeft();
+
+
+
+
 
 		window.display();//вывод всех изображений на экран
 	}
