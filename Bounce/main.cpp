@@ -4,7 +4,10 @@
 #include "drawMaps.h"
 #include "engine.h"
 #include "Ball.h"
+#include "Boost.h"
 #include "wasp.h"
+
+
 //В будущем вынести это из MAIN
 
 #ifdef _DEBUG //здесь определяем, какой режим сборки включен (Debug или Release)
@@ -40,6 +43,7 @@ int main()
 	drawMap map_level1; // объявление объекта "уровень" отвечающего за начальную загрузку карты
 	Ball test;
 	Wasp wasp1;
+	Boost b1;
 
 	/* //музыка
 
@@ -87,7 +91,7 @@ int main()
 
 
 
-
+		window.draw(b1.sprite);
 
 		window.display();//вывод всех изображений на экран
 	}
