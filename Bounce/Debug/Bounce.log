@@ -1,3 +1,2 @@
-﻿  main.cpp
-c:\users\doc\desktop\bounce\bounce\bounce\drawmaps.h(52): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Debug\Bounce.exe
+﻿sfml-graphics-s-d.lib(Image.cpp.obj) : error LNK2019: ссылка на неразрешенный внешний символ ___std_swap_ranges_trivially_swappable_noalias в функции "unsigned char * __cdecl std::_Swap_ranges_unchecked<unsigned char,0>(unsigned char * const,unsigned char * const,unsigned char * const)" (??$_Swap_ranges_unchecked@E$0A@@std@@YAPAEQAE00@Z)
+C:\Users\Doc\Desktop\Bounce\Bounce\Debug\Bounce.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
