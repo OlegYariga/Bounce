@@ -16,6 +16,7 @@
 #pragma comment(lib, "sfml-audio.lib")//определ€ем файл библиотеки с музыкой дл€ линковщика ( дл€ Release)
 #endif // 
 
+int startMenu();
 
 Clock clock1;
 
@@ -40,6 +41,8 @@ int main()
 	// time = time / 800;
 	// time_game += time;
 
+
+
 	drawMap map_level1; // объ€вление объекта "уровень" отвечающего за начальную загрузку карты
 	Ball test;
 	Wasp wasp1;
@@ -52,6 +55,9 @@ int main()
 	Main_theme.setLoop(true);
 	Main_theme.play();*/
 	
+
+	startMenu();
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -100,5 +106,44 @@ int main()
 
 	//system("pause");
 	// в дальнейшем, нужно переместить 
+	return 0;
+}
+
+int startMenu() {
+	Texture start_text;
+	Sprite start_sprite;
+
+	start_text.loadFromFile("screensaver.jpg");
+	start_sprite.setTexture(start_text);
+	//start_sprite.scale(1.0f, 1.0f);
+	start_sprite.setPosition(0, 0);
+
+	while (window.isOpen())
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
+		if (event.type == sf::Event::MouseButtonPressed)
+		{
+			if (event.mouseButton.button == sf::Mouse::Right)
+			{
+				break;
+			}
+		}
+
+		window.clear();//очищаем экран
+
+		window.draw(start_sprite);
+
+		window.display();//вывод всех изображений на экран
+	}
+
+
+
+
+
 	return 0;
 }
