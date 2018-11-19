@@ -266,6 +266,6 @@ int startMenu() {
 
 
 
-
+//выход из функции
 	return 0;
 }
