@@ -1,5 +1,6 @@
-#pragma once
-//
+#if!defined( _ENGINE_H_INCLUDED_)
+#define _ENGINE_H_INCLUDED_
+
 
 #include <SFML/Graphics.hpp>
 using namespace sf;
@@ -40,3 +41,6 @@ String TileMap[HEIGHT_MAP] = {// определение карты (В БУДУЩЕМ СДЕЛАТЬ ЗАГРУЗКУ И
 	"0                                      0",
 	"0000000000000000000000000000000000000000",
 };
+
+
+#endif // !_ENGINE_H_INCLUDED_
