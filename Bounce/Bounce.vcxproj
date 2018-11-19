@@ -136,12 +136,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="Boost.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="wasp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="Boost.h" />
     <ClInclude Include="drawMaps.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="wasp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

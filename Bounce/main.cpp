@@ -1,9 +1,13 @@
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "drawMaps.h"
 #include "engine.h"
 #include "Ball.h"
 #include "Boost.h"
+#include "wasp.h"
+
+
 //В будущем вынести это из MAIN
 
 #ifdef _DEBUG //здесь определяем, какой режим сборки включен (Debug или Release)
@@ -13,11 +17,13 @@
 #endif // 
 
 
+Clock clock1;
 
-
-//using namespace sf;
+//using namespace sf;  пространство имен
 int main()
 {
+
+
 	/*Описание массива, содержащего карту уровня:
 	//
 	0 - красные кирпичи (смещение = 96пкс в файле с рисунками)
@@ -27,9 +33,17 @@ int main()
 	A - место появления жука на карте
 	*/
 
+	
+	// Clock clock1;    //время игры
+	// int time,time_game;
+	// time= clock1.getElapsedTime().asMicroseconds();
+	// time = time / 800;
+	// time_game += time;
+
 	drawMap map_level1; // объявление объекта "уровень" отвечающего за начальную загрузку карты
 	Ball test;
-	Boost buff;
+	Wasp wasp1;
+	Boost b1;
 
 	/* //музыка
 
@@ -63,16 +77,21 @@ int main()
 
 
 		window.draw(test.sprite);
+		window.draw(wasp1.killer_wasp);
 
+		 
+		wasp1.move_wasp();
+		
 		if (Keyboard::isKeyPressed(Keyboard::Right))
 			test.KeyRight();
+		   
 		
 		if (Keyboard::isKeyPressed(Keyboard::Left))
 			test.KeyLeft();
 
 
 
-
+		window.draw(b1.sprite);
 
 		window.display();//вывод всех изображений на экран
 	}

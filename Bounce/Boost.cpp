@@ -3,8 +3,8 @@
 
 
 Boost::Boost() {
-	buff.LoadFromFile("food-icons-floating.png");
-	sprite.SetTexture(buff);
-	sprite.SetTextureRect(IntRect(0, 20, 15, 10));
-	sprite.SetPosition(60, 350);
+	buff.loadFromFile("food-icons-floating.png");
+	sprite.setTexture(buff);
+	sprite.setTextureRect(IntRect(191, 35 , 32, 32));
+	sprite.setPosition(50, 70);
 }
