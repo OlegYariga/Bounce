@@ -1,9 +1,9 @@
-﻿  main.cpp
-c:\users\doc\desktop\bounce\bounce\bounce\drawMaps.h(52): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  wasp.cpp
-  Создание кода
-  0 of 76 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+﻿  Создание кода
+  1 of 81 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
+Ball.obj : warning LNK4099: "vc141.pdb" PDB не найден с "Ball.obj" или на "C:\Users\Doc\Desktop\Bounce\Bounce\Release\vc141.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+Boost.obj : warning LNK4099: "vc141.pdb" PDB не найден с "Boost.obj" или на "C:\Users\Doc\Desktop\Bounce\Bounce\Release\vc141.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+wasp.obj : warning LNK4099: "vc141.pdb" PDB не найден с "wasp.obj" или на "C:\Users\Doc\Desktop\Bounce\Bounce\Release\vc141.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
