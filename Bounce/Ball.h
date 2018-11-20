@@ -6,6 +6,7 @@ using namespace sf;
 
 class Ball {
 public:
+	Image pers;
 	Sprite sprite;
 	Ball();
 	void drawing_person();

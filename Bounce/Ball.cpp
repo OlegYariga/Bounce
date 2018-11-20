@@ -3,9 +3,11 @@
 
 
 Ball::Ball(){
-	person.loadFromFile("person.png");
+	pers.loadFromFile("person.png");
+	pers.createMaskFromColor(pers.getPixel(0, 0));
+	person.loadFromImage(pers);
 	sprite.setTexture(person);
-	sprite.setTextureRect(IntRect(20,110,100,80)); 
+	sprite.setTextureRect(IntRect(0,0,30,30)); 
 	sprite.setPosition(50, 300);
 
 

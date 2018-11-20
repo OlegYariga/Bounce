@@ -58,6 +58,7 @@ int main()
 
 
 		startMenu();
+		map_level1.loadLevelFromFile(1);
 
 		if (menu_item == 1) {
 
