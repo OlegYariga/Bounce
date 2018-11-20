@@ -21,5 +21,6 @@ public:
 		drawMap();
 		~drawMap();
 		void drawing_level();
+		void loadLevelFromFile();
 
 };
