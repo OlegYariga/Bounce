@@ -1,4 +1,5 @@
 #pragma once
+#include "engine.h" // теперь всё работает
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
