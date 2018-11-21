@@ -16,7 +16,7 @@
 #pragma comment(lib, "sfml-audio.lib")//определяем файл библиотеки с музыкой для линковщика ( для Release)
 #endif // 
 
-int menu_item = 0;
+int menu_item = 1;
 
 int startMenu();//прототип функции меню
 Clock clock1;
