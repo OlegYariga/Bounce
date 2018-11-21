@@ -90,6 +90,8 @@ int main()
 				window.draw(test.sprite);
 				window.draw(wasp1.killer_wasp);
 
+				// wasp1.show_wasp();
+
 
 				wasp1.move_wasp();
 

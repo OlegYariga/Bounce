@@ -10,8 +10,9 @@ public:
 	Wasp();
 	 
 
-	void kill(); //прорисовка спрайта
+	//void kill();  
 	void move_wasp();
+	void show_wasp();
 	
 	
 private:
