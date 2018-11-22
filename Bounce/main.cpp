@@ -16,9 +16,7 @@
 #pragma comment(lib, "sfml-audio.lib")//определ€ем файл библиотеки с музыкой дл€ линковщика ( дл€ Release)
 #endif // 
 
-<<<<<<< HEAD
 int menu_item = 1;
-
 
 int startMenu();//прототип функции меню
 Clock clock1;
@@ -38,21 +36,13 @@ int main()
 	*/
 
 
-
-	// Clock clock1;    //врем€ игры
-	// int time,time_game;
-	// time= clock1.getElapsedTime().asMicroseconds();
-	// time = time / 800;
-	// time_game += time;
-
+	
 
 
 
 		drawMap map_level1; // объ€вление объекта "уровень" отвечающего за начальную загрузку карты
 		Ball test;
-
 		Wasp wasp1; 
-
 		Boost b1;
 
 		/* //музыка
@@ -63,9 +53,7 @@ int main()
 		Main_theme.play();*/
 
 
-
 	//startMenu();
-
 
 		if (menu_item == 1) {
 
@@ -93,7 +81,6 @@ int main()
 				map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
 
 
-
 				Clock clock;    //врем€ игры
 				
 				float time = clock.getElapsedTime().asMicroseconds();
@@ -106,7 +93,7 @@ int main()
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
 				
-
+				
 
 				if (Keyboard::isKeyPressed(Keyboard::Right))
 					test.KeyRight();

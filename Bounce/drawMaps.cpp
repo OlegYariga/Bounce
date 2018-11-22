@@ -1,10 +1,7 @@
 #include "engine.h"
 #include "drawMaps.h"
 
-<<<<<<< HEAD
 
-=======
->>>>>>> a8c959fa613a8a22bc5cfd9f438d8660d1136da1
 RenderWindow window(sf::VideoMode(1200, 600), "Bounce");//инициализируется объект окна игры
 
 
@@ -49,11 +46,7 @@ String TileMap[HEIGHT_MAP] = {// определение карты (В БУДУЩЕМ СДЕЛАТЬ ЗАГРУЗКУ И
 	"0      000000000000                    0",
 	"0                                      0",
 	"0                                      0",
-<<<<<<< HEAD
 	"0                 0 Abb                0",
-=======
-	"0                 0  bb                0",
->>>>>>> a8c959fa613a8a22bc5cfd9f438d8660d1136da1
 	"0                 0                    0",
 	"0               000                    0",
 	"0                 0Abbbbbbb  0         0",

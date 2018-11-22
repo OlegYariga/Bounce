@@ -15,7 +15,7 @@ public:
 	void move_wasp(float a);
 	void show_wasp(float a);
 
-	
+
 private:
 	Texture Image_wasp;
 };
