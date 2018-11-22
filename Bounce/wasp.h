@@ -10,7 +10,7 @@ public:
 	float  x = 32;
 	float  dx = 0.08;
 	float time_game = 0;
-	//void kill();  
+	//  void kill(); апвап 
 
 	void move_wasp(float a);
 	void show_wasp(float a);
