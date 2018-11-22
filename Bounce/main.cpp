@@ -97,7 +97,7 @@ int main()
 				time = time / 800;
 
 				window.draw(wasp1.killer_wasp);
-				window.draw(test.sprite);
+				test.drawing_person();
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
 				

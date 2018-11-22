@@ -14,6 +14,7 @@ public:
 	void CollisionX();
 	void CollisionY();
 private:
+	Image pers;
 	Texture person;
 	Sprite sprite; 
 	Clock clock;

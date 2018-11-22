@@ -4,6 +4,7 @@
 
 
 Ball::Ball(){
+	
 	pers.loadFromFile("person.png");
 	pers.createMaskFromColor(pers.getPixel(0, 0));
 	person.loadFromImage(pers);
