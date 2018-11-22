@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -59,6 +63,10 @@ int main()
 
 		startMenu();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 		if (menu_item == 1) {
 
 			while (window.isOpen())
@@ -82,11 +90,16 @@ int main()
 				/////////////////////////////////////////////////////////////////////
 				/////////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
+=======
+				map_level1.loadLevelFromFile(1);
+>>>>>>> master
 				map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
 
 
 
 
+<<<<<<< HEAD
 				window.draw(test.sprite);
 				window.draw(wasp1.killer_wasp);
 
@@ -99,6 +112,24 @@ int main()
 
 				if (Keyboard::isKeyPressed(Keyboard::Left))
 					test.KeyLeft();
+=======
+				window.draw(wasp1.killer_wasp);
+				
+				Clock clock;    //время игры
+				
+				float time = clock.getElapsedTime().asMicroseconds();
+				clock.restart();
+				time = time / 800;
+
+				window.draw(wasp1.killer_wasp);
+				test.drawing_person();
+				//wasp1.move_wasp(time);
+				wasp1.show_wasp(time);
+				
+				
+				
+				test.drawing_person();
+>>>>>>> master
 
 
 
