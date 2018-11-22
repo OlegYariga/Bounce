@@ -1,5 +1,11 @@
 #include "engine.h"
 #include "drawMaps.h"
+#include <fstream>
+#include <string>
+
+using namespace std;
+//int num_level = 1;
+
 
 RenderWindow window(sf::VideoMode(1200, 600), "Bounce");//инициализируется объект окна игры
 
@@ -36,6 +42,30 @@ void drawMap::drawing_level() {// функция отрисовки уровня
 			window.draw(s_map);//рисуем квадратики на экран
 		}
 }
+
+void drawMap::loadLevelFromFile(int num_level) {
+	string line;
+	ifstream myfile("level"+ to_string(num_level)+".level");
+	//ifstream myfile("level1.level");
+	int i = 0;
+	if (myfile.is_open())
+	{
+		while (!myfile.eof())
+		{
+			getline(myfile, line);
+			TileMap[i] = line;
+			//cout << TileMap[i] << endl;
+			i++;
+		}
+		myfile.close();
+	}
+}
+
+
+
+
+
+
 
 String TileMap[HEIGHT_MAP] = {// определение карты (В БУДУЩЕМ СДЕЛАТЬ ЗАГРУЗКУ ИЗ ФАЙЛА)
 	"0000000000000000000000000000000000000000",

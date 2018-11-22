@@ -1,7 +1,21 @@
-﻿  drawMaps.cpp
-drawMaps.cpp(34): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+﻿  Ball.cpp
+Ball.cpp(30): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Ball.cpp(31): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Ball.cpp(35): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
+Ball.cpp(48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+Ball.cpp(79): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(80): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(84): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(85): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(93): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(94): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(105): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(111): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(122): warning C4305: =: усечение из "double" в "float"
+Ball.cpp(127): warning C4305: =: усечение из "double" в "float"
+Ball.cpp(132): warning C4305: =: усечение из "double" в "float"
   Создание кода
-  2 of 81 functions ( 2.5%) were compiled, the rest were copied from previous compilation.
+  4 of 216 functions ( 1.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
