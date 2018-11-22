@@ -1,6 +1,14 @@
-﻿  main.cpp
+﻿  drawMaps.cpp
+drawMaps.cpp(40): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  main.cpp
+c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
+main.cpp(97): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+  wasp.cpp
+c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
+wasp.cpp(29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+wasp.cpp(38): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Создание кода
-  6 of 203 functions ( 3.0%) were compiled, the rest were copied from previous compilation.
+  0 of 216 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
