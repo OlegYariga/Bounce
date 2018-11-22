@@ -6,6 +6,7 @@
 using namespace std;
 //int num_level = 1;
 
+
 RenderWindow window(sf::VideoMode(1200, 600), "Bounce");//инициализируется объект окна игры
 
 

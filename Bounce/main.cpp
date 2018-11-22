@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -88,9 +89,20 @@ int main()
 
 
 				window.draw(wasp1.killer_wasp);
+				
+				Clock clock;    //время игры
+				
+				float time = clock.getElapsedTime().asMicroseconds();
+				clock.restart();
+				time = time / 800;
 
-
-				wasp1.move_wasp();
+				window.draw(wasp1.killer_wasp);
+				window.draw(test.sprite);
+				//wasp1.move_wasp(time);
+				wasp1.show_wasp(time);
+				
+				
+				
 				test.drawing_person();
 
 
