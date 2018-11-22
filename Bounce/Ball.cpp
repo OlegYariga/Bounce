@@ -79,7 +79,7 @@ void Ball::CollisionX() {
 	for (int i = (rect.top - 15)/32; i < (rect.top + 15) / 32; i++)
 		for (int j = (rect.left - 15) / 32; j < (rect.left + 15) / 32; j++)
 		{
-			if (TileMap[i][j] == '0')
+			if (TileMap[i][j] == '0' || TileMap[i][j] == 'R' || TileMap[i][j] == '-' || TileMap[i][j] == '+')
 			{
 				if (dx > 0) rect.left = j * 32 - 15;
 				if (dx < 0) rect.left = j * 32 + 47;
@@ -93,12 +93,12 @@ void Ball::CollisionY() {
 	for (int i = (rect.top - 15) / 32; i < (rect.top + 15) / 32; i++)
 		for (int j = (rect.left - 15) / 32; j < (rect.left + 15) / 32; j++)
 		{
-			if ((j > 30) || (i > 30)) {
+			if ((j > WIDTH_MAP) || (i > HEIGHT_MAP)) {
 				rect.left = 50;
 				rect.top = 250;
 			}
 			else {
-				if (TileMap[i][j] == '0')
+				if (TileMap[i][j] == '0'|| TileMap[i][j] == 'R'|| TileMap[i][j] == '-'|| TileMap[i][j] == '+')
 				{
 					if (dy > 0)
 					{
