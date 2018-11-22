@@ -31,6 +31,7 @@ void drawMap::drawing_level() {// функция отрисовки уровня
 			if (TileMap[i][j] == ' ')  s_map.setTextureRect(IntRect(0, 0, 32, 32)); //если встретили символ пробел, то рисуем 1й квадратик
 			if (TileMap[i][j] == 's')  s_map.setTextureRect(IntRect(32, 0, 32, 32));//если встретили символ s, то рисуем 2й квадратик
 			if (TileMap[i][j] == '0') s_map.setTextureRect(IntRect(96, 0, 32, 32));//если встретили символ 0, то рисуем 3й квадратик
+			if (TileMap[i][j] == 'F') s_map.setTextureRect(IntRect(96, 0, 32, 32));//если встретили символ 0, то рисуем 3й квадратик
 			if (TileMap[i][j] == '+')  s_map.setTextureRect(IntRect(128, 0, 32, 32));//если встретили символ s, то рисуем 4й квадратик
 			if (TileMap[i][j] == '-') s_map.setTextureRect(IntRect(160, 0, 32, 32));//если встретили символ 0, то рисуем 5й квадратик
 			if (TileMap[i][j] == 'R') s_map.setTextureRect(IntRect(192, 0, 32, 32));//если встретили символ 0, то рисуем 5й квадратик

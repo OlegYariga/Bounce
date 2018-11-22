@@ -31,8 +31,8 @@ void Wasp::show_wasp(float time)
 				
 				x += dx;
 				time_game += time;
-				cout << "time" << time_game << endl;
-				cout << "x" << x << endl;
+				//cout << "time" << time_game << endl;
+				//cout << "x" << x << endl;
 
 				if (time_game >3 ) { dx *= -1; time_game = 0; }
 				killer_wasp.setPosition(x + j * 32, i * 32);
