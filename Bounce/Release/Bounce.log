@@ -1,1 +1,10 @@
-﻿  Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
+﻿  wasp.cpp
+c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
+wasp.cpp(29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+wasp.cpp(38): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Создание кода
+  4 of 164 functions ( 2.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    5 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
