@@ -18,9 +18,7 @@
 
 <<<<<<< HEAD
 int menu_item = 1;
-=======
-int menu_item = 0;
->>>>>>> a8c959fa613a8a22bc5cfd9f438d8660d1136da1
+
 
 int startMenu();//прототип функции меню
 Clock clock1;
@@ -40,25 +38,21 @@ int main()
 	*/
 
 
-<<<<<<< HEAD
-	
-=======
+
 	// Clock clock1;    //врем€ игры
 	// int time,time_game;
 	// time= clock1.getElapsedTime().asMicroseconds();
 	// time = time / 800;
 	// time_game += time;
->>>>>>> a8c959fa613a8a22bc5cfd9f438d8660d1136da1
+
 
 
 
 		drawMap map_level1; // объ€вление объекта "уровень" отвечающего за начальную загрузку карты
 		Ball test;
-<<<<<<< HEAD
+
 		Wasp wasp1; 
-=======
-		Wasp wasp1;
->>>>>>> a8c959fa613a8a22bc5cfd9f438d8660d1136da1
+
 		Boost b1;
 
 		/* //музыка
@@ -69,11 +63,9 @@ int main()
 		Main_theme.play();*/
 
 
-<<<<<<< HEAD
+
 	//startMenu();
-=======
-		startMenu();
->>>>>>> a8c959fa613a8a22bc5cfd9f438d8660d1136da1
+
 
 		if (menu_item == 1) {
 
@@ -101,7 +93,7 @@ int main()
 				map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
 
 
-<<<<<<< HEAD
+
 				Clock clock;    //врем€ игры
 				
 				float time = clock.getElapsedTime().asMicroseconds();
@@ -114,18 +106,7 @@ int main()
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
 				
-				
-=======
 
-
-				window.draw(test.sprite);
-				window.draw(wasp1.killer_wasp);
-
-				// wasp1.show_wasp();
-
-
-				wasp1.move_wasp();
->>>>>>> a8c959fa613a8a22bc5cfd9f438d8660d1136da1
 
 				if (Keyboard::isKeyPressed(Keyboard::Right))
 					test.KeyRight();

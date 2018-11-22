@@ -15,15 +15,7 @@ public:
 	void move_wasp(float a);
 	void show_wasp(float a);
 
-
-<<<<<<< HEAD
-=======
-	//void kill();  
-	void move_wasp();
-	void show_wasp();
 	
-	
->>>>>>> a8c959fa613a8a22bc5cfd9f438d8660d1136da1
 private:
 	Texture Image_wasp;
 };
