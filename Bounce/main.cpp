@@ -16,7 +16,7 @@
 #pragma comment(lib, "sfml-audio.lib")//определяем файл библиотеки с музыкой для линковщика ( для Release)
 #endif // 
 
-int menu_item = 1;
+int menu_item = 0;
 
 int startMenu();//прототип функции меню
 Clock clock1;
@@ -58,7 +58,6 @@ int main()
 
 
 		startMenu();
-		map_level1.loadLevelFromFile(1);
 
 		if (menu_item == 1) {
 
@@ -88,18 +87,11 @@ int main()
 
 
 
-				window.draw(test.sprite);
 				window.draw(wasp1.killer_wasp);
 
 
 				wasp1.move_wasp();
-
-				if (Keyboard::isKeyPressed(Keyboard::Right))
-					test.KeyRight();
-
-
-				if (Keyboard::isKeyPressed(Keyboard::Left))
-					test.KeyLeft();
+				test.drawing_person();
 
 
 
