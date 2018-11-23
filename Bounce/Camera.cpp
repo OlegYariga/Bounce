@@ -5,5 +5,11 @@ Camera::Camera() {
 	ball_camera.reset(sf::FloatRect(0, 0, 1200, 600));
 }
 void Camera::changeCameraPosition(float x, float y) {
-	ball_camera.setCenter(x,y);
+	float tempX = x; float tempY = y;//считываем коорд игрока и проверяем их, чтобы убрать края
+
+	if (x < 600) tempX = 600;//убираем из вида левую сторону
+	if (y < 240) tempY = 240;//верхнюю сторону
+	if (y > 554) tempY = 554;//нижнюю сторону	
+	ball_camera.setCenter(tempX, tempY);
 }
+

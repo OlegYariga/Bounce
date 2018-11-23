@@ -7,6 +7,6 @@ public:
 	View ball_camera;
 	Camera();
 	void changeCameraPosition(float x, float y);
-
-
+private:
+	float coordinateY;
 };
