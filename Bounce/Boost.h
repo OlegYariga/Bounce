@@ -5,8 +5,17 @@ using namespace sf;
 
 class Boost {
 public:
-	sf::Sprite sprite;
+	Sprite sprite;
 	Boost();
 private:
 	Texture buff;
+};
+
+class Spike {
+public:
+	Sprite sprite_spike;
+	Spike();
+	void draw_spike();
+private:
+	Texture spike1;
 };
