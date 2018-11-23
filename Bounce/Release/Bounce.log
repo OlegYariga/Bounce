@@ -26,6 +26,6 @@ c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(11): warning C4305: иници�
 wasp.cpp(29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 wasp.cpp(38): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Создание кода
-  All 213 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 214 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
