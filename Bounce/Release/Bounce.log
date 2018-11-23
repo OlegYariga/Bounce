@@ -14,13 +14,15 @@ Ball.cpp(111): warning C4244: =: преобразование "int" в "float", 
 Ball.cpp(122): warning C4305: =: усечение из "double" в "float"
 Ball.cpp(127): warning C4305: =: усечение из "double" в "float"
 Ball.cpp(132): warning C4305: =: усечение из "double" в "float"
-  wasp.cpp
+  Camera.cpp
+  drawMaps.cpp
+drawMaps.cpp(41): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  main.cpp
 c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
-wasp.cpp(29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(38): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+main.cpp(100): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
   Создание кода
-  14 of 213 functions ( 6.6%) were compiled, the rest were copied from previous compilation.
+  0 of 213 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    18 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
