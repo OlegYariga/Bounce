@@ -1,1 +1,73 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.Cpp.WindowsSDK.targets(46,5): error MSB8036: не удалось найти Windows SDK версии 10.0.16299.0. Установите нужную версию Windows SDK или измените версию SDK на страницах свойств проекта либо щелкнув правой кнопкой мыши решение и выбрав "Изменить целевую платформу решения".
+﻿  Ball.cpp
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(30): warning C4244: =: преобразование "const T" в "int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(31): warning C4244: =: преобразование "const T" в "int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(35): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(79): warning C4244: инициализация: преобразование "T" в "int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(80): warning C4244: инициализация: преобразование "T" в "int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(84): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(85): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(93): warning C4244: инициализация: преобразование "T" в "int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(94): warning C4244: инициализация: преобразование "T" в "int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(105): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(111): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(122): warning C4305: =: усечение из "double" в "float"
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(127): warning C4305: =: усечение из "double" в "float"
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\ball.cpp(132): warning C4305: =: усечение из "double" в "float"
+  Boost.cpp
+  Camera.cpp
+  drawMaps.cpp
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\drawmaps.cpp(41): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  main.cpp
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\main.cpp(100): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+  wasp.cpp
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\wasp.cpp(29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\wasp.cpp(38): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Создание кода
+  261 of 261 functions (100.0%) were compiled.
+    73 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Bounce.vcxproj -> C:\Users\Ilafe\OneDrive\Рабочий стол\komanda\Bounce\x64\Release\Bounce.exe
