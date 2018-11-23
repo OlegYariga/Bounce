@@ -29,7 +29,7 @@ void Ball::drawing_person() {
 	int a, b;
 	a = sprite.getPosition().x;
 	b = sprite.getPosition().y;
-	std::cout << a << " " << b << " " << dy << std::endl;
+	//std::cout << a << " " << b << " " << dy << std::endl;
 
 
 	time = clock.getElapsedTime().asMicroseconds();
@@ -132,4 +132,11 @@ void Ball::KeyUp() {
 		dy = -0.4;
 		onGround = false;
 	}
+}
+
+float Ball::getcoorginateX() {
+	return sprite.getPosition().x;
+}
+float Ball::getcoorginateY() {
+	return sprite.getPosition().y;
 }

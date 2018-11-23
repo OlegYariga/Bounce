@@ -7,6 +7,7 @@
 #include "Ball.h"
 #include "Boost.h"
 #include "wasp.h"
+#include "Camera.h"
 
 
 //В будущем вынести это из MAIN
@@ -50,6 +51,7 @@ int main()
 		Ball test;
 		Wasp wasp1;
 		Boost b1;
+		Camera cam;
 
 		/* //музыка
 
@@ -74,7 +76,7 @@ int main()
 						menu_item = 4;
 					}
 				}
-
+				window.setView(cam.ball_camera);//устанавливаем камеру
 				window.clear();//очищаем экран
 
 
@@ -101,6 +103,8 @@ int main()
 
 				window.draw(wasp1.killer_wasp);
 				test.drawing_person();
+				cam.changeCameraPosition(test.getcoorginateX(), test.getcoorginateY());
+
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
 				
