@@ -20,9 +20,9 @@
 #pragma comment(lib, "sfml-audio.lib")//определяем файл библиотеки с музыкой для линковщика ( для Release)
 #endif // 
 
-int menu_item = 0;
+int menu_item = 1;
 
-int startMenu();//прототип функции меню
+//int startMenu();//прототип функции меню
 Clock clock1;
 
 //using namespace sf;  пространство имен
@@ -52,6 +52,7 @@ int main()
 		Ball test;
 		Wasp wasp1;
 		Boost b1;
+		Spike spike_test;
 
 		/* //музыка
 
@@ -61,7 +62,7 @@ int main()
 		Main_theme.play();*/
 
 
-		startMenu();
+		//startMenu();
 
 <<<<<<< HEAD
 =======
@@ -126,7 +127,7 @@ int main()
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
 				
-				
+				spike_test.draw_spike();
 				
 				test.drawing_person();
 >>>>>>> master

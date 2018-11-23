@@ -10,3 +10,12 @@ public:
 private:
 	Texture buff;
 };
+
+class Spike {
+public:
+	Sprite sprite;
+	Spike();
+	void draw_spike();
+private:
+	Texture spike1;
+};
