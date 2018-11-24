@@ -67,6 +67,8 @@ int main()
 
 		if (menu_item == 1) {
 
+			
+
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -113,7 +115,8 @@ int main()
 				
 				test.drawing_person();
 
-
+				b1.randomeBoostgenerator();
+				b1.drawBoost();
 
 				window.draw(b1.sprite);
 
