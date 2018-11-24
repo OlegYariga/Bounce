@@ -7,7 +7,6 @@ Boost::Boost() {
 	buff.loadFromFile("sprCherry_1.png");
 	sprite.setTexture(buff);
 	sprite.setTextureRect(IntRect(0, 0, 21, 24));
-	sprite.setPosition(100, 100);
 }
 
 void Boost::drawBoost() {
@@ -24,14 +23,23 @@ void Boost::drawBoost() {
 void Boost::randomeBoostgenerator() {
 	int randomeX = 0;//случайный X
 	int randomeY = 0;//случайный Y
-	int countBoost = 5;
+	int countBoost = 1;
 	srand(time(0));
 	while (countBoost > 0) {
-			randomeX = 1 + rand() % (WIDTH_MAP - 1);//рандомное по X от 1 до ширинакарты-1, чтобы не получать числа бордюра карты
-			randomeY = 1 + rand() % (HEIGHT_MAP - 1);//аналогично по Y
-			if (TileMap[randomeX][randomeY] == ' ') {
-					TileMap[randomeX][randomeY] = '*';
+		for (int i = 0; i < WIDTH_MAP; i++) {
+			for (int j = 0; j < HEIGHT_MAP; j++) {
+				randomeX = 1 + rand() % (WIDTH_MAP - 1);//рандомное по X от 1 до ширинакарты-1, чтобы не получать числа бордюра карты
+				randomeY = 1 + rand() % (HEIGHT_MAP - 1);//аналогично по Y
+				if (TileMap[randomeX][randomeY] == ' ') {
+					sprite.setPosition(randomeX, randomeY);
+					window.draw(sprite);
+					countBoost--;
+				}
+				else {
+					countBoost--;
+				}
 			}
+		}
 	}
 }
 
