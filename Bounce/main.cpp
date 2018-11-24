@@ -64,7 +64,7 @@ int main()
 
 		//startMenu();
 
-
+		b1.randomeBoostgenerator();
 		if (menu_item == 1) {
 
 			
@@ -115,10 +115,10 @@ int main()
 				
 				test.drawing_person();
 
-				b1.randomeBoostgenerator();
+				//b1.randomeBoostgenerator();
 				b1.drawBoost();
 
-				window.draw(b1.sprite);
+				window.draw(b1.sprite_Boost);
 
 				window.display();//вывод всех изображений на экран
 			}
