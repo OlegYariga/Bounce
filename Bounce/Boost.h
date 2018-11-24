@@ -16,6 +16,7 @@ public:
 	Sprite sprite_spike;
 	Spike();
 	void draw_spike();
+	void interact(Texture sprite_ball);
 private:
 	Texture spike1;
 };
