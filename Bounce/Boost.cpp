@@ -1,6 +1,7 @@
 #pragma once
 #include "Boost.h"
 #include "engine.h"
+#include "Ball.h"
 
 Boost::Boost() {
 	buff.loadFromFile("food-icons-floating.png");
@@ -24,4 +25,8 @@ void Spike::draw_spike() {
 			}
 		}
 	}
+}
+
+void Spike::interact(Texture sprite_ball) {
+	
 }
