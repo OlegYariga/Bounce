@@ -3,7 +3,6 @@
 #include "engine.h"
 #include "Ball.h"
 
-using namespace std;
 
 Boost::Boost() {
 	buff.loadFromFile("sprCherry_1.png");
@@ -48,8 +47,11 @@ Spike::Spike() {
 	for (int i = 0; i < HEIGHT_MAP; i++) {
 		for (int j = 0; j < WIDTH_MAP; j++) {
 			if (TileMap[j][i] == '^') {
-				coordinateX.push_back(j*32);
-				coordinateY.push_back(i*32);
+				coordinateX.push_back(j);
+				coordinateY.push_back(i);
+				for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
+					cout << *iter << endl;
+				}
 			}
 		}
 	}
@@ -60,7 +62,7 @@ void Spike::draw_spike() {
 	list<int>::iterator iterY;
 	for (iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
 		for (iterY = coordinateY.begin(); iterY != coordinateY.end(); iterY++) {
-			sprite_Spike.setPosition(iterX, iterY);
+			sprite_Spike.setPosition(*iterX,*iterY);
 			window.draw(sprite_Spike);
 		}
 	}
