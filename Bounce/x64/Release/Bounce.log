@@ -1,9 +1,9 @@
-﻿  main.cpp
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\main.cpp(103): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
-  Создание кода
-  1 of 263 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Создание кода завершено
-  Bounce.vcxproj -> C:\Users\Ilafe\OneDrive\Рабочий стол\komanda\Bounce\x64\Release\Bounce.exe
+﻿  Boost.cpp
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(18): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(28): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(63): error C2664: "void sf::Transformable::setPosition(const sf::Vector2f &)": невозможно преобразовать аргумент 1 из "std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>" в "float"
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(63): note: Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
