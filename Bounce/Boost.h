@@ -6,6 +6,8 @@ using namespace sf;
 class Boost {
 public:
 	Sprite sprite;
+	void randomeBoostgenerator();
+	void drawBoost();
 	Boost();
 private:
 	Texture buff;
