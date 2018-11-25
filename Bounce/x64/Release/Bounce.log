@@ -1,10 +1,31 @@
 ﻿  Boost.cpp
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(17): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(27): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(65): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(53): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(57): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(58): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(75): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(79): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(80): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
   Создание кода
-  7 of 325 functions ( 2.2%) were compiled, the rest were copied from previous compilation.
-    5 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  12 of 366 functions ( 3.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Ilafe\OneDrive\Рабочий стол\komanda\Bounce\x64\Release\Bounce.exe

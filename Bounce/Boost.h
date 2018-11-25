@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <string>
+#include <vector>
 #include <list>
 
 using namespace std;
@@ -8,10 +10,13 @@ using namespace sf;
 
 class Object {
 public:
+	list<Object> objects;
+	list<Object>::iterator it;
 	int getX();
 	int getY();
+	float x, y;
+	String name;
 private:
-	int x, y;
 };
 
 class Boost:public Object {
@@ -28,6 +33,7 @@ class Spike:public Object {
 public:
 	Sprite sprite_Spike;
 	Spike();
+	void find_spike();
 	void draw_spike();
 	void interact(Texture sprite_ball);
 private:
