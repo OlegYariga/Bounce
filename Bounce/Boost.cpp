@@ -43,29 +43,48 @@ Spike::Spike() {
 	spike1.loadFromFile("SpikeUp_0.png");
 	sprite_Spike.setTexture(spike1);
 	sprite_Spike.setTextureRect(IntRect(0, 0, 32, 32));
+	cout << "Сам пошёл нахер" << endl;
+}
 
+void Spike::find_spike() {
 	for (int i = 0; i < HEIGHT_MAP; i++) {
 		for (int j = 0; j < WIDTH_MAP; j++) {
-			if (TileMap[j][i] == '^') {
-				coordinateX.push_back(j);
-				coordinateY.push_back(i);
-				for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
-					cout << *iter << endl;
-				}
+			if (TileMap[i][j] == 'S') {
+				sprite_Spike.setPosition(i * 32, j * 32);
+				window.draw(sprite_Spike);
+				x = sprite_Spike.getPosition().x;
+				y = sprite_Spike.getPosition().y;
+				coordinateX.push_back(x);
+				coordinateY.push_back(y);
+				cout << "Something" << endl;
 			}
 		}
+	}
+	for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
+		cout << *iter << endl;
+	}
+	for (auto iter = coordinateY.begin(); iter != coordinateY.end(); iter++) {
+		cout << *iter << endl;
 	}
 }
 
 void Spike::draw_spike() {
-	list<int>::iterator iterX;
-	list<int>::iterator iterY;
-	for (iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
-		for (iterY = coordinateY.begin(); iterY != coordinateY.end(); iterY++) {
-			sprite_Spike.setPosition(*iterX,*iterY);
-			window.draw(sprite_Spike);
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[i][j] == 'S') {
+				sprite_Spike.setPosition(i * 32, j * 32);
+				window.draw(sprite_Spike);
+				x = sprite_Spike.getPosition().x;
+				y = sprite_Spike.getPosition().y;
+				coordinateX.push_back(x);
+				coordinateY.push_back(y);
+				cout << "Something" << endl;
+			}
 		}
 	}
+	/*for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
+		cout << *iter << endl;
+	}*/
 }
 
 void Spike::interact(Texture sprite_ball) {

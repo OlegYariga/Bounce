@@ -67,8 +67,8 @@ int main()
 		b1.randomeBoostgenerator();
 		if (menu_item == 1) {
 
-			
-
+			map_level1.loadLevelFromFile(2);
+			spike_test.find_spike();
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -90,7 +90,6 @@ int main()
 				/////////////////////////////////////////////////////////////////////
 				/////////////////////////////////////////////////////////////////////
 
-				map_level1.loadLevelFromFile(2);
 				map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
 
 
@@ -111,7 +110,7 @@ int main()
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
 				
-				spike_test.draw_spike();
+				//spike_test.draw_spike();
 				
 				test.drawing_person();
 
