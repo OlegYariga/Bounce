@@ -45,7 +45,8 @@ Spike::Spike() {
 	spike1.loadFromFile("SpikeUp_0.png");
 	sprite_Spike.setTexture(spike1);
 	sprite_Spike.setTextureRect(IntRect(0, 0, 32, 32));
-	cout << "Sam poshel naher" << endl;
+	life = true;
+	rect_spike = FloatRect(0, 0, 32, 32);
 }
 
 void Spike::find_spike() {
@@ -59,9 +60,11 @@ void Spike::find_spike() {
 				coordinateY.push_back(y);
 				cout << "Something" << endl;
 				cout << x << endl;
+				rect_spike = FloatRect(i, j, 32, 32);
 			}
 		}
 	}
+
 	auto iterY = coordinateY.begin();
 	for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
 		cout << *iter <<" ; "<<*iterY<< endl;
@@ -78,12 +81,19 @@ void Spike::draw_spike() {
 	}
 }
 
-void Spike::interact(Texture sprite_ball) {
-	
-}
-
-int Object::getX() {
-	
+void Spike::interact(float ballX,float ballY) {
+	/*Spike spike_test;
+	Ball ball_test;
+	if (spike_test.rect_spike.intersects(ball_test.rect)) {
+		cout << "-Ball" << endl;
+	}*/
+	auto iterY = coordinateY.begin();
+	for (auto iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
+		if ((ballX < (*iterX)) && (ballY < (*iterY)) && (name == "Spike")) {
+			cout << "-Ball" << endl;
+			iterY++;
+		}
+	}
 }
 
 Door::Door() {
