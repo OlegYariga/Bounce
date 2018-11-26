@@ -52,35 +52,29 @@ void Spike::find_spike() {
 	for (int i = 0; i < WIDTH_MAP; i++) {
 		for (int j = 0; j < HEIGHT_MAP; j++) {
 			if (TileMap[i][j] == '^') {
-				sprite_Spike.setPosition(i, j);
+				sprite_Spike.setPosition(i*32, j*32);
 				x = sprite_Spike.getPosition().x;
 				y = sprite_Spike.getPosition().y;
 				coordinateX.push_back(x);
 				coordinateY.push_back(y);
 				cout << "Something" << endl;
+				cout << x << endl;
 			}
 		}
 	}
+	auto iterY = coordinateY.begin();
 	for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
-		cout << *iter << endl;
-	}
-	for (auto iter = coordinateY.begin(); iter != coordinateY.end(); iter++) {
-		cout << *iter << endl;
+		cout << *iter <<" ; "<<*iterY<< endl;
+		iterY++;
 	}
 }
 
 void Spike::draw_spike() {
+	auto iterY = coordinateY.begin();
 	for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
-		cout << *iter << endl;
-	}
-	for (auto iter = coordinateY.begin(); iter != coordinateY.end(); iter++) {
-		cout << *iter << endl;
-	}
-	for (auto iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
-		for (auto iterY = coordinateY.begin(); iterY != coordinateY.end(); iterY++) {
-			sprite_Spike.setPosition((*iterX) * 32, (*iterY) * 32);
-			window.draw(sprite_Spike);
-		}
+		sprite_Spike.setPosition(*iterY, *iter);
+		iterY++;
+		window.draw(sprite_Spike);
 	}
 }
 

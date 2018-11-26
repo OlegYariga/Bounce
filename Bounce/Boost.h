@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <list>
+#include "drawMaps.h"
 
 using namespace std;
 using namespace sf;
@@ -37,6 +38,7 @@ public:
 	void draw_spike();
 	void interact(Texture sprite_ball);
 private:
+	list<char*> spikes_coordinate;
 	Texture spike1;
 	list<int> coordinateX;
 	list<int> coordinateY;
@@ -44,6 +46,7 @@ private:
 
 class Door :public Object {
 public:
+	bool isOpen;
 	Sprite sprite_Door;
 	Door();
 	void drawDoor();

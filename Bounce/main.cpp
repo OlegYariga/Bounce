@@ -111,7 +111,7 @@ int main()
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
 				
-				//spike_test.draw_spike();
+				spike_test.draw_spike();
 
 				door_test.drawDoor();
 				door_test.openDoor(time);
