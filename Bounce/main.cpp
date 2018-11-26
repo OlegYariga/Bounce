@@ -110,7 +110,12 @@ int main()
 
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
-				
+
+				/*if (spike_test.rect_spike.intersects(test.rect)) {
+					cout << "-Ball" << endl;
+				}*/
+
+				spike_test.interact(test.getcoorginateX(), test.getcoorginateY());
 				spike_test.draw_spike();
 
 				door_test.drawDoor();
