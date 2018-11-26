@@ -45,14 +45,14 @@ Spike::Spike() {
 	spike1.loadFromFile("SpikeUp_0.png");
 	sprite_Spike.setTexture(spike1);
 	sprite_Spike.setTextureRect(IntRect(0, 0, 32, 32));
-	cout << "Сам пошёл нахер" << endl;
+	cout << "Sam poshel naher" << endl;
 }
 
 void Spike::find_spike() {
 	for (int i = 0; i < WIDTH_MAP; i++) {
 		for (int j = 0; j < HEIGHT_MAP; j++) {
 			if (TileMap[i][j] == '^') {
-				sprite_Spike.setPosition(i*32, j*32);
+				sprite_Spike.setPosition(i, j);
 				x = sprite_Spike.getPosition().x;
 				y = sprite_Spike.getPosition().y;
 				coordinateX.push_back(x);
@@ -90,4 +90,32 @@ void Spike::interact(Texture sprite_ball) {
 
 int Object::getX() {
 	
+}
+
+Door::Door() {
+	name = "Door";
+	door1.loadFromFile("door.png");
+	sprite_Door.setTexture(door1);
+	sprite_Door.setTextureRect(IntRect(0, 0, 64, 32));
+}
+
+void Door::drawDoor() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[j][i] == 'D') {
+				sprite_Door.setPosition(i * 32, j * 32);
+				window.draw(sprite_Door);
+			}
+		}
+	}
+}
+
+void Door::openDoor(float time) {
+
+	float CurrentFrame = 0;
+	if ((Keyboard::isKeyPressed(Keyboard::U))) {
+		CurrentFrame += 0.005*time;
+		if (CurrentFrame > 3) CurrentFrame = -3;
+		sprite_Door.setTextureRect(IntRect(0, 32 * int(CurrentFrame), 64, 32));
+	}
 }

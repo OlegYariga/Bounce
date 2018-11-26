@@ -41,3 +41,13 @@ private:
 	list<int> coordinateX;
 	list<int> coordinateY;
 };
+
+class Door :public Object {
+public:
+	Sprite sprite_Door;
+	Door();
+	void drawDoor();
+	void openDoor(float time);
+private:
+	Texture door1;
+};

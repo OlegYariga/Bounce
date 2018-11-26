@@ -52,6 +52,7 @@ int main()
 		Wasp wasp1;
 		Boost b1;
 		Spike spike_test;
+		Door door_test;
 		Camera cam;
 
 		/* //музыка
@@ -110,8 +111,11 @@ int main()
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
 				
-				spike_test.draw_spike();
-				
+				//spike_test.draw_spike();
+
+				door_test.drawDoor();
+				door_test.openDoor(time);
+
 				test.drawing_person();
 
 				//b1.randomeBoostgenerator();
