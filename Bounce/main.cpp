@@ -41,7 +41,7 @@ int main()
 
 
 		drawMap map_level1; // объ€вление объекта "уровень" отвечающего за начальную загрузку карты
-		Ball test;
+	
 		Wasp wasp1; 
 		Boost b1;
 
@@ -85,22 +85,21 @@ int main()
 				
 				float time = clock.getElapsedTime().asMicroseconds();
 				clock.restart();
-				time = time / 800;
+				time = time /800;
 
-				
-				window.draw(wasp1.killer_wasp);
-				window.draw(test.sprite);
-				//wasp1.move_wasp(time);
-				wasp1.show_wasp(time);
+			
+			   window.draw(wasp1.killer_wasp);
+			   wasp1.move_wasp(time);
 				
 				
+				
 
-				if (Keyboard::isKeyPressed(Keyboard::Right))
-					test.KeyRight();
+				//if (Keyboard::isKeyPressed(Keyboard::Right))
+					//test.KeyRight();
 
 
-				if (Keyboard::isKeyPressed(Keyboard::Left))
-					test.KeyLeft();
+			//	if (Keyboard::isKeyPressed(Keyboard::Left))
+					//test.KeyLeft();
 
 
 
