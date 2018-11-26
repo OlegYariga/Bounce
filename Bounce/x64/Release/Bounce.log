@@ -1,9 +1,23 @@
 ﻿  Boost.cpp
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(18): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(28): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(63): error C2664: "void sf::Transformable::setPosition(const sf::Vector2f &)": невозможно преобразовать аргумент 1 из "std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>" в "float"
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(55): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(58): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
           with
           [
               _Ty=int
           ]
-  c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(63): note: Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(59): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(75): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(100): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(111): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+  Создание кода
+  2 of 402 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Bounce.vcxproj -> C:\Users\Ilafe\OneDrive\Рабочий стол\komanda\Bounce\x64\Release\Bounce.exe

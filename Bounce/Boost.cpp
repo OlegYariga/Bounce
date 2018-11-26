@@ -3,12 +3,12 @@
 #include "engine.h"
 #include "Ball.h"
 
-using namespace std;
 
 Boost::Boost() {
-	buff.loadFromFile("sprCherry_1.png");
+	name = "Buff";
+	buff.loadFromFile("heart_0.png");
 	sprite_Boost.setTexture(buff);
-	sprite_Boost.setTextureRect(IntRect(0, 0, 21, 24));
+	sprite_Boost.setTextureRect(IntRect(0, 0, 32, 32));
 }
 
 void Boost::drawBoost() {
@@ -41,28 +41,40 @@ void Boost::randomeBoostgenerator() {
 }
 
 Spike::Spike() {
+	name = "Spike";
 	spike1.loadFromFile("SpikeUp_0.png");
 	sprite_Spike.setTexture(spike1);
 	sprite_Spike.setTextureRect(IntRect(0, 0, 32, 32));
+	cout << "Sam poshel naher" << endl;
+}
 
-	for (int i = 0; i < HEIGHT_MAP; i++) {
-		for (int j = 0; j < WIDTH_MAP; j++) {
-			if (TileMap[j][i] == '^') {
-				coordinateX.push_back(j*32);
-				coordinateY.push_back(i*32);
+void Spike::find_spike() {
+	for (int i = 0; i < WIDTH_MAP; i++) {
+		for (int j = 0; j < HEIGHT_MAP; j++) {
+			if (TileMap[i][j] == '^') {
+				sprite_Spike.setPosition(i*32, j*32);
+				x = sprite_Spike.getPosition().x;
+				y = sprite_Spike.getPosition().y;
+				coordinateX.push_back(x);
+				coordinateY.push_back(y);
+				cout << "Something" << endl;
+				cout << x << endl;
 			}
 		}
+	}
+	auto iterY = coordinateY.begin();
+	for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
+		cout << *iter <<" ; "<<*iterY<< endl;
+		iterY++;
 	}
 }
 
 void Spike::draw_spike() {
-	list<int>::iterator iterX;
-	list<int>::iterator iterY;
-	for (iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
-		for (iterY = coordinateY.begin(); iterY != coordinateY.end(); iterY++) {
-			sprite_Spike.setPosition(iterX, iterY);
-			window.draw(sprite_Spike);
-		}
+	auto iterY = coordinateY.begin();
+	for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
+		sprite_Spike.setPosition(*iterY, *iter);
+		iterY++;
+		window.draw(sprite_Spike);
 	}
 }
 
@@ -72,4 +84,32 @@ void Spike::interact(Texture sprite_ball) {
 
 int Object::getX() {
 	
+}
+
+Door::Door() {
+	name = "Door";
+	door1.loadFromFile("door.png");
+	sprite_Door.setTexture(door1);
+	sprite_Door.setTextureRect(IntRect(0, 0, 64, 32));
+}
+
+void Door::drawDoor() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[j][i] == 'D') {
+				sprite_Door.setPosition(i * 32, j * 32);
+				window.draw(sprite_Door);
+			}
+		}
+	}
+}
+
+void Door::openDoor(float time) {
+
+	float CurrentFrame = 0;
+	if ((Keyboard::isKeyPressed(Keyboard::U))) {
+		CurrentFrame += 0.005*time;
+		if (CurrentFrame > 3) CurrentFrame = -3;
+		sprite_Door.setTextureRect(IntRect(0, 32 * int(CurrentFrame), 64, 32));
+	}
 }
