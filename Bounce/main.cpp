@@ -64,6 +64,8 @@ int main()
 		startMenu();
 		map_level1.loadLevelFromFile(2);
 
+		wasp1.show_wasp();//выводим осу в начальное положение
+
 		if (menu_item == 1) {
 
 			while (window.isOpen())
@@ -93,7 +95,7 @@ int main()
 
 
 
-				window.draw(wasp1.killer_wasp);
+				//window.draw(wasp1.killer_wasp);
 				
 				Clock clock;    //время игры
 				
@@ -101,14 +103,16 @@ int main()
 				clock.restart();
 				time = time / 800;
 
+
+
+
+				
+				wasp1.move_wasp(time);
 				window.draw(wasp1.killer_wasp);
+
 				test.drawing_person();
 				cam.changeCameraPosition(test.getcoorginateX(), test.getcoorginateY());
 
-				//wasp1.move_wasp(time);
-				wasp1.show_wasp(time);
-				
-				
 				
 				test.drawing_person();
 
