@@ -1,22 +1,45 @@
 ﻿  Boost.cpp
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(18): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(28): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(55): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(58): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(23): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
           with
           [
               _Ty=int
           ]
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(59): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(24): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
           with
           [
               _Ty=int
           ]
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(75): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(100): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(111): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(35): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(54): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(61): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(83): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(86): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(87): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(105): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(132): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(135): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(136): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(147): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(167): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
   Создание кода
-  2 of 402 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+  2 of 338 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено

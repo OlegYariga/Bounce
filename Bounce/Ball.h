@@ -5,7 +5,7 @@ using namespace sf;
 
 class Ball {
 public:
-
+	FloatRect rect;
 	Ball();
 	void drawing_person();
 	void KeyRight();
@@ -23,7 +23,7 @@ private:
 	float time;
 
 	float dx, dy;
-	FloatRect rect;
+//	FloatRect rect;
 	bool onGround;
 	
 };

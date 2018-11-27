@@ -11,8 +11,6 @@ using namespace sf;
 
 class Object {
 public:
-	list<Object> objects;
-	list<Object>::iterator it;
 	int getX();
 	int getY();
 	float x, y;
@@ -22,23 +20,30 @@ private:
 
 class Boost:public Object {
 public:
+	Boost();
+	bool getBoost;
 	Sprite sprite_Boost;
 	void randomeBoostgenerator();
+	void findBoost();
 	void drawBoost();
-	Boost();
+	void interact_boost(float ballX, float ballY);
 private:
+	list<int> boost_X;
+	list<int> boost_Y;
+	Image buff_im;
 	Texture buff;
 };
 
 class Spike:public Object {
 public:
+	bool life;
 	Sprite sprite_Spike;
 	Spike();
 	void find_spike();
 	void draw_spike();
-	void interact(Texture sprite_ball);
+	void interact(float ballX,float ballY);
+	FloatRect rect_spike;
 private:
-	list<char*> spikes_coordinate;
 	Texture spike1;
 	list<int> coordinateX;
 	list<int> coordinateY;
@@ -49,8 +54,12 @@ public:
 	bool isOpen;
 	Sprite sprite_Door;
 	Door();
+	void findDoor();
 	void drawDoor();
+	void interactDoor(float ballX,float ballY);
 	void openDoor(float time);
 private:
+	list<int> doorX;
+	list<int> doorY;
 	Texture door1;
 };
