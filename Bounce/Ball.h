@@ -13,6 +13,8 @@ public:
 	void KeyUp();
 	void CollisionX();
 	void CollisionY();
+	float getcoorginateX();
+	float getcoorginateY();
 private:
 	Image pers;
 	Texture person;
