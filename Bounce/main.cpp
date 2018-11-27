@@ -51,6 +51,8 @@ int main()
 		Ball test;
 		Boost b1;
 		Camera cam;
+		Spike spike_test;
+		Door door_test;
 
 		/* //музыка
 
@@ -74,7 +76,9 @@ int main()
 		//wasp1.show_wasp();//выводим осу в начальное положение
 
 		if (menu_item == 1) {
-
+			spike_test.find_spike();
+			b1.findBoost();
+			door_test.findDoor();
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -126,9 +130,15 @@ int main()
 				
 				test.drawing_person();
 
+				spike_test.draw_spike();
+				spike_test.interact(test.getcoorginateX(), test.getcoorginateY());
 
+				door_test.drawDoor();
+				door_test.interactDoor(test.getcoorginateX(), test.getcoorginateY());
 
-				window.draw(b1.sprite);
+				
+				b1.drawBoost();
+				b1.interact_boost(test.getcoorginateX(), test.getcoorginateY());
 
 				window.display();//вывод всех изображений на экран
 			}
