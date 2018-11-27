@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -6,6 +7,7 @@
 #include "Ball.h"
 #include "Boost.h"
 #include "wasp.h"
+#include "Camera.h"
 
 
 //В будущем вынести это из MAIN
@@ -16,7 +18,7 @@
 #pragma comment(lib, "sfml-audio.lib")//определяем файл библиотеки с музыкой для линковщика ( для Release)
 #endif // 
 
-int menu_item = 1;
+int menu_item = 0;
 
 int startMenu();//прототип функции меню
 Clock clock1;
@@ -24,6 +26,7 @@ Clock clock1;
 //using namespace sf;  пространство имен
 int main()
 {
+	
 	do { //глвный цикл программы (от вывода меню до завершения игры)
 
 	/*Описание массива, содержащего карту уровня:
@@ -36,14 +39,19 @@ int main()
 	*/
 
 
-	
+	// Clock clock1;    //время игры
+	// int time,time_game;
+	// time= clock1.getElapsedTime().asMicroseconds();
+	// time = time / 800;
+	// time_game += time;
 
 
 
 		drawMap map_level1; // объявление объекта "уровень" отвечающего за начальную загрузку карты
-	
-		Wasp wasp1; 
+		Ball test;
+		Wasp wasp1;
 		Boost b1;
+		Camera cam;
 
 		/* //музыка
 
@@ -53,7 +61,10 @@ int main()
 		Main_theme.play();*/
 
 
-	//startMenu();
+		startMenu();
+		map_level1.loadLevelFromFile(2);
+
+		wasp1.show_wasp();//выводим осу в начальное положение
 
 		if (menu_item == 1) {
 
@@ -67,7 +78,7 @@ int main()
 						menu_item = 4;
 					}
 				}
-
+				window.setView(cam.ball_camera);//устанавливаем камеру
 				window.clear();//очищаем экран
 
 
@@ -78,28 +89,32 @@ int main()
 				/////////////////////////////////////////////////////////////////////
 				/////////////////////////////////////////////////////////////////////
 
+				
 				map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
 
 
+
+
+				//window.draw(wasp1.killer_wasp);
+				
 				Clock clock;    //время игры
 				
 				float time = clock.getElapsedTime().asMicroseconds();
 				clock.restart();
-				time = time /800;
+				time = time / 800;
 
-			
-			   window.draw(wasp1.killer_wasp);
-			   wasp1.move_wasp(time);
+
+
+
 				
+				wasp1.move_wasp(time);
+				window.draw(wasp1.killer_wasp);
+
+				test.drawing_person();
+				cam.changeCameraPosition(test.getcoorginateX(), test.getcoorginateY());
+
 				
-				
-
-				//if (Keyboard::isKeyPressed(Keyboard::Right))
-					//test.KeyRight();
-
-
-			//	if (Keyboard::isKeyPressed(Keyboard::Left))
-					//test.KeyLeft();
+				test.drawing_person();
 
 
 

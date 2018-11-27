@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{48C7F776-B41D-46BB-9CFC-8E8D9F1E9AB9}</ProjectGuid>
     <RootNamespace>Bounce</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Boost.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="drawMaps.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="wasp.cpp" />
@@ -144,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Boost.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="drawMaps.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="wasp.h" />
