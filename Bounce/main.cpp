@@ -51,6 +51,8 @@ int main()
 		Ball test;
 		Boost b1;
 		Camera cam;
+		Spike spike_test;
+		Door door_test;
 
 		/* //музыка
 
@@ -74,7 +76,9 @@ int main()
 		//wasp1.show_wasp();//выводим осу в начальное положение
 
 		if (menu_item == 1) {
-
+			spike_test.find_spike();
+			b1.findBoost();
+			door_test.findDoor();
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -85,6 +89,14 @@ int main()
 						menu_item = 4;
 					}
 				}
+				if (Keyboard::isKeyPressed(Keyboard::Escape)) {//выход в меню при нажатии клавиши Ecsape
+					
+					window.setView(window.getDefaultView());
+					window.clear();
+					window.display();
+					break;
+				}
+
 				window.setView(cam.ball_camera);//устанавливаем камеру
 				window.clear();//очищаем экран
 
@@ -120,15 +132,24 @@ int main()
 				wasp1.move_wasp(time);
 				window.draw(wasp1.killer_wasp);
 
-				test.drawing_person();
+				
 				cam.changeCameraPosition(test.getcoorginateX(), test.getcoorginateY());
 
 				
 				test.drawing_person();
 
+				spike_test.draw_spike();
+				spike_test.interact(test.getcoorginateX(), test.getcoorginateY());
 
+				door_test.drawDoor();
+				door_test.interactDoor(test.getcoorginateX(), test.getcoorginateY());
 
-				window.draw(b1.sprite);
+				
+				b1.drawBoost();
+				b1.interact_boost(test.getcoorginateX(), test.getcoorginateY());
+
+				test.drawing_person();
+
 
 				window.display();//вывод всех изображений на экран
 			}
@@ -137,7 +158,7 @@ int main()
 			
 		}
 		if (menu_item == 3) {
-			showInfo();
+			//showInfo();
 		}
 
 		//system("pause");

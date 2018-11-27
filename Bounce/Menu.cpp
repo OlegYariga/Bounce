@@ -24,12 +24,12 @@ int startMenu() {
 	sp_start.setPosition(100, 50);
 
 
-
 	im_option.loadFromFile("menu_options.png");
 	im_option.createMaskFromColor(im_option.getPixel(0, 0));
 	tx_option.loadFromImage(im_option);
 	sp_option.setTexture(tx_option);
 	sp_option.setPosition(100, 150);
+
 
 
 	im_info.loadFromFile("menu_info.png");
@@ -114,6 +114,7 @@ int startMenu() {
 			{
 				//будем выполнять какую-то другую функцию. Пока просто подкрасим в красный цвет пункт
 				sp_info.setColor(Color::Yellow);
+				showInfo();
 				return 3;
 				break;
 			}
@@ -155,13 +156,15 @@ int startMenu() {
 }
 
 int showInfo() {
-	Texture info_text;
-	Sprite info_sprite;
+	Image im_start;
+	Texture start_text;
+	Sprite start_sprite;
 
-	info_text.loadFromFile("food-icons-floating.png");
-	//info_sprite.setPosition(0, 0);
-	std::cout << "PFITK!";
-	
+	start_text.loadFromFile("Info.jpg");
+	start_sprite.setTexture(start_text);
+	start_sprite.setPosition(0, 0);
+
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -174,10 +177,38 @@ int showInfo() {
 		}
 		//подкрашиваем пункты меню при наведении
 		
-			window.clear();
-			window.draw(info_sprite);
-			window.display();
+		if (event.type == sf::Event::MouseButtonPressed)
+		{
+			return 0;
+		}
+		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+			return 0;
+		}
+
+			/*if (event.mouseButton.button == sf::Mouse::Right)
+			{
+			break;
+			}*/
 		
+
+		window.clear();//очищаем экран
+
+		window.draw(start_sprite);
+
+
+		window.display();//вывод всех изображений на экран
 	}
 	return 0;
+}
+
+int playMusic() {
+	if (!sf::Music::Status::Playing) {
+		sf::Music Main_theme;
+		Main_theme.openFromFile("Main_theme.WAV");
+		Main_theme.setLoop(true);
+		Main_theme.play();
+	}
+	else {
+		//Main_theme.play();
+	}
 }
