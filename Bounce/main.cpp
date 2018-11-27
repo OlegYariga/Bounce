@@ -89,6 +89,14 @@ int main()
 						menu_item = 4;
 					}
 				}
+				if (Keyboard::isKeyPressed(Keyboard::Escape)) {//выход в меню при нажатии клавиши Ecsape
+					
+					window.setView(window.getDefaultView());
+					window.clear();
+					window.display();
+					break;
+				}
+
 				window.setView(cam.ball_camera);//устанавливаем камеру
 				window.clear();//очищаем экран
 
@@ -124,7 +132,7 @@ int main()
 				wasp1.move_wasp(time);
 				window.draw(wasp1.killer_wasp);
 
-				test.drawing_person();
+				
 				cam.changeCameraPosition(test.getcoorginateX(), test.getcoorginateY());
 
 				
@@ -140,6 +148,9 @@ int main()
 				b1.drawBoost();
 				b1.interact_boost(test.getcoorginateX(), test.getcoorginateY());
 
+				test.drawing_person();
+
+
 				window.display();//вывод всех изображений на экран
 			}
 		}
@@ -147,7 +158,7 @@ int main()
 			
 		}
 		if (menu_item == 3) {
-			showInfo();
+			//showInfo();
 		}
 
 		//system("pause");

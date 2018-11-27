@@ -15,27 +15,18 @@ Ball.cpp(122): warning C4305: =: усечение из "double" в "float"
 Ball.cpp(127): warning C4305: =: усечение из "double" в "float"
 Ball.cpp(132): warning C4305: =: усечение из "double" в "float"
   Boost.cpp
-Boost.cpp(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(23): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
-Boost.cpp(24): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
-Boost.cpp(35): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(54): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-Boost.cpp(61): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(83): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(86): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
-Boost.cpp(87): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
-Boost.cpp(105): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(132): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(135): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
-Boost.cpp(136): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
-Boost.cpp(147): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(167): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+Boost.cpp(22): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(60): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+Boost.cpp(67): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(91): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(141): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(177): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
   Camera.cpp
   drawMaps.cpp
 drawMaps.cpp(41): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   main.cpp
 c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
-main.cpp(113): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+main.cpp(121): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
   Menu.cpp
   wasp.cpp
 c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
