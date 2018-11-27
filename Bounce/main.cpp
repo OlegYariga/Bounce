@@ -26,7 +26,11 @@ Clock clock1;
 //using namespace sf;  пространство имен
 int main()
 {
-	
+	sf::Music Main_theme;
+	Main_theme.openFromFile("Main_theme.WAV");
+	Main_theme.setLoop(true);
+	Main_theme.play();
+
 	do { //глвный цикл программы (от вывода меню до завершения игры)
 
 	/*Описание массива, содержащего карту уровня:
@@ -54,13 +58,9 @@ int main()
 		Spike spike_test;
 		Door door_test;
 
-		/* //музыка
+		//музыка
 
-		sf::Music Main_theme;
-		Main_theme.openFromFile("Main_theme.WAV");
-		Main_theme.setLoop(true);
-		Main_theme.play();*/
-
+		
 
 		menu_item = startMenu();
 		map_level1.loadLevelFromFile(2);
@@ -155,7 +155,13 @@ int main()
 			}
 		}
 		if (menu_item == 2) {
-			
+			if (showOptions(Main_theme.getStatus())) {
+				Main_theme.play();
+			}
+			else {
+				Main_theme.stop();
+			}
+
 		}
 		if (menu_item == 3) {
 			//showInfo();
