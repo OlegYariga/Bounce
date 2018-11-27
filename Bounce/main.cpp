@@ -137,7 +137,7 @@ int main()
 			
 		}
 		if (menu_item == 3) {
-			
+			showInfo();
 		}
 
 		//system("pause");
