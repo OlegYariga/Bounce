@@ -153,3 +153,31 @@ int startMenu() {
 	//выход из функции
 	return 0;
 }
+
+int showInfo() {
+	Texture info_text;
+	Sprite info_sprite;
+
+	info_text.loadFromFile("food-icons-floating.png");
+	//info_sprite.setPosition(0, 0);
+	std::cout << "PFITK!";
+	
+	while (window.isOpen())
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed) {
+				window.close();
+				return 4;
+			}
+		}
+		//подкрашиваем пункты меню при наведении
+		
+			window.clear();
+			window.draw(info_sprite);
+			window.display();
+		
+	}
+	return 0;
+}
