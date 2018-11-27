@@ -19,6 +19,7 @@ Wasp::Wasp() { // конструктор
 	k_rect = FloatRect(610, 314, 0, 0);
 	k_currentFrame = 0;
 
+	show_wasp();
 }
 
 void Wasp::show_wasp()
