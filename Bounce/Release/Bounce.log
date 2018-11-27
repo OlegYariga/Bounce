@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  drawMaps.cpp
 drawMaps.cpp(40): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   main.cpp
@@ -13,3 +14,14 @@ wasp.cpp(38): warning C4244: аргумент: преобразование "int
     0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
+=======
+﻿  main.cpp
+c:\users\lisena\desktop\bb\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
+c:\users\lisena\desktop\bb\bounce\bounce\main.cpp(86): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+  Создание кода
+  6 of 78 functions ( 7.7%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Bounce.vcxproj -> C:\Users\Lisena\Desktop\bb\Bounce\Release\Bounce.exe
+>>>>>>> dev_Katia
