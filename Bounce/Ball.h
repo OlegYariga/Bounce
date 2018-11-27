@@ -23,7 +23,7 @@ private:
 	float time;
 
 	float dx, dy;
-	//FloatRect rect;
+//	FloatRect rect;
 	bool onGround;
 	
 };

@@ -24,8 +24,13 @@ public:
 	bool getBoost;
 	Sprite sprite_Boost;
 	void randomeBoostgenerator();
+	void findBoost();
 	void drawBoost();
+	void interact_boost(float ballX, float ballY);
 private:
+	list<int> boost_X;
+	list<int> boost_Y;
+	Image buff_im;
 	Texture buff;
 };
 
@@ -49,8 +54,12 @@ public:
 	bool isOpen;
 	Sprite sprite_Door;
 	Door();
+	void findDoor();
 	void drawDoor();
+	void interactDoor(float ballX,float ballY);
 	void openDoor(float time);
 private:
+	list<int> doorX;
+	list<int> doorY;
 	Texture door1;
 };

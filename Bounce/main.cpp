@@ -65,11 +65,12 @@ int main()
 
 		//startMenu();
 
-		b1.randomeBoostgenerator();
 		if (menu_item == 1) {
 
 			map_level1.loadLevelFromFile(2);
 			spike_test.find_spike();
+			b1.findBoost();
+			door_test.findDoor();
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -111,22 +112,18 @@ int main()
 				//wasp1.move_wasp(time);
 				wasp1.show_wasp(time);
 
-				/*if (spike_test.rect_spike.intersects(test.rect)) {
-					cout << "-Ball" << endl;
-				}*/
 
-				spike_test.interact(test.getcoorginateX(), test.getcoorginateY());
 				spike_test.draw_spike();
+				spike_test.interact(test.getcoorginateX(), test.getcoorginateY());
 
 				door_test.drawDoor();
-				door_test.openDoor(time);
+				door_test.interactDoor(test.getcoorginateX(), test.getcoorginateY());
 
 				test.drawing_person();
 
 				//b1.randomeBoostgenerator();
 				b1.drawBoost();
-
-				window.draw(b1.sprite_Boost);
+				b1.interact_boost(test.getcoorginateX(), test.getcoorginateY());
 
 				window.display();//вывод всех изображений на экран
 			}
