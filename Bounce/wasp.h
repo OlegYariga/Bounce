@@ -19,28 +19,8 @@ public:
 
 	float k_currentFrame = 0;  // для анимации номер текущего кадра
 	float time_game = 0;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	//  void kill(); апвап 
-	
-	void move_wasp(float a);
-	void show_wasp(float a);
-	//добавил
-	bool check;
-	int coordinateX = 0;
-	int coordinateY = 0;
-
-private:
-	Texture Image_wasp;
-=======
-=======
->>>>>>> ForMerge
 
 	void move_wasp(float a);
 	void show_wasp();
 	void collision_K();
-<<<<<<< HEAD
->>>>>>> dev_Katia
-=======
->>>>>>> ForMerge
 };

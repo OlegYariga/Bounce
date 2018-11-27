@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-﻿  drawMaps.cpp
-drawMaps.cpp(40): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  main.cpp
-c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
-main.cpp(97): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
-  wasp.cpp
-c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
-wasp.cpp(29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(38): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  Создание кода
-  0 of 216 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Создание кода завершено
-  Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
-=======
-﻿  main.cpp
-c:\users\lisena\desktop\bb\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
-c:\users\lisena\desktop\bb\bounce\bounce\main.cpp(86): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
-  Создание кода
-  6 of 78 functions ( 7.7%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Создание кода завершено
-  Bounce.vcxproj -> C:\Users\Lisena\Desktop\bb\Bounce\Release\Bounce.exe
->>>>>>> dev_Katia
-=======
 ﻿  Ball.cpp
 Ball.cpp(30): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
 Ball.cpp(31): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
@@ -61,4 +32,3 @@ wasp.cpp(66): warning C4244: инициализация: преобразова�
   All 216 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
->>>>>>> ForMerge
