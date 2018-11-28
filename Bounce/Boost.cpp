@@ -38,20 +38,21 @@ void Boost::drawBoost() {
 	for (auto iter = boost_X.begin(); iter != boost_X.end(); iter++) {
 		sprite_Boost.setPosition(*iter, *iterY);
 		iterY++;
-
 		window.draw(sprite_Boost);
 	}
 }
 
-void Boost::interact_boost(float ballX, float ballY) {
+int Boost::interact_boost(float ballX, float ballY) {
+	HealthBar ballhp;
 	auto iterY = boost_Y.begin();
 	for (auto iterX = boost_X.begin(); iterX != boost_X.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
 			cout << "Serdce" << endl;//Вызов метода убийства
-			
+			ballhp.hpcount++;
 		}
 		iterY++;
 	}
+	return ballhp.hpcount;
 }
 
 void Boost::randomeBoostgenerator() {
@@ -114,18 +115,18 @@ void Spike::draw_spike() {
 	}
 }
 
-void Spike::interact(float ballX,float ballY) {
+int Spike::interact(float ballX,float ballY,Ball &ballhp) {
 	int k;
-	HealthBar ballhp;
 	auto iterY = coordinateY.begin();
 	for (auto iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
 		if (((ballX>=((*iterX))) && (ballX<=((*iterX)+32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY)+32))) {
-			cout << "Ship" << endl;//Вызов метода убийства
-			ballhp.update_hpbar(ballhp.hpcount--);
-			ballhp.draw_hpbar(window);
+			//cout << "Ship" << endl;//Вызов метода убийства
+			k=ballhp.damage();
 		}
 		iterY++;
 	}
+	cout << k << endl;
+	return k;
 }
 
 Door::Door() {
@@ -200,12 +201,15 @@ void HealthBar::update_hpbar(int k) {
 			{
 			case (1):
 				sprite_hpbar.setTextureRect(IntRect(0, 0, 32, 32));
+				cout << "update srabotal" << endl;
 				break;
 			case (2):
 				sprite_hpbar.setTextureRect(IntRect(0, 0, 64, 32));
+				cout << "update srabotal" << endl;
 				break;
 			case(3):
 				sprite_hpbar.setTextureRect(IntRect(0, 0, 96, 32));
+				cout << "update srabotal" << endl;
 				break;
 			case(4):
 				sprite_hpbar.setTextureRect(IntRect(0, 0, 128, 32));
@@ -213,7 +217,6 @@ void HealthBar::update_hpbar(int k) {
 			}
 		}
 	}
-	cout << "update srabotal" << endl;
 }
 
 void HealthBar::draw_hpbar(RenderWindow &window) {

@@ -15,7 +15,7 @@ Ball::Ball(){
 	rect = FloatRect(465, 320, 0, 0);
 	dx = 0;
 	dy = 0;
-	
+	life = 4;
 
 	//!!!!!!!!!!!!!!!ОТ ОЛЕГА!!!!!!!!!!!!!!!!!!!!!!
 	//пример использования переменной с картой
@@ -139,4 +139,9 @@ float Ball::getcoorginateX() {
 }
 float Ball::getcoorginateY() {
 	return sprite.getPosition().y;
+}
+
+int Ball::damage() {
+	cout << "Bol'no" << endl;
+	return life--;
 }
