@@ -28,8 +28,8 @@ public:
 	void drawBoost();
 	void interact_boost(float ballX, float ballY);
 private:
-	list<int> boost_X;
-	list<int> boost_Y;
+	list<float> boost_X;
+	list<float> boost_Y;
 	Image buff_im;
 	Texture buff;
 };
@@ -45,8 +45,8 @@ public:
 	FloatRect rect_spike;
 private:
 	Texture spike1;
-	list<int> coordinateX;
-	list<int> coordinateY;
+	list<float> coordinateX;
+	list<float> coordinateY;
 };
 
 class Door :public Object {
@@ -59,7 +59,19 @@ public:
 	void interactDoor(float ballX,float ballY);
 	void openDoor(float time);
 private:
-	list<int> doorX;
-	list<int> doorY;
+	list<float> doorX;
+	list<float> doorY;
 	Texture door1;
+};
+
+class HealthBar {
+public:
+	Image image_hpbar;
+	Texture texture_hpbar;
+	Sprite sprite_hpbar;
+	int hpcount;
+	int max;
+	HealthBar();
+	void update_hpbar(int k);
+	void draw_hpbar(RenderWindow &window);
 };

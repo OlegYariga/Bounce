@@ -14,19 +14,23 @@ Boost::Boost() {
 }
 
 void Boost::findBoost() {
-	for (int i = 0; i < WIDTH_MAP; i++) {
-		for (int j = 0; j < HEIGHT_MAP; j++) {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
 			if (TileMap[i][j] == '*') {
+				x = 0;
+				y = 0;
 				sprite_Boost.setPosition(i * 32, j * 32);
 				x = sprite_Boost.getPosition().x;
 				y = sprite_Boost.getPosition().y;
 				boost_X.push_back(y);
 				boost_Y.push_back(x);
-				cout << "Something" << endl;
-				cout << x << endl;
+				
+				cout << "Added BOOST - coordinate" ;
+				cout << x <<"==="<<y<< endl;
 			}
 		}
 	}
+
 }
 
 void Boost::drawBoost() {
@@ -34,6 +38,7 @@ void Boost::drawBoost() {
 	for (auto iter = boost_X.begin(); iter != boost_X.end(); iter++) {
 		sprite_Boost.setPosition(*iter, *iterY);
 		iterY++;
+
 		window.draw(sprite_Boost);
 	}
 }
@@ -43,8 +48,9 @@ void Boost::interact_boost(float ballX, float ballY) {
 	for (auto iterX = boost_X.begin(); iterX != boost_X.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
 			cout << "Serdce" << endl;//Вызов метода убийства
-			iterY++;
+			
 		}
+		iterY++;
 	}
 }
 
@@ -77,44 +83,48 @@ Spike::Spike() {
 }
 
 void Spike::find_spike() {
-	for (int i = 0; i < WIDTH_MAP; i++) {
-		for (int j = 0; j < HEIGHT_MAP; j++) {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
 			if (TileMap[i][j] == '^') {
+				x = 0;
+				y = 0;
 				sprite_Spike.setPosition(i*32, j*32);
 				x = sprite_Spike.getPosition().x;
 				y = sprite_Spike.getPosition().y;
 				coordinateX.push_back(y);
 				coordinateY.push_back(x);
-				cout << "Something" << endl;
+				
+				cout << "Added SPIKE - coordinate";
 				cout << x << endl;
 				//rect_spike = FloatRect(i, j, 32, 32);
 			}
 		}
 	}
-
-	auto iterY = coordinateY.begin();
-	for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
-		cout << *iter <<" ; "<<*iterY<< endl;
-		iterY++;
-	}
+	
 }
 
 void Spike::draw_spike() {
 	auto iterY = coordinateY.begin();
 	for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
 		sprite_Spike.setPosition(*iter, *iterY);
-		iterY++;
+		
 		window.draw(sprite_Spike);
+		iterY++;
+
 	}
 }
 
 void Spike::interact(float ballX,float ballY) {
+	int k;
+	HealthBar ballhp;
 	auto iterY = coordinateY.begin();
 	for (auto iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
 		if (((ballX>=((*iterX))) && (ballX<=((*iterX)+32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY)+32))) {
 			cout << "Ship" << endl;//Вызов метода убийства
-			iterY++;
+			ballhp.update_hpbar(ballhp.hpcount--);
+			ballhp.draw_hpbar(window);
 		}
+		iterY++;
 	}
 }
 
@@ -126,9 +136,11 @@ Door::Door() {
 }
 
 void Door::findDoor() {
-	for (int i = 0; i < WIDTH_MAP; i++) {
-		for (int j = 0; j < HEIGHT_MAP; j++) {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
 			if (TileMap[i][j] == 'D') {
+				x = 0;
+				y = 0;
 				sprite_Door.setPosition(i * 32, j * 32);
 				x = sprite_Door.getPosition().x;
 				y = sprite_Door.getPosition().y;
@@ -155,8 +167,9 @@ void Door::interactDoor(float ballX,float ballY) {
 	for (auto iterX = doorX.begin(); iterX != doorX.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 64))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
 			cout << "Door" << endl;//Вызов метода убийства
-			iterY++;
+			
 		}
+		iterY++;
 	}
 }
 
@@ -168,4 +181,48 @@ void Door::openDoor(float time) {
 		if (CurrentFrame > 3) CurrentFrame = -3;
 		sprite_Door.setTextureRect(IntRect(0, 32 * int(CurrentFrame), 64, 32));
 	}
+}
+
+HealthBar::HealthBar() {
+	image_hpbar.loadFromFile("health_bar.png");
+	image_hpbar.createMaskFromColor(Color::White);
+	texture_hpbar.loadFromImage(image_hpbar);
+	sprite_hpbar.setTexture(texture_hpbar);
+	sprite_hpbar.setTextureRect(IntRect(0, 0, 128, 32));
+	max = 4;
+	hpcount = max;
+}
+
+void HealthBar::update_hpbar(int k) {
+	if (k > 0) {
+		if (k < max) {
+			switch (k)
+			{
+			case (1):
+				sprite_hpbar.setTextureRect(IntRect(0, 0, 32, 32));
+				break;
+			case (2):
+				sprite_hpbar.setTextureRect(IntRect(0, 0, 64, 32));
+				break;
+			case(3):
+				sprite_hpbar.setTextureRect(IntRect(0, 0, 96, 32));
+				break;
+			case(4):
+				sprite_hpbar.setTextureRect(IntRect(0, 0, 128, 32));
+				break;
+			}
+		}
+	}
+	cout << "update srabotal" << endl;
+}
+
+void HealthBar::draw_hpbar(RenderWindow &window) {
+	Vector2f center = window.getView().getCenter();
+	Vector2f size = window.getView().getSize();
+
+	sprite_hpbar.setPosition(center.x - size.x / 2 + 10, center.y - size.y / 2 + 10);
+
+	window.draw(sprite_hpbar);
+
+	//cout << "draw srabotal" << endl;
 }
