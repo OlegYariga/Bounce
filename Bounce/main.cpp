@@ -54,6 +54,7 @@ int main()
 		Spike spike_test;
 		Door door_test;
 		Camera cam;
+		HealthBar hpbar_test;
 
 		/* //музыка
 
@@ -71,6 +72,7 @@ int main()
 			spike_test.find_spike();
 			b1.findBoost();
 			door_test.findDoor();
+			//hpbar_test.update_hpbar(2);
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -124,7 +126,7 @@ int main()
 				//b1.randomeBoostgenerator();
 				b1.drawBoost();
 				b1.interact_boost(test.getcoorginateX(), test.getcoorginateY());
-
+				hpbar_test.draw_hpbar(window);
 				window.display();//вывод всех изображений на экран
 			}
 		}
