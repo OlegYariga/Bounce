@@ -137,15 +137,19 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Boost.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="drawMaps.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="wasp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Boost.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="drawMaps.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="wasp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

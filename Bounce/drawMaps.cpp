@@ -1,8 +1,13 @@
 #include "engine.h"
 #include "drawMaps.h"
+#include <fstream>
+#include <string>
+
+using namespace std;
+//int num_level = 1;
 
 
-RenderWindow window(sf::VideoMode(1200, 600), "Bounce");//инициализируется объект окна игры
+RenderWindow window(sf::VideoMode(1200, 600), "Bounce", sf::Style::None);//инициализируется объект окна игры
 
 
 drawMap::drawMap() {//конструктор класса
@@ -26,6 +31,7 @@ void drawMap::drawing_level() {// функция отрисовки уровня
 			if (TileMap[i][j] == ' ')  s_map.setTextureRect(IntRect(0, 0, 32, 32)); //если встретили символ пробел, то рисуем 1й квадратик
 			if (TileMap[i][j] == 's')  s_map.setTextureRect(IntRect(32, 0, 32, 32));//если встретили символ s, то рисуем 2й квадратик
 			if (TileMap[i][j] == '0') s_map.setTextureRect(IntRect(96, 0, 32, 32));//если встретили символ 0, то рисуем 3й квадратик
+			if (TileMap[i][j] == 'F') s_map.setTextureRect(IntRect(96, 0, 32, 32));//если встретили символ 0, то рисуем 3й квадратик
 			if (TileMap[i][j] == '+')  s_map.setTextureRect(IntRect(128, 0, 32, 32));//если встретили символ s, то рисуем 4й квадратик
 			if (TileMap[i][j] == '-') s_map.setTextureRect(IntRect(160, 0, 32, 32));//если встретили символ 0, то рисуем 5й квадратик
 			if (TileMap[i][j] == 'R') s_map.setTextureRect(IntRect(192, 0, 32, 32));//если встретили символ 0, то рисуем 5й квадратик
@@ -37,6 +43,30 @@ void drawMap::drawing_level() {// функция отрисовки уровня
 			window.draw(s_map);//рисуем квадратики на экран
 		}
 }
+
+void drawMap::loadLevelFromFile(int num_level) {
+	string line;
+	ifstream myfile("level"+ to_string(num_level)+".level");
+	//ifstream myfile("level1.level");
+	int i = 0;
+	if (myfile.is_open())
+	{
+		while (!myfile.eof())
+		{
+			getline(myfile, line);
+			TileMap[i] = line;
+			//cout << TileMap[i] << endl;
+			i++;
+		}
+		myfile.close();
+	}
+}
+
+
+
+
+
+
 
 String TileMap[HEIGHT_MAP] = {// определение карты (В БУДУЩЕМ СДЕЛАТЬ ЗАГРУЗКУ ИЗ ФАЙЛА)
 	"bbbbbbbbbbbbbbbbbbb0bbbbbbbbbbbbbbbbbbb0",

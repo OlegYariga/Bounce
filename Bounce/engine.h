@@ -10,8 +10,8 @@ using namespace sf;
 extern RenderWindow window;//инициализация в другом месте (в файле drawMaps.h)
 //
 
-static const int HEIGHT_MAP = 25;//размер карты высота
-static const int WIDTH_MAP = 40;//размер карты ширина 
+static const int HEIGHT_MAP = 26;//размер карты высота
+static const int WIDTH_MAP = 64;//размер карты ширина 
 //
 // Массив карты (после загрузки карты к нему можно обращаться, чтобы проверять границы)
 //
