@@ -26,7 +26,7 @@ public:
 	void randomeBoostgenerator();
 	void findBoost();
 	void drawBoost();
-	void interact_boost(float ballX, float ballY);
+	int interact_boost(float ballX, float ballY);
 private:
 	list<float> boost_X;
 	list<float> boost_Y;
@@ -41,7 +41,7 @@ public:
 	Spike();
 	void find_spike();
 	void draw_spike();
-	void interact(float ballX,float ballY);
+	int interact(float ballX,float ballY);
 	FloatRect rect_spike;
 private:
 	Texture spike1;
