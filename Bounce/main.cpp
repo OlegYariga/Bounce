@@ -116,7 +116,7 @@ int main()
 
 
 				spike_test.draw_spike();
-				spike_test.interact(test.getcoorginateX(), test.getcoorginateY());
+				spike_test.interact(test.getcoorginateX(), test.getcoorginateY(),test);
 
 				door_test.drawDoor();
 				door_test.interactDoor(test.getcoorginateX(), test.getcoorginateY());
@@ -126,7 +126,7 @@ int main()
 				//b1.randomeBoostgenerator();
 				b1.drawBoost();
 				b1.interact_boost(test.getcoorginateX(), test.getcoorginateY());
-				hpbar_test.update_hpbar(spike_test.interact(test.getcoorginateX(),test.getcoorginateY()));
+				hpbar_test.update_hpbar(spike_test.interact(test.getcoorginateX(),test.getcoorginateY(),test));
 				hpbar_test.update_hpbar(b1.interact_boost(test.getcoorginateX(), test.getcoorginateY()));
 				hpbar_test.draw_hpbar(window);
 				window.display();//вывод всех изображений на экран

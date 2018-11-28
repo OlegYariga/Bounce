@@ -3,16 +3,11 @@ c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(62): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(69): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(93): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(120): warning C4101: k: неиспользованная локальная переменная
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(148): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(184): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-  main.cpp
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\main.cpp(106): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(146): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(182): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
   Создание кода
-  2 of 343 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  2 of 344 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    15 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
-Camera.obj : warning LNK4099: "vc141.pdb" PDB не найден с "Camera.obj" или на "C:\Users\Ilafe\OneDrive\Рабочий стол\komanda\Bounce\x64\Release\vc141.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
   Bounce.vcxproj -> C:\Users\Ilafe\OneDrive\Рабочий стол\komanda\Bounce\x64\Release\Bounce.exe

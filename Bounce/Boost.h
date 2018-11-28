@@ -5,6 +5,7 @@
 #include <vector>
 #include <list>
 #include "drawMaps.h"
+#include "Ball.h"
 
 using namespace std;
 using namespace sf;
@@ -41,7 +42,7 @@ public:
 	Spike();
 	void find_spike();
 	void draw_spike();
-	int interact(float ballX,float ballY);
+	int interact(float ballX,float ballY,Ball &ballhp);
 	FloatRect rect_spike;
 private:
 	Texture spike1;
