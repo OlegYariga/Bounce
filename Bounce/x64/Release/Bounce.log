@@ -1,46 +1,18 @@
 ﻿  Boost.cpp
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(23): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
-          with
-          [
-              _Ty=int
-          ]
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(24): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
-          with
-          [
-              _Ty=int
-          ]
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(35): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(54): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(61): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(83): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(86): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
-          with
-          [
-              _Ty=int
-          ]
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(87): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
-          with
-          [
-              _Ty=int
-          ]
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(105): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(132): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(135): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
-          with
-          [
-              _Ty=int
-          ]
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(136): warning C4244: аргумент: преобразование "float" в "const _Ty", возможна потеря данных
-          with
-          [
-              _Ty=int
-          ]
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(147): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(167): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(22): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(62): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(69): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(93): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(120): warning C4101: k: неиспользованная локальная переменная
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(148): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(184): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+  main.cpp
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\wasp.h(11): warning C4305: инициализация: усечение из "double" в "float"
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\main.cpp(106): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
   Создание кода
-  0 of 338 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  2 of 343 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
+Camera.obj : warning LNK4099: "vc141.pdb" PDB не найден с "Camera.obj" или на "C:\Users\Ilafe\OneDrive\Рабочий стол\komanda\Bounce\x64\Release\vc141.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
   Bounce.vcxproj -> C:\Users\Ilafe\OneDrive\Рабочий стол\komanda\Bounce\x64\Release\Bounce.exe

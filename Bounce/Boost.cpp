@@ -43,15 +43,17 @@ void Boost::drawBoost() {
 	}
 }
 
-void Boost::interact_boost(float ballX, float ballY) {
+int Boost::interact_boost(float ballX, float ballY) {
+	HealthBar ballhp;
 	auto iterY = boost_Y.begin();
 	for (auto iterX = boost_X.begin(); iterX != boost_X.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
 			cout << "Serdce" << endl;//Вызов метода убийства
-			
+			ballhp.hpcount++;
 		}
 		iterY++;
 	}
+	return ballhp.hpcount;
 }
 
 void Boost::randomeBoostgenerator() {
@@ -114,18 +116,20 @@ void Spike::draw_spike() {
 	}
 }
 
-void Spike::interact(float ballX,float ballY) {
+int Spike::interact(float ballX,float ballY) {
 	int k;
 	HealthBar ballhp;
 	auto iterY = coordinateY.begin();
 	for (auto iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
 		if (((ballX>=((*iterX))) && (ballX<=((*iterX)+32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY)+32))) {
 			cout << "Ship" << endl;//Вызов метода убийства
-			ballhp.update_hpbar(ballhp.hpcount--);
-			ballhp.draw_hpbar(window);
+			ballhp.hpcount--;
+			/*ballhp.update_hpbar(ballhp.hpcount--);
+			ballhp.draw_hpbar(window);*/
 		}
 		iterY++;
 	}
+	return ballhp.hpcount;
 }
 
 Door::Door() {
