@@ -27,8 +27,9 @@ public:
 	void randomeBoostgenerator();
 	void findBoost();
 	void drawBoost();
-	int interact_boost(float ballX, float ballY);
+	int interact_boost(float ballX, float ballY,Ball &ballhp);
 private:
+	int hpcount;
 	list<float> boost_X;
 	list<float> boost_Y;
 	Image buff_im;
@@ -45,6 +46,7 @@ public:
 	int interact(float ballX,float ballY,Ball &ballhp);
 	FloatRect rect_spike;
 private:
+	int hpcount;
 	Texture spike1;
 	list<float> coordinateX;
 	list<float> coordinateY;
@@ -75,4 +77,19 @@ public:
 	HealthBar();
 	void update_hpbar(int k);
 	void draw_hpbar(RenderWindow &window);
+};
+
+class Key :public Object {
+public:
+	Key();
+	Sprite sprite_Key;
+	void findKey();
+	void drawKey();
+	void interactKey(float ballX, float ballY,Door &door);
+private:
+	int keycount;
+	list<float> key_X;
+	list<float> key_Y;
+	Image key_im;
+	Texture key_tx;
 };

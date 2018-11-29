@@ -20,7 +20,7 @@
 
 int menu_item = 1;
 
-//int startMenu();//прототип функции меню
+int startMenu();//прототип функции меню
 Clock clock1;
 
 //using namespace sf;  пространство имен
@@ -55,6 +55,7 @@ int main()
 		Door door_test;
 		Camera cam;
 		HealthBar hpbar_test;
+		Key key;
 
 		/* //музыка
 
@@ -64,7 +65,7 @@ int main()
 		Main_theme.play();*/
 
 
-		//startMenu();
+		startMenu();
 
 		if (menu_item == 1) {
 
@@ -72,6 +73,7 @@ int main()
 			spike_test.find_spike();
 			b1.findBoost();
 			door_test.findDoor();
+			key.findKey();
 			//hpbar_test.update_hpbar(2);
 			while (window.isOpen())
 			{
@@ -122,14 +124,18 @@ int main()
 				door_test.interactDoor(test.getcoorginateX(), test.getcoorginateY());
 
 				test.drawing_person();
-
+				
+				key.drawKey();
+				key.interactKey(test.getcoorginateX(), test.getcoorginateY(), door_test);
+				
 				//b1.randomeBoostgenerator();
 				b1.drawBoost();
-				b1.interact_boost(test.getcoorginateX(), test.getcoorginateY());
+				b1.interact_boost(test.getcoorginateX(), test.getcoorginateY(),test);
 				hpbar_test.update_hpbar(spike_test.interact(test.getcoorginateX(),test.getcoorginateY(),test));
-				hpbar_test.update_hpbar(b1.interact_boost(test.getcoorginateX(), test.getcoorginateY()));
+				hpbar_test.update_hpbar(b1.interact_boost(test.getcoorginateX(), test.getcoorginateY(),test));
 				hpbar_test.draw_hpbar(window);
 				window.display();//вывод всех изображений на экран
+				if (test.life <= 0) break;
 			}
 		}
 		if (menu_item == 2) {

@@ -16,14 +16,15 @@ public:
 	void CollisionY();
 	float getcoorginateX();
 	float getcoorginateY();
-	int damage();
+	void damage();
+	int heal();
+	int life;
 private:
 	Image pers;
 	Texture person;
 	Sprite sprite; 
 	Clock clock;
 	float time;
-	int life;
 	float dx, dy;
 //	FloatRect rect;
 	bool onGround;
