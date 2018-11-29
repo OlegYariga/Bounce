@@ -7,7 +7,7 @@ using namespace std;
 //int num_level = 1;
 
 
-RenderWindow window(sf::VideoMode(1200, 600), "Bounce", sf::Style::None);//инициализируется объект окна игры
+RenderWindow window(sf::VideoMode(1200, 600), "Bounce"/*, sf::Style::None*/);//инициализируется объект окна игры
 
 
 drawMap::drawMap() {//конструктор класса
