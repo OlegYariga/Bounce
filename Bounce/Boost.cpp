@@ -2,7 +2,8 @@
 #include "Boost.h"
 #include "engine.h"
 #include "Ball.h"
-
+#include <vector>
+#include <list>
 
 Boost::Boost() {
 	name = "Buff";
@@ -38,20 +39,30 @@ void Boost::drawBoost() {
 	for (auto iter = boost_X.begin(); iter != boost_X.end(); iter++) {
 		sprite_Boost.setPosition(*iter, *iterY);
 		iterY++;
-
 		window.draw(sprite_Boost);
 	}
 }
 
-void Boost::interact_boost(float ballX, float ballY) {
-	auto iterY = boost_Y.begin();
-	for (auto iterX = boost_X.begin(); iterX != boost_X.end(); iterX++) {
-		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-			cout << "Serdce" << endl;//Вызов метода убийства
-			
+int Boost::interact_boost(float ballX, float ballY,Ball &ballhp) {
+	int hpcount = ballhp.getLife();
+	int x,y;
+	if (hpcount < 4) {
+		auto iterY = boost_Y.begin();
+		for (auto iterX = boost_X.begin(); iterX != boost_X.end(); iterX++) {
+			//std::cout << "X===" << *iterX << "Y===" << *iterY<<endl;
+			if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
+				cout << "Serdce" << endl;//Вызов метода убийства
+				//hpcount=ballhp.life++;
+				ballhp.heal();
+				boost_X.remove(*iterX);
+				boost_Y.remove(*iterY);
+				return hpcount;
+			}
+			iterY++;
 		}
-		iterY++;
 	}
+	//cout << "K v interact_boost = " << hpcount << endl;
+	return hpcount;
 }
 
 void Boost::randomeBoostgenerator() {
@@ -114,18 +125,23 @@ void Spike::draw_spike() {
 	}
 }
 
-void Spike::interact(float ballX,float ballY) {
+int Spike::interact(float ballX,float ballY,Ball &ballhp) {
+	int hpcount = ballhp.getLife();
 	auto iterY = coordinateY.begin();
 	for (auto iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
 		if (((ballX>=((*iterX))) && (ballX<=((*iterX)+32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY)+32))) {
-			cout << "Ship" << endl;//Вызов метода убийства
 			
+			ballhp.damage();
+			return hpcount;
 		}
 		iterY++;
 	}
+	//cout <<"K v interact_spike = " <<hpcount << endl;
+	return hpcount;
 }
 
 Door::Door() {
+	isOpen = false;
 	name = "Door";
 	door1.loadFromFile("door.png");
 	sprite_Door.setTexture(door1);
@@ -159,15 +175,18 @@ void Door::drawDoor() {
 	}
 }
 
-void Door::interactDoor(float ballX,float ballY) {
+bool Door::interactDoor(float ballX,float ballY) {
 	auto iterY = doorY.begin();
 	for (auto iterX = doorX.begin(); iterX != doorX.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 64))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-			cout << "Door" << endl;//Вызов метода убийства
-			
+			if (isOpen) {
+				cout << "Door" << endl;//Вызов метода убийства
+				return true;
+			}
 		}
 		iterY++;
 	}
+	return false;
 }
 
 void Door::openDoor(float time) {
@@ -178,4 +197,105 @@ void Door::openDoor(float time) {
 		if (CurrentFrame > 3) CurrentFrame = -3;
 		sprite_Door.setTextureRect(IntRect(0, 32 * int(CurrentFrame), 64, 32));
 	}
+}
+
+HealthBar::HealthBar() {
+	image_hpbar.loadFromFile("health_bar.png");
+	image_hpbar.createMaskFromColor(Color::White);
+	texture_hpbar.loadFromImage(image_hpbar);
+	sprite_hpbar.setTexture(texture_hpbar);
+	sprite_hpbar.setTextureRect(IntRect(0, 0, 128, 32));
+	max = 4;
+	hpcount = max;
+}
+
+void HealthBar::update_hpbar(int k) {
+	if (k > 0) {
+		if (k <= max) {
+			switch (k)
+			{
+			case (1):
+				sprite_hpbar.setTextureRect(IntRect(0, 0, 32, 32));
+				//cout << "update srabotal" << endl;
+				break;
+			case (2):
+				sprite_hpbar.setTextureRect(IntRect(0, 0, 64, 32));
+				//cout << "update srabotal" << endl;
+				break;
+			case(3):
+				sprite_hpbar.setTextureRect(IntRect(0, 0, 96, 32));
+				//cout << "update srabotal" << endl;
+				break;
+			case(4):
+				sprite_hpbar.setTextureRect(IntRect(0, 0, 128, 32));
+				//cout << "update srabotal" << endl;
+				break;
+			}
+		}
+	}
+}
+
+void HealthBar::draw_hpbar(RenderWindow &window) {
+	Vector2f center = window.getView().getCenter();
+	Vector2f size = window.getView().getSize();
+
+	sprite_hpbar.setPosition(center.x - size.x / 2 + 10, center.y - size.y / 2 + 10);
+
+	window.draw(sprite_hpbar);
+
+	//cout << "draw srabotal" << endl;
+}
+
+Key::Key() {
+	name = "Key";
+	key_im.loadFromFile("key.png");
+	//key_im.createMaskFromColor(Color::White);
+	key_tx.loadFromImage(key_im);
+	sprite_Key.setTexture(key_tx);
+	sprite_Key.setTextureRect(IntRect(0, 0, 32, 32));
+}
+
+void Key::findKey() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[i][j] == 'K') {
+				x = 0;
+				y = 0;
+				sprite_Key.setPosition(i * 32, j * 32);
+				x = sprite_Key.getPosition().x;
+				y = sprite_Key.getPosition().y;
+				key_X.push_back(y);
+				key_Y.push_back(x);
+
+				cout << "Added BOOST - coordinate";
+				cout << x << "===" << y << endl;
+			}
+		}
+	}
+
+}
+
+void Key::drawKey() {
+	auto iterY = key_Y.begin();
+	for (auto iter = key_X.begin(); iter != key_X.end(); iter++) {
+		sprite_Key.setPosition(*iter, *iterY);
+		iterY++;
+		window.draw(sprite_Key);
+	}
+}
+
+void Key::interactKey(float ballX, float ballY,Door &door) {
+	int x, y;
+	auto iterY = key_Y.begin();
+	for (auto iterX = key_X.begin(); iterX != key_X.end(); iterX++) {
+		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
+			cout << "Key" << endl;//Вызов метода убийства
+			door.isOpen = true;
+			key_X.remove(*iterX);
+			key_Y.remove(*iterY);
+			return;
+		}
+		iterY++;
+	}
+	//cout << "K v interact_boost = " << door.isOpen << endl;
 }
