@@ -141,7 +141,13 @@ float Ball::getcoorginateY() {
 	return sprite.getPosition().y;
 }
 
-int Ball::damage() {
+void Ball::damage() {
+	rect.top = 64;
+	rect.left=64;
 	cout << "Bol'no" << endl;
-	return life--;
+}
+
+int Ball::heal() {
+	cout << "I zdorov" << endl;
+	return life++;
 }
