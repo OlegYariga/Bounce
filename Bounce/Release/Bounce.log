@@ -1,8 +1,78 @@
-﻿  drawMaps.cpp
+﻿  Ball.cpp
+Ball.cpp(26): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Ball.cpp(27): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Ball.cpp(31): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
+Ball.cpp(44): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+Ball.cpp(75): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(76): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(80): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(81): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(89): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(90): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(101): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(107): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(118): warning C4305: =: усечение из "double" в "float"
+Ball.cpp(123): warning C4305: =: усечение из "double" в "float"
+Ball.cpp(128): warning C4305: =: усечение из "double" в "float"
+  Boost.cpp
+Boost.cpp(23): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(47): error C2039: getLife: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+Boost.cpp(56): error C2039: heal: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+Boost.cpp(71): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+Boost.cpp(78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(102): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(129): error C2039: getLife: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+Boost.cpp(134): error C2039: damage: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+Boost.cpp(157): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(196): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+Boost.cpp(264): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Camera.cpp
+  Menu.cpp
+  drawMaps.cpp
 drawMaps.cpp(67): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  Создание кода
-  2 of 323 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Создание кода завершено
-  Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
+  main.cpp
+c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
+main.cpp(126): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+main.cpp(142): error C2039: getcoorginateX: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(142): error C2039: getcoorginateY: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(142): error C2660: Camera::changeCameraPosition: функция не принимает 1 аргументов
+main.cpp(149): error C2039: getcoorginateX: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(149): error C2039: getcoorginateY: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(149): error C2660: Door::interactDoor: функция не принимает 1 аргументов
+main.cpp(153): error C2039: getcoorginateX: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(153): error C2039: getcoorginateY: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(153): error C2660: Boost::interact_boost: функция не принимает 2 аргументов
+main.cpp(156): error C2039: getcoorginateX: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(156): error C2039: getcoorginateY: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(156): error C2660: Key::interactKey: функция не принимает 2 аргументов
+main.cpp(158): error C2039: getcoorginateX: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(158): error C2039: getcoorginateY: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(158): error C2660: Spike::interact: функция не принимает 2 аргументов
+main.cpp(159): error C2039: getcoorginateX: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(159): error C2039: getcoorginateY: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+main.cpp(159): error C2660: Boost::interact_boost: функция не принимает 2 аргументов
+main.cpp(166): error C2039: getLife: не является членом "Ball"
+  c:\users\doc\desktop\bounce\bounce\bounce\Ball.h(6): note:  см. объявление "Ball"
+  wasp.cpp
+c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
+wasp.cpp(33): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+wasp.cpp(35): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+wasp.cpp(36): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+wasp.cpp(66): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+wasp.cpp(67): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных

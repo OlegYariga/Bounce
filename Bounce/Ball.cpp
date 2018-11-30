@@ -4,10 +4,7 @@
 
 
 Ball::Ball(){
-	
-	pers.loadFromFile("person.png");
-	pers.createMaskFromColor(pers.getPixel(0, 0));
-	person.loadFromImage(pers);
+	person.loadFromFile("person.png");
 	sprite.setTexture(person);
 	sprite.setTextureRect(IntRect(0,0,32,32)); 
 	sprite.setOrigin(15, 15);
@@ -15,7 +12,7 @@ Ball::Ball(){
 	rect = FloatRect(465, 320, 0, 0);
 	dx = 0;
 	dy = 0;
-	life = 4;
+	
 
 	//!!!!!!!!!!!!!!!ОТ ОЛЕГА!!!!!!!!!!!!!!!!!!!!!!
 	//пример использования переменной с картой
@@ -25,11 +22,10 @@ Ball::Ball(){
 
 void Ball::drawing_person() {
 
-
 	int a, b;
 	a = sprite.getPosition().x;
 	b = sprite.getPosition().y;
-	//std::cout << a << " " << b << " " << dy << std::endl;
+	std::cout << a << " " << b << " " << dy << std::endl;
 
 
 	time = clock.getElapsedTime().asMicroseconds();
@@ -79,7 +75,7 @@ void Ball::CollisionX() {
 	for (int i = (rect.top - 15)/32; i < (rect.top + 15) / 32; i++)
 		for (int j = (rect.left - 15) / 32; j < (rect.left + 15) / 32; j++)
 		{
-			if (TileMap[i][j] == '0' || TileMap[i][j] == 'R' || TileMap[i][j] == '-' || TileMap[i][j] == '+')
+			if (TileMap[i][j] == '0')
 			{
 				if (dx > 0) rect.left = j * 32 - 15;
 				if (dx < 0) rect.left = j * 32 + 47;
@@ -93,12 +89,12 @@ void Ball::CollisionY() {
 	for (int i = (rect.top - 15) / 32; i < (rect.top + 15) / 32; i++)
 		for (int j = (rect.left - 15) / 32; j < (rect.left + 15) / 32; j++)
 		{
-			if ((j > WIDTH_MAP) || (i > HEIGHT_MAP)) {
+			if ((j > 30) || (i > 30)) {
 				rect.left = 50;
 				rect.top = 250;
 			}
 			else {
-				if (TileMap[i][j] == '0'|| TileMap[i][j] == 'R'|| TileMap[i][j] == '-'|| TileMap[i][j] == '+')
+				if (TileMap[i][j] == '0')
 				{
 					if (dy > 0)
 					{
@@ -132,28 +128,4 @@ void Ball::KeyUp() {
 		dy = -0.4;
 		onGround = false;
 	}
-}
-
-float Ball::getcoorginateX() {
-	return sprite.getPosition().x;
-}
-float Ball::getcoorginateY() {
-	return sprite.getPosition().y;
-}
-
-void Ball::damage() {
-	Ball::life--;
-	rect.top = 64;
-	rect.left=64;
-	cout << "Bol'no" << endl;
-}
-
-void Ball::heal() {
-	Ball::life++;
-	cout << "I zdorov" << endl;
-	return;
-}
-
-int  Ball::getLife() {
-	return Ball::life;
 }
