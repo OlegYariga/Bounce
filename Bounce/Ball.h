@@ -2,34 +2,37 @@
 #include "engine.h" // теперь всё работает
 #include <SFML/Graphics.hpp>
 using namespace sf;
-using namespace std;
 
 class Ball {
 public:
-	FloatRect rect;
+
 	Ball();
 	void drawing_person();
-	void KeyRight();
-	void KeyLeft();
-	void KeyUp();
+	void KeyRight(float a);
+	void KeyLeft(float a);
+	void KeyUp(float a);
 	void CollisionX();
 	void CollisionY();
+	void GetDefPos();
+	void Damage();
+	void Healing();
 	float getcoorginateX();
 	float getcoorginateY();
-	void damage();
-	void heal();
+	void setInvertedGravity();
+	void setNormalGravity();
 	int getLife();
 private:
-
-	int life;
 	Image pers;
 	Texture person;
 	Sprite sprite; 
 	Clock clock;
 	float time;
+	int lifes;
 	float dx, dy;
-//	FloatRect rect;
+	FloatRect rect;
+	FloatRect defrect;
 	bool onGround;
+	bool InvertedGravity;
 	
 };
 	
