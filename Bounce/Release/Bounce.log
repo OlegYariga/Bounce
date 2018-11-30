@@ -1,46 +1,11 @@
-﻿  Ball.cpp
-Ball.cpp(30): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Ball.cpp(31): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Ball.cpp(35): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
-Ball.cpp(48): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-Ball.cpp(79): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-Ball.cpp(80): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-Ball.cpp(84): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-Ball.cpp(85): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-Ball.cpp(93): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-Ball.cpp(94): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-Ball.cpp(105): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-Ball.cpp(111): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-Ball.cpp(122): warning C4305: =: усечение из "double" в "float"
-Ball.cpp(127): warning C4305: =: усечение из "double" в "float"
-Ball.cpp(132): warning C4305: =: усечение из "double" в "float"
-  Boost.cpp
-Boost.cpp(23): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(48): warning C4101: y: неиспользованная локальная переменная
-Boost.cpp(48): warning C4101: x: неиспользованная локальная переменная
-Boost.cpp(71): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-Boost.cpp(78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(102): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(157): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(196): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-Boost.cpp(264): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(288): warning C4101: y: неиспользованная локальная переменная
-Boost.cpp(288): warning C4101: x: неиспользованная локальная переменная
-  Camera.cpp
-  drawMaps.cpp
+﻿  drawMaps.cpp
 drawMaps.cpp(41): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   main.cpp
 c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
 main.cpp(126): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
-  Menu.cpp
-  wasp.cpp
-c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
-wasp.cpp(33): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(35): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(36): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(66): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(67): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
   Создание кода
-  All 323 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  0 of 323 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
