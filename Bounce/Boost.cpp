@@ -53,7 +53,7 @@ int Boost::interact_boost(float ballX, float ballY,Ball &ballhp) {
 			if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
 				cout << "Serdce" << endl;//Вызов метода убийства
 				//hpcount=ballhp.life++;
-				ballhp.heal();
+				ballhp.Healing();
 				boost_X.remove(*iterX);
 				boost_Y.remove(*iterY);
 				return hpcount;
@@ -130,8 +130,8 @@ int Spike::interact(float ballX,float ballY,Ball &ballhp) {
 	auto iterY = coordinateY.begin();
 	for (auto iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
 		if (((ballX>=((*iterX))) && (ballX<=((*iterX)+32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY)+32))) {
-			
-			ballhp.damage();
+			//std::cout << hpcount;
+			ballhp.Damage();
 			return hpcount;
 		}
 		iterY++;
