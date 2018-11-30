@@ -201,14 +201,82 @@ int showInfo() {
 	return 0;
 }
 
-int playMusic() {
-	if (!sf::Music::Status::Playing) {
-		sf::Music Main_theme;
-		Main_theme.openFromFile("Main_theme.WAV");
-		Main_theme.setLoop(true);
-		Main_theme.play();
+bool showOptions(bool playing) {
+
+	Image im_start, im_check_on, im_check_off;
+	Texture start_text, tx_check_on, tx_check_off;
+	Sprite start_sprite, sp_check_on, sp_check_off;
+
+	start_text.loadFromFile("check.jpg");
+	start_sprite.setTexture(start_text);
+	start_sprite.setPosition(0, 0);
+
+	im_check_on.loadFromFile("check_on.png");
+	//im_check_on.createMaskFromColor(Color::White);
+	tx_check_on.loadFromImage(im_check_on);
+	sp_check_on.setTexture(tx_check_on);
+	sp_check_on.setPosition(580, 187);
+	
+	im_check_off.loadFromFile("check_off.png");
+	//im_check_off.createMaskFromColor(Color::White);
+	tx_check_off.loadFromImage(im_check_off);
+	sp_check_off.setTexture(tx_check_off);
+	sp_check_off.setPosition(580, 187);
+
+
+	bool check_stats=playing;
+
+	while (window.isOpen())
+	{
+		window.clear();//очищаем экран
+
+		window.draw(start_sprite);
+		if (check_stats) {
+			window.draw(sp_check_on);
+		}
+		else {
+			window.draw(sp_check_off);
+		}
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed) {
+				window.close();
+				return false;
+			}
+		}
+		//подкрашиваем пункты меню при наведении
+
+		if (event.type == sf::Event::MouseButtonPressed)
+		{
+			if (IntRect(580, 187, 50, 50).contains(Mouse::getPosition(window)))
+			{
+				if (check_stats) {
+					check_stats = false;
+				}
+				else {
+					check_stats = true;
+				}
+				//window.draw(sp_check_on);
+				//check_stats = true;
+
+			}
+			window.display();
+			
+			return check_stats;
+
+		}
+		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+			return check_stats;
+		}
+		/*if (event.mouseButton.button == sf::Mouse::Right)
+		{
+		break;
+		}*/
+		
+		window.display();
+		//вывод всех изображений на экран
 	}
-	else {
-		//Main_theme.play();
-	}
+	return 0;
 }
+
