@@ -44,16 +44,17 @@ void Boost::drawBoost() {
 
 int Boost::interact_boost(float ballX, float ballY,Ball &ballhp) {
 	int hpcount = ballhp.life;
-	int x,y;
-	auto iterY = boost_Y.begin();
-	for (auto iterX = boost_X.begin(); iterX != boost_X.end(); iterX++) {
-		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-			cout << "Serdce" << endl;//Вызов метода убийства
-			hpcount=ballhp.life++;
-			boost_X.remove(*iterX);
-			boost_Y.remove(*iterY);
+	if (hpcount < 4) {
+		auto iterY = boost_Y.begin();
+		for (auto iterX = boost_X.begin(); iterX != boost_X.end(); iterX++) {
+			if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
+				cout << "Serdce" << endl;//Вызов метода убийства
+				hpcount = ballhp.life++;
+				boost_X.remove(*iterX);
+				boost_Y.remove(*iterY);
+			}
+			iterY++;
 		}
-		iterY++;
 	}
 	//cout << "K v interact_boost = " << hpcount << endl;
 	return hpcount;
