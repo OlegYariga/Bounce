@@ -8,7 +8,7 @@ Camera::Camera() {
 }
 void Camera::changeCameraPosition(float x, float y) {
 	float tempX = x; float tempY = y;//считываем коорд игрока и проверяем их, чтобы убрать края
-	tempY=createCoordinateY(y);
+	//tempY=createCoordinateY(y);
 	if (x < 600) tempX = 600;//убираем из вида левую сторону
 	if (y < 240) tempY = 240;//верхнюю сторону
 	if (y > 554) tempY = 554;//нижнюю сторону	
@@ -17,7 +17,7 @@ void Camera::changeCameraPosition(float x, float y) {
 
 float Camera::createCoordinateY(float y) {
 	if (coordinateY == 0) coordinateY = y;
-	if (y-coordinateY>500||coordinateY-y>500) {
+	if (y-coordinateY>350||coordinateY-y>350) {
 		coordinateY = y;
 		//cout <<"!!!!!"<< coordinateY<<endl;
 		return y;

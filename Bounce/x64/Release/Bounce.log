@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Boost.cpp
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(22): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(66): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
@@ -10,6 +11,13 @@ c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(
 c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\boost.cpp(281): warning C4101: x: неиспользованная локальная переменная
   Создание кода
   3 of 365 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+=======
+﻿  main.cpp
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
+c:\users\ilafe\onedrive\рабочий стол\komanda\bounce\bounce\main.cpp(126): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+  Создание кода
+  5 of 370 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
+>>>>>>> ILYA
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено

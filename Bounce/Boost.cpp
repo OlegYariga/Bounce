@@ -2,7 +2,8 @@
 #include "Boost.h"
 #include "engine.h"
 #include "Ball.h"
-
+#include <vector>
+#include <list>
 
 Boost::Boost() {
 	name = "Buff";
@@ -24,9 +25,9 @@ void Boost::findBoost() {
 				y = sprite_Boost.getPosition().y;
 				boost_X.push_back(y);
 				boost_Y.push_back(x);
-				
-				cout << "Added BOOST - coordinate" ;
-				cout << x <<"==="<<y<< endl;
+
+				cout << "Added BOOST - coordinate";
+				cout << x << "===" << y << endl;
 			}
 		}
 	}
@@ -42,16 +43,20 @@ void Boost::drawBoost() {
 	}
 }
 
-int Boost::interact_boost(float ballX, float ballY,Ball &ballhp) {
-	int hpcount = ballhp.life;
+int Boost::interact_boost(float ballX, float ballY, Ball &ballhp) {
+	int hpcount = ballhp.getLife();
+	int x, y;
 	if (hpcount < 4) {
 		auto iterY = boost_Y.begin();
 		for (auto iterX = boost_X.begin(); iterX != boost_X.end(); iterX++) {
+			//std::cout << "X===" << *iterX << "Y===" << *iterY<<endl;
 			if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-				cout << "Serdce" << endl;//Вызов метода убийства
-				hpcount = ballhp.life++;
+				cout << "Serdce" << endl;//????? ?????? ????????
+				//hpcount=ballhp.life++;
+				ballhp.Healing();
 				boost_X.remove(*iterX);
 				boost_Y.remove(*iterY);
+				return hpcount;
 			}
 			iterY++;
 		}
@@ -61,13 +66,13 @@ int Boost::interact_boost(float ballX, float ballY,Ball &ballhp) {
 }
 
 void Boost::randomeBoostgenerator() {
-	int randomeX = 0;//случайный X
-	int randomeY = 0;//случайный Y
+	int randomeX = 0;//????????? X
+	int randomeY = 0;//????????? Y
 	srand(time(0));
 	int countBoost = 5;
 	while (countBoost > 0) {
-		randomeX = 1 + rand() % (WIDTH_MAP - 1);//рандомное по X от 1 до ширинакарты-1, чтобы не получать числа бордюра карты
-		randomeY = 1 + rand() % (HEIGHT_MAP - 1);//аналогично по Y
+		randomeX = 1 + rand() % (WIDTH_MAP - 1);//????????? ?? X ?? 1 ?? ???????????-1, ????? ?? ???????? ????? ??????? ?????
+		randomeY = 1 + rand() % (HEIGHT_MAP - 1);//?????????? ?? Y
 		if (TileMap[randomeX][randomeY] == ' ') {
 			TileMap[randomeX][randomeY] = '*';
 			sprite_Boost.setPosition(randomeX * 32, randomeY * 32);
@@ -94,40 +99,40 @@ void Spike::find_spike() {
 			if (TileMap[i][j] == '^') {
 				x = 0;
 				y = 0;
-				sprite_Spike.setPosition(i*32, j*32);
+				sprite_Spike.setPosition(i * 32, j * 32);
 				x = sprite_Spike.getPosition().x;
 				y = sprite_Spike.getPosition().y;
 				coordinateX.push_back(y);
 				coordinateY.push_back(x);
-				
+
 				cout << "Added SPIKE - coordinate";
 				cout << x << endl;
 				//rect_spike = FloatRect(i, j, 32, 32);
 			}
 		}
 	}
-	
+
 }
 
 void Spike::draw_spike() {
 	auto iterY = coordinateY.begin();
 	for (auto iter = coordinateX.begin(); iter != coordinateX.end(); iter++) {
 		sprite_Spike.setPosition(*iter, *iterY);
-		
+
 		window.draw(sprite_Spike);
 		iterY++;
 
 	}
 }
 
-int Spike::interact(float ballX,float ballY,Ball &ballhp) {
-	int hpcount = ballhp.life;
+int Spike::interact(float ballX, float ballY, Ball &ballhp) {
+	int hpcount = ballhp.getLife();
 	auto iterY = coordinateY.begin();
 	for (auto iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
-		if (((ballX>=((*iterX))) && (ballX<=((*iterX)+32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY)+32))) {
-			//cout << "Ship" << endl;//Вызов метода убийства
-			hpcount=ballhp.life--;
-			ballhp.damage();
+		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
+			//std::cout << hpcount;
+			ballhp.Damage();
+			return hpcount;
 		}
 		iterY++;
 	}
@@ -170,16 +175,18 @@ void Door::drawDoor() {
 	}
 }
 
-void Door::interactDoor(float ballX,float ballY) {
+bool Door::interactDoor(float ballX, float ballY) {
 	auto iterY = doorY.begin();
 	for (auto iterX = doorX.begin(); iterX != doorX.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 64))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
 			if (isOpen) {
-				cout << "Door" << endl;//Вызов метода убийства
+				cout << "Door" << endl;//????? ?????? ????????
+				return true;
 			}
 		}
 		iterY++;
 	}
+	return false;
 }
 
 void Door::openDoor(float time) {
@@ -241,8 +248,8 @@ void HealthBar::draw_hpbar(RenderWindow &window) {
 
 Key::Key() {
 	name = "Key";
-	key_im.loadFromFile("heart_0.png");
-	key_im.createMaskFromColor(Color::White);
+	key_im.loadFromFile("key.png");
+	//key_im.createMaskFromColor(Color::White);
 	key_tx.loadFromImage(key_im);
 	sprite_Key.setTexture(key_tx);
 	sprite_Key.setTextureRect(IntRect(0, 0, 32, 32));
@@ -277,15 +284,112 @@ void Key::drawKey() {
 	}
 }
 
-void Key::interactKey(float ballX, float ballY,Door &door) {
+void Key::interactKey(float ballX, float ballY, Door &door) {
 	int x, y;
 	auto iterY = key_Y.begin();
 	for (auto iterX = key_X.begin(); iterX != key_X.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-			cout << "Key" << endl;//Вызов метода убийства
+			cout << "Key" << endl;//????? ?????? ????????
 			door.isOpen = true;
 			key_X.remove(*iterX);
 			key_Y.remove(*iterY);
+			return;
+		}
+		iterY++;
+	}
+	//cout << "K v interact_boost = " << door.isOpen << endl;
+}
+
+GravityDown::GravityDown() {
+	GD_im.loadFromFile("sprGravityDown_0.png");
+	GD_tx.loadFromImage(GD_im);
+	GD_sp.setTexture(GD_tx);
+	GD_sp.setTextureRect(IntRect(0, 0, 32, 32));
+}
+
+void GravityDown::findGD() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[i][j] == '8') {
+				x = 0;
+				y = 0;
+				GD_sp.setPosition(i * 32, j * 32);
+				x = GD_sp.getPosition().x;
+				y = GD_sp.getPosition().y;
+				GD_X.push_back(y);
+				GD_Y.push_back(x);
+
+				cout << "Added BOOST - coordinate";
+				cout << x << "===" << y << endl;
+			}
+		}
+	}
+}
+
+void GravityDown::drawGD() {
+	auto iterY = GD_Y.begin();
+	for (auto iter = GD_X.begin(); iter != GD_X.end(); iter++) {
+		GD_sp.setPosition(*iter, *iterY);
+		iterY++;
+		window.draw(GD_sp);
+	}
+}
+
+void GravityDown::interactGD(float ballX, float ballY, Ball &ball) {
+	auto iterY = GD_Y.begin();
+	for (auto iterX = GD_X.begin(); iterX != GD_X.end(); iterX++) {
+		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
+			cout << "GravityDown" << endl;//????? ?????? ????????
+			ball.setNormalGravity();
+			return;
+		}
+		iterY++;
+	}
+	//cout << "K v interact_boost = " << door.isOpen << endl;
+}
+
+GravityUp::GravityUp() {
+	GU_im.loadFromFile("sprGravityUp_0.png");
+	GU_tx.loadFromImage(GU_im);
+	GU_sp.setTexture(GU_tx);
+	GU_sp.setTextureRect(IntRect(0, 0, 32, 32));
+}
+
+void GravityUp::findGU() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[i][j] == '2') {
+				x = 0;
+				y = 0;
+				GU_sp.setPosition(i * 32, j * 32);
+				x = GU_sp.getPosition().x;
+				y = GU_sp.getPosition().y;
+				GU_X.push_back(y);
+				GU_Y.push_back(x);
+
+				cout << "Added BOOST - coordinate";
+				cout << x << "===" << y << endl;
+			}
+		}
+	}
+}
+
+void GravityUp::drawGU() {
+	auto iterY = GU_Y.begin();
+	for (auto iter = GU_X.begin(); iter != GU_X.end(); iter++) {
+		GU_sp.setPosition(*iter, *iterY);
+		iterY++;
+		window.draw(GU_sp);
+	}
+}
+
+void GravityUp::interactGU(float ballX, float ballY, Ball &ball) {
+	auto iterY = GU_Y.begin();
+	for (auto iterX = GU_X.begin(); iterX != GU_X.end(); iterX++) {
+		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
+			cout << "GravityUp" << endl;//????? ?????? ????????
+			ball.setInvertedGravity();
+			return;
 		}
 		iterY++;
 	}
