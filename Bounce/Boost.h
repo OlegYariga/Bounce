@@ -27,8 +27,14 @@ public:
 	void randomeBoostgenerator();
 	void findBoost();
 	void drawBoost();
+<<<<<<< HEAD
 	int interact_boost(float ballX, float ballY);
 private:
+=======
+	int interact_boost(float ballX, float ballY,Ball &ballhp);
+private:
+	int hpcount;
+>>>>>>> 10281ce3d41539be4e2824611821b178204133a6
 	list<float> boost_X;
 	list<float> boost_Y;
 	Image buff_im;
@@ -45,6 +51,10 @@ public:
 	int interact(float ballX,float ballY,Ball &ballhp);
 	FloatRect rect_spike;
 private:
+<<<<<<< HEAD
+=======
+	int hpcount;
+>>>>>>> 10281ce3d41539be4e2824611821b178204133a6
 	Texture spike1;
 	list<float> coordinateX;
 	list<float> coordinateY;
@@ -57,7 +67,11 @@ public:
 	Door();
 	void findDoor();
 	void drawDoor();
+<<<<<<< HEAD
 	void interactDoor(float ballX,float ballY);
+=======
+	bool interactDoor(float ballX,float ballY);
+>>>>>>> 10281ce3d41539be4e2824611821b178204133a6
 	void openDoor(float time);
 private:
 	list<float> doorX;
@@ -75,4 +89,22 @@ public:
 	HealthBar();
 	void update_hpbar(int k);
 	void draw_hpbar(RenderWindow &window);
+<<<<<<< HEAD
+=======
+};
+
+class Key :public Object {
+public:
+	Key();
+	Sprite sprite_Key;
+	void findKey();
+	void drawKey();
+	void interactKey(float ballX, float ballY,Door &door);
+private:
+	int keycount;
+	list<float> key_X;
+	list<float> key_Y;
+	Image key_im;
+	Texture key_tx;
+>>>>>>> 10281ce3d41539be4e2824611821b178204133a6
 };
