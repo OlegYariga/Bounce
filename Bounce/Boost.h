@@ -93,3 +93,31 @@ private:
 	Image key_im;
 	Texture key_tx;
 };
+
+class GravityDown {
+public:
+	GravityDown();
+	void findGD();
+	void drawGD();
+	void interactGD(float ballX, float ballY, Ball &ball);
+	list<float> GD_X;
+	list<float> GD_Y;
+	Image GD_im;
+	Texture GD_tx;
+	Sprite GD_sp;
+	int x, y;
+};
+
+class GravityUp {
+public:
+	GravityUp();
+	void findGU();
+	void drawGU();
+	void interactGU(float ballX, float ballY, Ball &ball);
+	list<float> GU_X;
+	list<float> GU_Y;
+	Image GU_im;
+	Texture GU_tx;
+	Sprite GU_sp;
+	int x,y
+};

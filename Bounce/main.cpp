@@ -20,7 +20,7 @@
 #endif // 
 
 int menu_item = 0;
-int level_number = 2;
+int level_number = 3;
 
 Clock clock1;
 
@@ -60,6 +60,8 @@ int main()
 		Door door_test;
 		HealthBar hpbar_test;
 		Key key;
+		GravityDown GD;
+		GravityUp GU;
 		//??????
 
 
@@ -84,6 +86,8 @@ int main()
 			b1.findBoost();
 			door_test.findDoor();
 			key.findKey();
+			GD.findGD();
+			GU.findGU();
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -159,6 +163,10 @@ int main()
 				hpbar_test.update_hpbar(b1.interact_boost(test.getcoorginateX(), test.getcoorginateY(), test));
 				hpbar_test.draw_hpbar(window);
 
+				GD.drawGD();
+				GD.interactGD(test.getcoorginateX(), test.getcoorginateY(), test);
+				GU.drawGU();
+				GU.interactGU(test.getcoorginateX(), test.getcoorginateY(), test);
 
 				test.drawing_person();
 

@@ -299,3 +299,99 @@ void Key::interactKey(float ballX, float ballY, Door &door) {
 	}
 	//cout << "K v interact_boost = " << door.isOpen << endl;
 }
+
+GravityDown::GravityDown() {
+	GD_im.loadFromFile("sprGravityDown_0.png");
+	GD_tx.loadFromImage(GD_im);
+	GD_sp.setTexture(GD_tx);
+	GD_sp.setTextureRect(IntRect(0, 0, 32, 32));
+}
+
+void GravityDown::findGD() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[i][j] == '8') {
+				x = 0;
+				y = 0;
+				GD_sp.setPosition(i * 32, j * 32);
+				x = GD_sp.getPosition().x;
+				y = GD_sp.getPosition().y;
+				GD_X.push_back(y);
+				GD_Y.push_back(x);
+
+				cout << "Added BOOST - coordinate";
+				cout << x << "===" << y << endl;
+			}
+		}
+	}
+}
+
+void GravityDown::drawGD() {
+	auto iterY = GD_Y.begin();
+	for (auto iter = GD_X.begin(); iter != GD_X.end(); iter++) {
+		GD_sp.setPosition(*iter, *iterY);
+		iterY++;
+		window.draw(GD_sp);
+	}
+}
+
+void GravityDown::interactGD(float ballX, float ballY, Ball &ball) {
+	auto iterY = GD_Y.begin();
+	for (auto iterX = GD_X.begin(); iterX != GD_X.end(); iterX++) {
+		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
+			cout << "GravityDown" << endl;//????? ?????? ????????
+			ball.setNormalGravity();
+			return;
+		}
+		iterY++;
+	}
+	//cout << "K v interact_boost = " << door.isOpen << endl;
+}
+
+GravityUp::GravityUp() {
+	GU_im.loadFromFile("sprGravityUp_0.png");
+	GU_tx.loadFromImage(GU_im);
+	GU_sp.setTexture(GU_tx);
+	GU_sp.setTextureRect(IntRect(0, 0, 32, 32));
+}
+
+void GravityUp::findGU() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[i][j] == '2') {
+				x = 0;
+				y = 0;
+				GU_sp.setPosition(i * 32, j * 32);
+				x = GU_sp.getPosition().x;
+				y = GU_sp.getPosition().y;
+				GU_X.push_back(y);
+				GU_Y.push_back(x);
+
+				cout << "Added BOOST - coordinate";
+				cout << x << "===" << y << endl;
+			}
+		}
+	}
+}
+
+void GravityUp::drawGU() {
+	auto iterY = GU_Y.begin();
+	for (auto iter = GU_X.begin(); iter != GU_X.end(); iter++) {
+		GU_sp.setPosition(*iter, *iterY);
+		iterY++;
+		window.draw(GU_sp);
+	}
+}
+
+void GravityUp::interactGU(float ballX, float ballY, Ball &ball) {
+	auto iterY = GU_Y.begin();
+	for (auto iterX = GU_X.begin(); iterX != GU_X.end(); iterX++) {
+		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
+			cout << "GravityUp" << endl;//????? ?????? ????????
+			ball.setInvertedGravity();
+			return;
+		}
+		iterY++;
+	}
+	//cout << "K v interact_boost = " << door.isOpen << endl;
+}
