@@ -20,7 +20,7 @@
 #endif // 
 
 int menu_item = 0;
-int level_number = 3;
+int level_number = 2;
 
 Clock clock1;
 

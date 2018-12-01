@@ -119,5 +119,5 @@ public:
 	Image GU_im;
 	Texture GU_tx;
 	Sprite GU_sp;
-	int x,y
+	int x, y;
 };

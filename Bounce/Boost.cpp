@@ -310,7 +310,7 @@ GravityDown::GravityDown() {
 void GravityDown::findGD() {
 	for (int i = 0; i < HEIGHT_MAP; i++) {
 		for (int j = 0; j < WIDTH_MAP; j++) {
-			if (TileMap[i][j] == '8') {
+			if (TileMap[i][j] == '2') {
 				x = 0;
 				y = 0;
 				GD_sp.setPosition(i * 32, j * 32);
@@ -358,7 +358,7 @@ GravityUp::GravityUp() {
 void GravityUp::findGU() {
 	for (int i = 0; i < HEIGHT_MAP; i++) {
 		for (int j = 0; j < WIDTH_MAP; j++) {
-			if (TileMap[i][j] == '2') {
+			if (TileMap[i][j] == '8') {
 				x = 0;
 				y = 0;
 				GU_sp.setPosition(i * 32, j * 32);
