@@ -19,7 +19,7 @@ public:
 private:
 };
 
-class Boost:public Object {
+class Boost :public Object {
 public:
 	Boost();
 	bool getBoost;
@@ -27,7 +27,7 @@ public:
 	void randomeBoostgenerator();
 	void findBoost();
 	void drawBoost();
-	int interact_boost(float ballX, float ballY,Ball &ballhp);
+	int interact_boost(float ballX, float ballY, Ball &ballhp);
 private:
 	int hpcount;
 	list<float> boost_X;
@@ -36,14 +36,14 @@ private:
 	Texture buff;
 };
 
-class Spike:public Object {
+class Spike :public Object {
 public:
 	bool life;
 	Sprite sprite_Spike;
 	Spike();
 	void find_spike();
 	void draw_spike();
-	int interact(float ballX,float ballY,Ball &ballhp);
+	int interact(float ballX, float ballY, Ball &ballhp);
 	FloatRect rect_spike;
 private:
 	int hpcount;
@@ -59,7 +59,7 @@ public:
 	Door();
 	void findDoor();
 	void drawDoor();
-	void interactDoor(float ballX,float ballY);
+	bool interactDoor(float ballX, float ballY);
 	void openDoor(float time);
 private:
 	list<float> doorX;
@@ -85,7 +85,7 @@ public:
 	Sprite sprite_Key;
 	void findKey();
 	void drawKey();
-	void interactKey(float ballX, float ballY,Door &door);
+	void interactKey(float ballX, float ballY, Door &door);
 private:
 	int keycount;
 	list<float> key_X;

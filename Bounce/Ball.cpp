@@ -3,23 +3,27 @@
 #include <iostream>
 
 
-Ball::Ball(){
-	
+Ball::Ball() {
+
 	pers.loadFromFile("person.png");
 	pers.createMaskFromColor(pers.getPixel(0, 0));
 	person.loadFromImage(pers);
 	sprite.setTexture(person);
-	sprite.setTextureRect(IntRect(0,0,32,32)); 
+	sprite.setTextureRect(IntRect(0, 0, 32, 32));
 	sprite.setOrigin(15, 15);
+
+
+	rect = FloatRect(0, 0, 0, 0);
+	defrect = FloatRect(0, 0, 0, 0);
 	onGround = false;
-	rect = FloatRect(465, 320, 0, 0);
+	InvertedGravity = false;
 	dx = 0;
 	dy = 0;
-	life = 4;
+	lifes = 4;
 
-	//!!!!!!!!!!!!!!!ОТ ОЛЕГА!!!!!!!!!!!!!!!!!!!!!!
-	//пример использования переменной с картой
-	//значение нужно только проверять через if. ИЗМЕНЯТЬ НЕ НАДО
+	//!!!!!!!!!!!!!!!?? ?????!!!!!!!!!!!!!!!!!!!!!!
+	//?????? ????????????? ?????????? ? ??????
+	//???????? ????? ?????? ????????? ????? if. ???????? ?? ????
 	//TileMap[0][0] = ' ';
 }
 
@@ -30,6 +34,8 @@ void Ball::drawing_person() {
 	a = sprite.getPosition().x;
 	b = sprite.getPosition().y;
 	//std::cout << a << " " << b << " " << dy << std::endl;
+
+	GetDefPos();
 
 
 	time = clock.getElapsedTime().asMicroseconds();
@@ -43,47 +49,75 @@ void Ball::drawing_person() {
 	rect.left = rect.left + dx * time;
 	CollisionX();
 
-	if (!onGround) {
-		
-		dy = dy + 0.0005*time;
+	if (!onGround)
+	{
+		if (InvertedGravity)
+		{
+			if (dy > -0.1)
+				dy = dy - 0.0005*time;
+		}
+		else
+		{
+			if (dy < 0.1)
+				dy = dy + 0.0005*time;
+		}
+
 	}
+
 	rect.top = rect.top + dy * time;
 	onGround = false;
 	CollisionY();
 
 
-	
 	dx = 0;
-	
+
 	if (Keyboard::isKeyPressed(Keyboard::Right))
-		KeyRight();
+		KeyRight(0.1);
 
 
 	if (Keyboard::isKeyPressed(Keyboard::Left))
-		KeyLeft();
+		KeyLeft(-0.1);
 
 	if (Keyboard::isKeyPressed(Keyboard::Up))
-		KeyUp();
+	{
+		if (InvertedGravity)
+		{
+			KeyUp(0.4);
+		}
+		else
+		{
+			KeyUp(-0.4);
+		}
+	}
 
-	
+
+
 
 	if (Keyboard::isKeyPressed(Keyboard::D)) {
-		rect.left = 50;
-		rect.top = 250;
+		//rect.left = defrect.left;
+		//rect.top = defrect.top;
+		setInvertedGravity();
+	}
+	if (Keyboard::isKeyPressed(Keyboard::R)) {
+		rect.left = defrect.left;
+		rect.top = defrect.top;
+	}
+	if (Keyboard::isKeyPressed(Keyboard::F)) {
+		setNormalGravity();
 	}
 	window.draw(sprite);
 }
 
 
 void Ball::CollisionX() {
-	for (int i = (rect.top - 15)/32; i < (rect.top + 15) / 32; i++)
+	for (int i = (rect.top - 15) / 32; i < (rect.top + 15) / 32; i++)
 		for (int j = (rect.left - 15) / 32; j < (rect.left + 15) / 32; j++)
 		{
 			if (TileMap[i][j] == '0' || TileMap[i][j] == 'R' || TileMap[i][j] == '-' || TileMap[i][j] == '+')
 			{
 				if (dx > 0) rect.left = j * 32 - 15;
 				if (dx < 0) rect.left = j * 32 + 47;
-				
+
 			}
 
 		}
@@ -93,23 +127,32 @@ void Ball::CollisionY() {
 	for (int i = (rect.top - 15) / 32; i < (rect.top + 15) / 32; i++)
 		for (int j = (rect.left - 15) / 32; j < (rect.left + 15) / 32; j++)
 		{
-			if ((j > WIDTH_MAP) || (i > HEIGHT_MAP)) {
-				rect.left = 50;
-				rect.top = 250;
+			if ((j > WIDTH_MAP) || (j < 0) || (i > HEIGHT_MAP) || (i < 0)) {
+				dy = 0;
+				rect.left = defrect.left;
+				rect.top = defrect.top;
+
 			}
 			else {
-				if (TileMap[i][j] == '0'|| TileMap[i][j] == 'R'|| TileMap[i][j] == '-'|| TileMap[i][j] == '+')
+				if (TileMap[i][j] == '0' || TileMap[i][j] == 'R' || TileMap[i][j] == '-' || TileMap[i][j] == '+')
 				{
 					if (dy > 0)
 					{
 						rect.top = i * 32 - 15;
 						dy = 0;
-						onGround = true;
+						if (!InvertedGravity)
+						{
+							onGround = true;
+						}
 					}
 					if (dy < 0)
 					{
 						rect.top = i * 32 + 47;
 						dy = 0;
+						if (InvertedGravity)
+						{
+							onGround = true;
+						}
 					}
 				}
 			}
@@ -117,19 +160,50 @@ void Ball::CollisionY() {
 }
 
 
-void Ball::KeyRight() {
+void Ball::GetDefPos() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+
+			if (TileMap[i][j] == 'B') {
+				defrect = FloatRect(j * 32, i * 32, 0, 0);
+			}
+		}
+	}
+}
+
+void Ball::setInvertedGravity()
+{
+	InvertedGravity = true;
+}
+
+void Ball::setNormalGravity()
+{
+	InvertedGravity = false;
+}
+
+void Ball::Damage() {
+	rect = defrect;
+	lifes--;
+	//std::cout << "WORK!";
+}
+
+void Ball::Healing() {
+	lifes++;
+}
+
+void Ball::KeyRight(float a) {
 	sprite.rotate(0.5);
-	dx = 0.1;
+	dx = a;
 }
 
-void Ball::KeyLeft() {
+void Ball::KeyLeft(float a) {
 	sprite.rotate(-0.5);
-	dx = -0.1;
+	dx = a;
 }
 
-void Ball::KeyUp() {
+void Ball::KeyUp(float a) {
 	if (onGround) {
-		dy = -0.4;
+		dy = a;
 		onGround = false;
 	}
 }
@@ -141,13 +215,7 @@ float Ball::getcoorginateY() {
 	return sprite.getPosition().y;
 }
 
-void Ball::damage() {
-	rect.top = 64;
-	rect.left=64;
-	cout << "Bol'no" << endl;
-}
-
-int Ball::heal() {
-	cout << "I zdorov" << endl;
-	return life++;
+int Ball::getLife() {
+	//std::cout << lifes;
+	return lifes;
 }
