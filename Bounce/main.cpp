@@ -52,7 +52,10 @@ int main()
 
 		menu_item = startMenu();//выводим меню
 		map_level1.loadLevelFromFile(level_number);
-	Wasp wasp("wasp1.png", 'A', 0, 0, 35, 35);
+
+	
+	Spider spider("spider1.png", 'S', 0, 0, 45, 35);
+    Wasp wasp("wasp1.png", 'A', 0, 0, 35, 35);
 
 		if (menu_item == 1) {
 
@@ -97,6 +100,8 @@ int main()
 				wasp.drawWasp();
 				wasp.move_wasp(time,test.getcoorginateX(), test.getcoorginateY(), test);
 				
+				spider.drawSpider();
+				spider.move_spid(time, test.getcoorginateX(), test.getcoorginateY(), test);
 				
 
 				cam.changeCameraPosition(test.getcoorginateX(), test.getcoorginateY());

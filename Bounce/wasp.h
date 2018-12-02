@@ -31,7 +31,9 @@ public:
 	void show_wasp();
 	void collision_K();
     void drawWasp();
+	void drawSpider();
     void move_wasp(float time, float ballX, float ballY, Ball &ballhp);
+	void move_spid(float time, float ballX, float ballY, Ball &ballhp);
 };
 
 

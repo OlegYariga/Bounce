@@ -29,8 +29,7 @@ Wasp::Wasp(String F, char A, int X, int Y, float W, float H) : Killer(F, A, X, Y
 	k_currentFrame = 0;
 	x = 500;
 	show_wasp();
-	list<float> wasp_X;
-	list<float> wasp_Y;
+	
 }
 
 
@@ -59,30 +58,49 @@ void Killer::show_wasp()
 				k_rect.left = j * 32;
 				k_rect.top = i * 32;
 				
-				
-				
-				
 				if (a = 'A')
 				{
 					wasp_X.push_back(k_rect.left);
 					wasp_Y.push_back(k_rect.top);
 					
 				}
+
+				if (a = 'S')
+				{
+					spid_X.push_back(k_rect.left);
+					spid_Y.push_back(k_rect.top);
+					continue;
+				}
+
+				
 			}
 		}	
 }
-
 void Killer::drawWasp() {
-	auto iterY = wasp_Y.begin(); 
-	 
+	auto iterY = wasp_Y.begin();
+
 	for (auto iter = wasp_X.begin(); iter != wasp_X.end(); iter++)
 	{
-			killer_sprite.setPosition(*iter, *iterY);
-			
-				iterY++;
-					window.draw(killer_sprite);	
+		killer_sprite.setPosition(*iter, *iterY);
+
+		iterY++;
+		window.draw(killer_sprite);
 	}
 }
+
+void Killer:: drawSpider() {
+	auto iterY = spid_Y.begin();
+
+	for (auto iter = spid_X.begin(); iter != spid_X.end(); iter++)
+	{
+		killer_sprite.setPosition(*iter, *iterY);
+
+		iterY++;
+		window.draw(killer_sprite);
+	}
+}
+
+
 
 void Killer::move_wasp(float time, float ballX, float ballY, Ball &ballhp)
 {
@@ -121,7 +139,42 @@ void Killer::move_wasp(float time, float ballX, float ballY, Ball &ballhp)
 	}
 }
 
+void Killer::move_spid(float time, float ballX, float ballY, Ball &ballhp)
+{
 
+	auto iterY = spid_Y.begin();
+
+	for (auto iter = spid_X.begin(); iter != spid_X.end(); iter++)
+	{
+		killer_sprite.setPosition(*iter, *iterY);
+
+		*iter += x * time; // X
+
+		//killer_sprite.setPosition(k_rect.left, k_rect.top);
+		//k_rect.left += x * time; // X
+
+		k_currentFrame += 5 * time; // для анимации 
+		if (k_currentFrame > 4)  k_currentFrame -= 4;
+		if (x < 0) killer_sprite.setTextureRect(IntRect(w * int(k_currentFrame), y, w, h));
+		if (x > 0) killer_sprite.setTextureRect(IntRect(w * int(k_currentFrame) + w, y, -w, h));
+
+		k_rect.left = *iter;
+		k_rect.top = *iterY;
+		collision_K();
+
+
+		if (((k_rect.left >= ((ballX))) && (k_rect.left <= ((ballX)+20))) && ((k_rect.top >= (ballY)) && (k_rect.top - 20 <= (ballY)))) {
+			cout << "k_rect.left=" << k_rect.left << endl;
+			cout << "k_rect.ballX=" << ballX << endl;
+			cout << "k_rect.top=" << k_rect.top << endl;
+			cout << "k_rect.ballY=" << ballY << endl;
+			cout << "kill" << endl;//Вызов метода убийства
+			ballhp.Damage();
+		}
+
+		iterY++;
+	}
+}
 
 
 
