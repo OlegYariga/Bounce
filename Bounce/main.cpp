@@ -20,7 +20,7 @@
 #endif // 
 
 int menu_item = 0;
-int level_number = 3;
+int level_number = 2;
 
 Clock clock1;
 
@@ -62,6 +62,8 @@ int main()
 		Key key;
 		GravityDown GD;
 		GravityUp GU;
+		SpeedUp SU;
+		Spring spring;
 		//??????
 
 
@@ -88,6 +90,8 @@ int main()
 			key.findKey();
 			GD.findGD();
 			GU.findGU();
+			SU.findSU();
+			spring.findSpring();
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -167,6 +171,10 @@ int main()
 				GD.interactGD(test.getcoorginateX(), test.getcoorginateY(), test);
 				GU.drawGU();
 				GU.interactGU(test.getcoorginateX(), test.getcoorginateY(), test);
+				SU.drawSU();
+				SU.interactSU(test.getcoorginateX(), test.getcoorginateY(), test);
+				spring.drawSpring();
+				spring.interactSpring(test.getcoorginateX(), test.getcoorginateY(), test);
 
 				test.drawing_person();
 
