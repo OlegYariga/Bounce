@@ -60,6 +60,10 @@ int main()
 		Door door_test;
 		HealthBar hpbar_test;
 		Key key;
+		GravityDown GD;
+		GravityUp GU;
+		SpeedUp SU;
+		Spring spring;
 		//музыка
 
 		
@@ -84,6 +88,10 @@ int main()
 			b1.findBoost();
 			door_test.findDoor();
 			key.findKey();
+			GD.findGD();
+			GU.findGU();
+			SU.findSU();
+			spring.findSpring();
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -159,6 +167,14 @@ int main()
 				hpbar_test.update_hpbar(b1.interact_boost(test.getcoorginateX(), test.getcoorginateY(),test));
 				hpbar_test.draw_hpbar(window);
 
+				GD.drawGD();
+				GD.interactGD(test.getcoorginateX(), test.getcoorginateY(), test);
+				GU.drawGU();
+				GU.interactGU(test.getcoorginateX(), test.getcoorginateY(), test);
+				SU.drawSU();
+				SU.interactSU(test.getcoorginateX(), test.getcoorginateY(), test);
+				spring.drawSpring();
+				spring.interactSpring(test.getcoorginateX(), test.getcoorginateY(), test);
 				
 				test.drawing_person();
 
