@@ -7,7 +7,7 @@ using namespace std;
 //int num_level = 1;
 
 
-RenderWindow window(sf::VideoMode(1200, 600), "Bounce"/*, sf::Style::None*/);//инициализируется объект окна игры
+RenderWindow window(sf::VideoMode(1200, 600), "Bounce", sf::Style::None);//инициализируется объект окна игры
 
 
 drawMap::drawMap() {//конструктор класса
@@ -43,7 +43,7 @@ void drawMap::drawing_level() {// функция отрисовки уровня
 				break;
 			}
 			case 'R': {
-				s_map.setTextureRect(IntRect(192, 0, 32, 32));
+				//s_map.setTextureRect(IntRect(192, 0, 32, 32));
 				break;
 			}
 			default:

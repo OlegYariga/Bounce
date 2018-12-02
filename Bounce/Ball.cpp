@@ -53,12 +53,12 @@ void Ball::drawing_person() {
 	{
 		if (InvertedGravity)
 		{
-			if (dy > -0.1)
+			if (dy > -0.4)
 			dy = dy - 0.0005*time;
 		}
 		else
 		{
-			if (dy < 0.1)
+			if (dy < 0.4)
 			dy = dy + 0.0005*time;
 		}
 

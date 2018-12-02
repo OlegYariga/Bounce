@@ -1,9 +1,72 @@
-﻿  main.cpp
+﻿  Ball.cpp
+Ball.cpp(34): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Ball.cpp(35): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Ball.cpp(41): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
+Ball.cpp(57): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+Ball.cpp(62): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+Ball.cpp(75): warning C4305: аргумент: усечение из "double" в "float"
+Ball.cpp(79): warning C4305: аргумент: усечение из "double" в "float"
+Ball.cpp(85): warning C4305: аргумент: усечение из "double" в "float"
+Ball.cpp(89): warning C4305: аргумент: усечение из "double" в "float"
+Ball.cpp(113): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(114): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(118): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(119): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(127): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(128): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(141): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(150): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(168): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Boost.cpp
+Boost.cpp(23): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(48): warning C4101: y: неиспользованная локальная переменная
+Boost.cpp(48): warning C4101: x: неиспользованная локальная переменная
+Boost.cpp(71): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+Boost.cpp(78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(102): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(157): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(196): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+Boost.cpp(264): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(288): warning C4101: y: неиспользованная локальная переменная
+Boost.cpp(288): warning C4101: x: неиспользованная локальная переменная
+Boost.cpp(316): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(317): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(318): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(319): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(320): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(364): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(365): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(366): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(367): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(368): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(413): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(414): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(415): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(416): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(417): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(441): warning C4305: аргумент: усечение из "double" в "float"
+Boost.cpp(442): warning C4305: аргумент: усечение из "double" в "float"
+Boost.cpp(464): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(465): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(466): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(467): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(468): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(491): warning C4305: аргумент: усечение из "double" в "float"
+  Camera.cpp
+  drawMaps.cpp
+drawMaps.cpp(67): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  main.cpp
 c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
-main.cpp(126): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+main.cpp(134): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+  Menu.cpp
+  wasp.cpp
+c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(15): warning C4305: инициализация: усечение из "double" в "float"
+wasp.cpp(33): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+wasp.cpp(35): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+wasp.cpp(36): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+wasp.cpp(66): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+wasp.cpp(67): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
   Создание кода
-  0 of 325 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  All 349 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
