@@ -121,3 +121,31 @@ public:
 	Sprite GU_sp;
 	int x, y;
 };
+
+class SpeedUp {
+public:
+	SpeedUp();
+	void findSU();
+	void drawSU();
+	void interactSU(float ballX,float ballY,Ball &ball);
+	list<float> SU_X;
+	list<float> SU_Y;
+	Image SU_im;
+	Texture SU_tx;
+	Sprite SU_sp;
+	int x, y;
+};
+
+class Spring {
+public:
+	Spring();
+	void findSpring();
+	void drawSpring();
+	void interactSpring(float ballX, float ballY, Ball &ball);
+	list<float> Spring_X;
+	list<float> Spring_Y;
+	Image Spring_im;
+	Texture Spring_tx;
+	Sprite Spring_sp;
+	int x, y;
+};

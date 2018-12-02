@@ -395,3 +395,102 @@ void GravityUp::interactGU(float ballX, float ballY, Ball &ball) {
 	}
 	//cout << "K v interact_boost = " << door.isOpen << endl;
 }
+
+SpeedUp::SpeedUp() {
+	SU_im.loadFromFile("powerup_bubble.png");
+	SU_im.createMaskFromColor(Color::White);
+	SU_tx.loadFromImage(SU_im);
+	SU_sp.setTexture(SU_tx);
+	SU_sp.setTextureRect(IntRect(0, 0, 32, 32));
+}
+
+void SpeedUp::findSU() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[i][j] == '7') {
+				x = 0;
+				y = 0;
+				SU_sp.setPosition(i * 32, j * 32);
+				x = SU_sp.getPosition().x;
+				y = SU_sp.getPosition().y;
+				SU_X.push_back(y);
+				SU_Y.push_back(x);
+
+				cout << "Added SpeedUp - coordinate";
+				cout << x << "===" << y << endl;
+			}
+		}
+	}
+}
+
+void SpeedUp::drawSU() {
+	auto iterY = SU_Y.begin();
+	for (auto iter = SU_X.begin(); iter != SU_X.end(); iter++) {
+		SU_sp.setPosition(*iter, *iterY);
+		iterY++;
+		window.draw(SU_sp);
+	}
+}
+
+void SpeedUp::interactSU(float ballX, float ballY, Ball &ball) {
+	auto iterY = SU_Y.begin();
+	for (auto iterX = SU_X.begin(); iterX != SU_X.end(); iterX++) {
+		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
+			cout << "SpeedUp" << endl;//????? ?????? ????????
+			if (Keyboard::isKeyPressed(Keyboard::Left))ball.KeyLeft(-0.7);
+			if (Keyboard::isKeyPressed(Keyboard::Right)) ball.KeyRight(0.7);
+			return;
+		}
+		iterY++;
+	}
+	//cout << "K v interact_boost = " << door.isOpen << endl;
+}
+
+Spring::Spring() {
+	Spring_im.loadFromFile("spring.png");
+	Spring_im.createMaskFromColor(Color::White);
+	Spring_tx.loadFromImage(Spring_im);
+	Spring_sp.setTexture(Spring_tx);
+	Spring_sp.setTextureRect(IntRect(0, 0, 32, 32));
+}
+
+void Spring::findSpring() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+			if (TileMap[i][j] == 'R') {
+				x = 0;
+				y = 0;
+				Spring_sp.setPosition(i * 32, j * 32);
+				x = Spring_sp.getPosition().x;
+				y = Spring_sp.getPosition().y;
+				Spring_X.push_back(y);
+				Spring_Y.push_back(x);
+
+				cout << "Added Spring - coordinate";
+				cout << x << "===" << y << endl;
+			}
+		}
+	}
+}
+
+void Spring::drawSpring() {
+	auto iterY = Spring_Y.begin();
+	for (auto iter = Spring_X.begin(); iter != Spring_X.end(); iter++) {
+		Spring_sp.setPosition(*iter, *iterY);
+		iterY++;
+		window.draw(Spring_sp);
+	}
+}
+
+void Spring::interactSpring(float ballX, float ballY, Ball &ball) {
+	auto iterY = Spring_Y.begin();
+	for (auto iterX = Spring_X.begin(); iterX != Spring_X.end(); iterX++) {
+		if (((ballX >= ((*iterX)-32)) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)-64) && (ballY <= (*iterY) + 32))) {
+			cout << "Spring" << endl;//????? ?????? ????????
+			if (Keyboard::isKeyPressed(Keyboard::Up))ball.KeyUp(-0.5);
+			return;
+		}
+		iterY++;
+	}
+	//cout << "K v interact_boost = " << door.isOpen << endl;
+}
