@@ -163,6 +163,8 @@ void Killer::move_spid(float time, float ballX, float ballY, Ball &ballhp)
 		k_rect.top = *iterY;
 		collision_K();
 
+		*iter = k_rect.left;
+		*iterY = k_rect.top;
 
 		if (((k_rect.left >= ((ballX))-30) && (k_rect.left <= ((ballX)+20))) && ((k_rect.top >= (ballY)-40) && (k_rect.top <= (ballY)+30))) {
 			cout << "k_rect.left=" << k_rect.left << endl;
@@ -188,13 +190,14 @@ void Killer::collision_K()
 			if (TileMap[int(k_rect.top / 32)][int((k_rect.left / 32) + 1)] == '0')
 			{
 				x *= -1; k_rect.left = k_rect.left - 20;
+
 			}
 			else if (TileMap[int(k_rect.top / 32)][int((k_rect.left / 32)-1)] == '0')
 			{
-				x *= -1; k_rect.left = k_rect.left + 20;
+				x *= -1; k_rect.left = k_rect.left + 10;
 			}
 
 		}
-
+	
 }
 
