@@ -54,7 +54,7 @@ int main()
 		map_level1.loadLevelFromFile(level_number);
 
 	
-	Spider spider("spider1.png", 'S', 0, 0, 45, 35);
+	Spider spider("spider1.png", 'S', 0, 0, 43, 48);
     Wasp wasp("wasp1.png", 'A', 0, 0, 35, 35);
 
 		if (menu_item == 1) {

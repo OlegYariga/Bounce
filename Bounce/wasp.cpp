@@ -58,14 +58,15 @@ void Killer::show_wasp()
 				k_rect.left = j * 32;
 				k_rect.top = i * 32;
 				
-				if (a = 'A')
+				if (a == 'A')
 				{
 					wasp_X.push_back(k_rect.left);
 					wasp_Y.push_back(k_rect.top);
+					//List_X.push_back(x);
 					
 				}
 
-				if (a = 'S')
+				if (a == 'S')
 				{
 					spid_X.push_back(k_rect.left);
 					spid_Y.push_back(k_rect.top);
@@ -126,7 +127,7 @@ void Killer::move_wasp(float time, float ballX, float ballY, Ball &ballhp)
 		collision_K();
 
 
-		if (((k_rect.left >= ((ballX))) && (k_rect.left <= ((ballX)+20))) && ((k_rect.top >= (ballY)) && (k_rect.top-20 <= (ballY) ))) {
+		if (((k_rect.left >= ((ballX)) - 30) && (k_rect.left <= ((ballX)+20))) && ((k_rect.top >= (ballY)-40) && (k_rect.top <= (ballY)+30))) {
 			cout << "k_rect.left=" << k_rect.left << endl;
 			cout << "k_rect.ballX=" << ballX << endl;
 			cout << "k_rect.top=" << k_rect.top << endl;
@@ -163,7 +164,7 @@ void Killer::move_spid(float time, float ballX, float ballY, Ball &ballhp)
 		collision_K();
 
 
-		if (((k_rect.left >= ((ballX))) && (k_rect.left <= ((ballX)+20))) && ((k_rect.top >= (ballY)) && (k_rect.top - 20 <= (ballY)))) {
+		if (((k_rect.left >= ((ballX))-30) && (k_rect.left <= ((ballX)+20))) && ((k_rect.top >= (ballY)-40) && (k_rect.top <= (ballY)+30))) {
 			cout << "k_rect.left=" << k_rect.left << endl;
 			cout << "k_rect.ballX=" << ballX << endl;
 			cout << "k_rect.top=" << k_rect.top << endl;
@@ -186,11 +187,11 @@ void Killer::collision_K()
 		{
 			if (TileMap[int(k_rect.top / 32)][int((k_rect.left / 32) + 1)] == '0')
 			{
-				x *= -1; k_rect.left = k_rect.left - 3;
+				x *= -1; k_rect.left = k_rect.left - 20;
 			}
-			else if (TileMap[int(k_rect.top / 32)][int((k_rect.left / 32))] == '0')
+			else if (TileMap[int(k_rect.top / 32)][int((k_rect.left / 32)-1)] == '0')
 			{
-				x *= -1; k_rect.left = k_rect.left + 3;
+				x *= -1; k_rect.left = k_rect.left + 20;
 			}
 
 		}
