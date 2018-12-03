@@ -12,8 +12,6 @@ using namespace sf;
 
 class Object {
 public:
-	int getX();
-	int getY();
 	float x, y;
 	String name;
 private:
@@ -22,9 +20,7 @@ private:
 class Boost :public Object {
 public:
 	Boost();
-	bool getBoost;
 	Sprite sprite_Boost;
-	void randomeBoostgenerator();
 	void findBoost();
 	void drawBoost();
 	int interact_boost(float ballX, float ballY, Ball &ballhp);
@@ -38,13 +34,11 @@ private:
 
 class Spike :public Object {
 public:
-	bool life;
 	Sprite sprite_Spike;
 	Spike();
 	void find_spike();
 	void draw_spike();
 	int interact(float ballX, float ballY, Ball &ballhp);
-	FloatRect rect_spike;
 private:
 	int hpcount;
 	Texture spike1;
@@ -60,7 +54,7 @@ public:
 	void findDoor();
 	void drawDoor();
 	bool interactDoor(float ballX, float ballY);
-	void openDoor(float time);
+	void openDoor();
 private:
 	list<float> doorX;
 	list<float> doorY;

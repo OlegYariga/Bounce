@@ -65,32 +65,12 @@ int Boost::interact_boost(float ballX, float ballY, Ball &ballhp) {
 	return hpcount;
 }
 
-void Boost::randomeBoostgenerator() {
-	int randomeX = 0;//????????? X
-	int randomeY = 0;//????????? Y
-	srand(time(0));
-	int countBoost = 5;
-	while (countBoost > 0) {
-		randomeX = 1 + rand() % (WIDTH_MAP - 1);//????????? ?? X ?? 1 ?? ???????????-1, ????? ?? ???????? ????? ??????? ?????
-		randomeY = 1 + rand() % (HEIGHT_MAP - 1);//?????????? ?? Y
-		if (TileMap[randomeX][randomeY] == ' ') {
-			TileMap[randomeX][randomeY] = '*';
-			sprite_Boost.setPosition(randomeX * 32, randomeY * 32);
-			x = sprite_Boost.getPosition().x;
-			countBoost--;
-		}
-		else {
-			countBoost--;
-		}
-	}
-}
 
 Spike::Spike() {
 	name = "Spike";
 	spike1.loadFromFile("SpikeUp_0.png");
 	sprite_Spike.setTexture(spike1);
 	sprite_Spike.setTextureRect(IntRect(0, 0, 32, 32));
-	rect_spike = FloatRect(0, 0, 32, 32);
 }
 
 void Spike::find_spike() {
@@ -189,14 +169,8 @@ bool Door::interactDoor(float ballX, float ballY) {
 	return false;
 }
 
-void Door::openDoor(float time) {
-
-	float CurrentFrame = 0;
-	if ((Keyboard::isKeyPressed(Keyboard::U))) {
-		CurrentFrame += 0.005*time;
-		if (CurrentFrame > 3) CurrentFrame = -3;
-		sprite_Door.setTextureRect(IntRect(0, 32 * int(CurrentFrame), 64, 32));
-	}
+void Door::openDoor() {
+	sprite_Door.setTextureRect(IntRect(0, 32, 64, 32));
 }
 
 HealthBar::HealthBar() {
@@ -291,6 +265,7 @@ void Key::interactKey(float ballX, float ballY, Door &door) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
 			cout << "Key" << endl;//????? ?????? ????????
 			door.isOpen = true;
+			door.openDoor();
 			key_X.remove(*iterX);
 			key_Y.remove(*iterY);
 			return;
