@@ -1,6 +1,17 @@
 #pragma once
 #include "Ball.h"
 #include <iostream>
+#include <SFML/Audio.hpp>
+
+sf::SoundBuffer buffer;
+sf::Sound sound_damage;
+
+sf::SoundBuffer bufferGravityOff;
+sf::Sound sound_gravity_off;
+
+sf::SoundBuffer bufferGravityOn;
+sf::Sound sound_gravity_on;
+
 
 
 Ball::Ball(){
@@ -21,10 +32,14 @@ Ball::Ball(){
 	dy = 0;
 	lifes = 4;
 
-	//!!!!!!!!!!!!!!!ОТ ОЛЕГА!!!!!!!!!!!!!!!!!!!!!!
-	//пример использования переменной с картой
-	//значение нужно только проверять через if. ИЗМЕНЯТЬ НЕ НАДО
-	//TileMap[0][0] = ' ';
+	buffer.loadFromFile("damage.ogg");// тут загружаем в буфер что то
+	sound_damage.setBuffer(buffer);
+
+	bufferGravityOff.loadFromFile("gravity_off.ogg");// тут загружаем в буфер что то
+	sound_gravity_off.setBuffer(bufferGravityOff);
+	
+	bufferGravityOn.loadFromFile("gravity_on.ogg");// тут загружаем в буфер что то
+	sound_gravity_on.setBuffer(bufferGravityOn);
 }
 
 void Ball::drawing_person() {
@@ -33,7 +48,6 @@ void Ball::drawing_person() {
 	int a, b;
 	a = sprite.getPosition().x;
 	b = sprite.getPosition().y;
-	//std::cout << a << " " << b << " " << dy << std::endl;
 
 	GetDefPos();
 
@@ -90,12 +104,7 @@ void Ball::drawing_person() {
 		}
 	}
 		
-
-	
-
 	if (Keyboard::isKeyPressed(Keyboard::D)) {
-		//rect.left = defrect.left;
-		//rect.top = defrect.top;
 		setInvertedGravity();
 	}
 	if (Keyboard::isKeyPressed(Keyboard::R)) {
@@ -173,18 +182,20 @@ void Ball::GetDefPos() {
 
 void Ball::setInvertedGravity()
 {
+	sound_gravity_on.play();
 	InvertedGravity = true;
 }
 
 void Ball::setNormalGravity()
 {
+	sound_gravity_off.play();
 	InvertedGravity = false;
 }
 
 void Ball::Damage() {
 	rect = defrect;
 	lifes--;
-	//std::cout << "WORK!";
+	sound_damage.play();
 }
 
 void Ball::Healing() {
@@ -216,6 +227,5 @@ float Ball::getcoorginateY() {
 }
 
 int Ball::getLife() {
-	//std::cout << lifes;
 	return lifes;
 }

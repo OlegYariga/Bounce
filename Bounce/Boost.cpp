@@ -26,8 +26,6 @@ void Boost::findBoost() {
 				boost_X.push_back(y);
 				boost_Y.push_back(x);
 
-				cout << "Added BOOST - coordinate";
-				cout << x << "===" << y << endl;
 			}
 		}
 	}
@@ -49,10 +47,9 @@ int Boost::interact_boost(float ballX, float ballY, Ball &ballhp) {
 	if (hpcount < 4) {
 		auto iterY = boost_Y.begin();
 		for (auto iterX = boost_X.begin(); iterX != boost_X.end(); iterX++) {
-			//std::cout << "X===" << *iterX << "Y===" << *iterY<<endl;
+			
 			if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-				cout << "Serdce" << endl;//????? ?????? ????????
-				//hpcount=ballhp.life++;
+				
 				ballhp.Healing();
 				boost_X.remove(*iterX);
 				boost_Y.remove(*iterY);
@@ -61,36 +58,16 @@ int Boost::interact_boost(float ballX, float ballY, Ball &ballhp) {
 			iterY++;
 		}
 	}
-	//cout << "K v interact_boost = " << hpcount << endl;
+	
 	return hpcount;
 }
 
-void Boost::randomeBoostgenerator() {
-	int randomeX = 0;//????????? X
-	int randomeY = 0;//????????? Y
-	srand(time(0));
-	int countBoost = 5;
-	while (countBoost > 0) {
-		randomeX = 1 + rand() % (WIDTH_MAP - 1);//????????? ?? X ?? 1 ?? ???????????-1, ????? ?? ???????? ????? ??????? ?????
-		randomeY = 1 + rand() % (HEIGHT_MAP - 1);//?????????? ?? Y
-		if (TileMap[randomeX][randomeY] == ' ') {
-			TileMap[randomeX][randomeY] = '*';
-			sprite_Boost.setPosition(randomeX * 32, randomeY * 32);
-			x = sprite_Boost.getPosition().x;
-			countBoost--;
-		}
-		else {
-			countBoost--;
-		}
-	}
-}
 
 Spike::Spike() {
 	name = "Spike";
 	spike1.loadFromFile("SpikeUp_0.png");
 	sprite_Spike.setTexture(spike1);
 	sprite_Spike.setTextureRect(IntRect(0, 0, 32, 32));
-	rect_spike = FloatRect(0, 0, 32, 32);
 }
 
 void Spike::find_spike() {
@@ -105,9 +82,7 @@ void Spike::find_spike() {
 				coordinateX.push_back(y);
 				coordinateY.push_back(x);
 
-				cout << "Added SPIKE - coordinate";
-				cout << x << endl;
-				//rect_spike = FloatRect(i, j, 32, 32);
+				
 			}
 		}
 	}
@@ -130,13 +105,13 @@ int Spike::interact(float ballX, float ballY, Ball &ballhp) {
 	auto iterY = coordinateY.begin();
 	for (auto iterX = coordinateX.begin(); iterX != coordinateX.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-			//std::cout << hpcount;
+			
 			ballhp.Damage();
 			return hpcount;
 		}
 		iterY++;
 	}
-	//cout <<"K v interact_spike = " <<hpcount << endl;
+	
 	return hpcount;
 }
 
@@ -159,8 +134,7 @@ void Door::findDoor() {
 				y = sprite_Door.getPosition().y;
 				doorX.push_back(y);
 				doorY.push_back(x);
-				cout << "Door" << endl;
-				cout << x << endl;
+				
 			}
 		}
 	}
@@ -180,7 +154,7 @@ bool Door::interactDoor(float ballX, float ballY) {
 	for (auto iterX = doorX.begin(); iterX != doorX.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 64))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
 			if (isOpen) {
-				cout << "Door" << endl;//????? ?????? ????????
+				
 				return true;
 			}
 		}
@@ -189,14 +163,8 @@ bool Door::interactDoor(float ballX, float ballY) {
 	return false;
 }
 
-void Door::openDoor(float time) {
-
-	float CurrentFrame = 0;
-	if ((Keyboard::isKeyPressed(Keyboard::U))) {
-		CurrentFrame += 0.005*time;
-		if (CurrentFrame > 3) CurrentFrame = -3;
-		sprite_Door.setTextureRect(IntRect(0, 32 * int(CurrentFrame), 64, 32));
-	}
+void Door::openDoor() {
+	sprite_Door.setTextureRect(IntRect(0, 32, 64, 32));
 }
 
 HealthBar::HealthBar() {
@@ -216,19 +184,19 @@ void HealthBar::update_hpbar(int k) {
 			{
 			case (1):
 				sprite_hpbar.setTextureRect(IntRect(0, 0, 32, 32));
-				//cout << "update srabotal" << endl;
+				
 				break;
 			case (2):
 				sprite_hpbar.setTextureRect(IntRect(0, 0, 64, 32));
-				//cout << "update srabotal" << endl;
+				
 				break;
 			case(3):
 				sprite_hpbar.setTextureRect(IntRect(0, 0, 96, 32));
-				//cout << "update srabotal" << endl;
+				
 				break;
 			case(4):
 				sprite_hpbar.setTextureRect(IntRect(0, 0, 128, 32));
-				//cout << "update srabotal" << endl;
+				
 				break;
 			}
 		}
@@ -243,13 +211,12 @@ void HealthBar::draw_hpbar(RenderWindow &window) {
 
 	window.draw(sprite_hpbar);
 
-	//cout << "draw srabotal" << endl;
 }
 
 Key::Key() {
 	name = "Key";
 	key_im.loadFromFile("key.png");
-	//key_im.createMaskFromColor(Color::White);
+	
 	key_tx.loadFromImage(key_im);
 	sprite_Key.setTexture(key_tx);
 	sprite_Key.setTextureRect(IntRect(0, 0, 32, 32));
@@ -267,8 +234,6 @@ void Key::findKey() {
 				key_X.push_back(y);
 				key_Y.push_back(x);
 
-				cout << "Added BOOST - coordinate";
-				cout << x << "===" << y << endl;
 			}
 		}
 	}
@@ -289,15 +254,16 @@ void Key::interactKey(float ballX, float ballY, Door &door) {
 	auto iterY = key_Y.begin();
 	for (auto iterX = key_X.begin(); iterX != key_X.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-			cout << "Key" << endl;//????? ?????? ????????
+			
 			door.isOpen = true;
+			door.openDoor();
 			key_X.remove(*iterX);
 			key_Y.remove(*iterY);
 			return;
 		}
 		iterY++;
 	}
-	//cout << "K v interact_boost = " << door.isOpen << endl;
+	
 }
 
 GravityDown::GravityDown() {
@@ -319,8 +285,6 @@ void GravityDown::findGD() {
 				GD_X.push_back(y);
 				GD_Y.push_back(x);
 
-				cout << "Added BOOST - coordinate";
-				cout << x << "===" << y << endl;
 			}
 		}
 	}
@@ -339,13 +303,13 @@ void GravityDown::interactGD(float ballX, float ballY, Ball &ball) {
 	auto iterY = GD_Y.begin();
 	for (auto iterX = GD_X.begin(); iterX != GD_X.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-			cout << "GravityDown" << endl;//????? ?????? ????????
+			
 			ball.setNormalGravity();
 			return;
 		}
 		iterY++;
 	}
-	//cout << "K v interact_boost = " << door.isOpen << endl;
+	
 }
 
 GravityUp::GravityUp() {
@@ -367,8 +331,6 @@ void GravityUp::findGU() {
 				GU_X.push_back(y);
 				GU_Y.push_back(x);
 
-				cout << "Added BOOST - coordinate";
-				cout << x << "===" << y << endl;
 			}
 		}
 	}
@@ -387,13 +349,13 @@ void GravityUp::interactGU(float ballX, float ballY, Ball &ball) {
 	auto iterY = GU_Y.begin();
 	for (auto iterX = GU_X.begin(); iterX != GU_X.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-			cout << "GravityUp" << endl;//????? ?????? ????????
+			
 			ball.setInvertedGravity();
 			return;
 		}
 		iterY++;
 	}
-	//cout << "K v interact_boost = " << door.isOpen << endl;
+	
 }
 
 SpeedUp::SpeedUp() {
@@ -416,8 +378,7 @@ void SpeedUp::findSU() {
 				SU_X.push_back(y);
 				SU_Y.push_back(x);
 
-				cout << "Added SpeedUp - coordinate";
-				cout << x << "===" << y << endl;
+				
 			}
 		}
 	}
@@ -436,7 +397,6 @@ void SpeedUp::interactSU(float ballX, float ballY, Ball &ball) {
 	auto iterY = SU_Y.begin();
 	for (auto iterX = SU_X.begin(); iterX != SU_X.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)) && (ballY <= (*iterY) + 32))) {
-			cout << "SpeedUp" << endl;//????? ?????? ????????
 			
 			if (Keyboard::isKeyPressed(Keyboard::Left)) ball.KeyLeft(-0.8);
 			if (Keyboard::isKeyPressed(Keyboard::Right)) ball.KeyRight(0.8);
@@ -444,7 +404,7 @@ void SpeedUp::interactSU(float ballX, float ballY, Ball &ball) {
 		}
 		iterY++;
 	}
-	//cout << "K v interact_boost = " << door.isOpen << endl;
+	
 }
 
 Spring::Spring() {
@@ -467,8 +427,6 @@ void Spring::findSpring() {
 				Spring_X.push_back(y);
 				Spring_Y.push_back(x);
 
-				cout << "Added Spring - coordinate";
-				cout << x << "===" << y << endl;
 			}
 		}
 	}
@@ -487,11 +445,11 @@ void Spring::interactSpring(float ballX, float ballY, Ball &ball) {
 	auto iterY = Spring_Y.begin();
 	for (auto iterX = Spring_X.begin(); iterX != Spring_X.end(); iterX++) {
 		if (((ballX >= ((*iterX))) && (ballX <= ((*iterX) + 32))) && ((ballY >= (*iterY)-64) && (ballY <= (*iterY) + 32))) {
-			cout << "Spring" << endl;//????? ?????? ????????
-			/*if (Keyboard::isKeyPressed(Keyboard::Up))*/ball.KeyUp(-0.8);
+			
+			ball.KeyUp(-0.8);
 			return;
 		}
 		iterY++;
 	}
-	//cout << "K v interact_boost = " << door.isOpen << endl;
+	
 }

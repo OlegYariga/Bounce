@@ -29,6 +29,7 @@ int main()
 {
 	sf::Music Main_theme;
 	Main_theme.openFromFile("Main_theme.WAV");
+	Main_theme.setVolume(50);
 	Main_theme.setLoop(true);
 	Main_theme.play();
 
@@ -39,18 +40,15 @@ int main()
 	0 - красные кирпичи (смещение = 96пкс в файле с рисунками)
 	' ' - коричневый "фон" (смещение = 0пкс)
 	R - резиновые плитки
-	b - "жуки" - место, которое должен занимать жук (в пределах которого он должен двигатьс€)
-	A - место по€влени€ жука на карте
+	A - место по€влени€ осы на карте
+	7 - ускорение
+	8 - переключение гравитации
+	2 - возврат на норм. гравитацию
+	^ - шипик
+	* - сердце
+	B - по€вление шарика
+	F - место по€влени€ паука на карте
 	*/
-
-
-	// Clock clock1;    //врем€ игры
-	// int time,time_game;
-	// time= clock1.getElapsedTime().asMicroseconds();
-	// time = time / 800;
-	// time_game += time;
-
-
 
 		drawMap map_level1; // объ€вление объекта "уровень" отвечающего за начальную загрузку карты
 		Ball test;
@@ -73,15 +71,8 @@ int main()
 		menu_item = startMenu();//выводим меню
 		map_level1.loadLevelFromFile(level_number);
 
-		/*Wasp* arr_wasp[2];
-		for (int i = 1; i < 3; i++) {
-			arr_wasp[i] = new Wasp;
-		}*/
-
-		Wasp wasp1;
-
-
-		//wasp1.show_wasp();//выводим осу в начальное положение
+		Spider spider("spider1.png", 'S', 0, 0, 43, 48);
+		Wasp wasp("wasp1.png", 'A', 0, 0, 35, 35);
 
 		if (menu_item == 1) {
 			spike_test.find_spike();
@@ -122,13 +113,8 @@ int main()
 				/////////////////////////////////////////////////////////////////////
 
 				
-				map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
-
-
-
-
-				//window.draw(wasp1.killer_wasp);
-				
+				/*ќЋ≈√*/map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
+				/* ј“я*/
 				Clock clock;    //врем€ игры
 				
 				float time = clock.getElapsedTime().asMicroseconds();
@@ -136,21 +122,17 @@ int main()
 				time = time / 800;
 
 
-				//test.drawing_person();
+				wasp.drawWasp();
+				wasp.move_wasp(time, test.getcoorginateX(), test.getcoorginateY(), test);
 
+				spider.drawSpider();
+				spider.move_spid(time, test.getcoorginateX(), test.getcoorginateY(), test);
 
-				
-				/*arr_wasp[1]->move_wasp(time);
-				window.draw(arr_wasp[1]->killer_wasp);*/
-
-				wasp1.move_wasp(time);
-				window.draw(wasp1.killer_wasp);
-
-				
+				/*ќЋ≈√*/
 				cam.changeCameraPosition(test.getcoorginateX(), test.getcoorginateY());
 
 				
-				
+				/*»Ћ№я*/
 				spike_test.draw_spike();
 				
 				door_test.drawDoor();
@@ -176,6 +158,10 @@ int main()
 				spring.drawSpring();
 				spring.interactSpring(test.getcoorginateX(), test.getcoorginateY(), test);
 				
+				/*-----»Ћ№я----*/
+
+
+				/*јЌ“ќЌ*/
 				test.drawing_person();
 
 				window.display();//вывод всех изображений на экран
@@ -200,11 +186,9 @@ int main()
 
 		}
 		if (menu_item == 3) {
-			//showInfo();
 		}
 
-		//system("pause");
-		// в дальнейшем, нужно переместить 
+		
 	}
 	while (menu_item!=4);
 	return 0;
