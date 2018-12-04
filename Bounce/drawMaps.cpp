@@ -70,7 +70,7 @@ void drawMap::loadLevelFromFile(int num_level) {
 }
 
 
-String TileMap[HEIGHT_MAP] = {// определение карты (В БУДУЩЕМ СДЕЛАТЬ ЗАГРУЗКУ ИЗ ФАЙЛА)
+String TileMap[HEIGHT_MAP] = {// определение карты (объявление и инициализация, на случай, если загрузка не сработает)
 	"bbbbbbbbbbbbbbbbbbb0bbbbbbbbbbbbbbbbbbb0",
 	"0000000000000000000++++++++            0",
 	"0      000000000000                    0",

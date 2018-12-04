@@ -12,7 +12,8 @@ sf::Sound sound_gravity_off;
 sf::SoundBuffer bufferGravityOn;
 sf::Sound sound_gravity_on;
 
-
+sf::SoundBuffer bhill;
+sf::Sound hill;
 
 Ball::Ball(){
 	
@@ -40,6 +41,9 @@ Ball::Ball(){
 	
 	bufferGravityOn.loadFromFile("gravity_on.ogg");// тут загружаем в буфер что то
 	sound_gravity_on.setBuffer(bufferGravityOn);
+
+	bhill.loadFromFile("hellig.ogg");// тут загружаем в буфер что то
+	hill.setBuffer(bhill);
 }
 
 void Ball::drawing_person() {
@@ -199,6 +203,7 @@ void Ball::Damage() {
 }
 
 void Ball::Healing() {
+	hill.play();
 	lifes++;
 }
 

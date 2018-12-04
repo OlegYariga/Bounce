@@ -96,7 +96,6 @@ int startMenu() {
 
 			if (IntRect(100, 50, 223, 50).contains(Mouse::getPosition(window)))
 			{
-				//std::cout << "CHF<JNFHJ";
 				//выходим в функцию main, чтобы запустить игру::
 				return 1;
 				break;
@@ -112,7 +111,7 @@ int startMenu() {
 
 			if (IntRect(100, 250, 147, 50).contains(Mouse::getPosition(window)))
 			{
-				//будем выполнять какую-то другую функцию. Пока просто подкрасим в красный цвет пункт
+				//показывам пункт info
 				sp_info.setColor(Color::Yellow);
 				showInfo();
 				return 3;
@@ -125,33 +124,22 @@ int startMenu() {
 				sp_exit.setColor(Color::Green);
 				return 4;
 				break;
-				//
-				//
 			}
 
-
-			/*if (event.mouseButton.button == sf::Mouse::Right)
-			{
-			break;
-			}*/
 		}
 
 		window.clear();//очищаем экран
-
+		//вывод фона
 		window.draw(start_sprite);
-
+		//вывод пунктов меню
 		window.draw(sp_start);
 		window.draw(sp_option);
 		window.draw(sp_info);
 		window.draw(sp_exit);
-
+		//прорисовка на экране
 		window.display();//вывод всех изображений на экран
 	}
 
-
-
-
-	//выход из функции
 	return 0;
 }
 
@@ -184,18 +172,9 @@ int showInfo() {
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 			return 0;
 		}
-
-			/*if (event.mouseButton.button == sf::Mouse::Right)
-			{
-			break;
-			}*/
 		
-
 		window.clear();//очищаем экран
-
 		window.draw(start_sprite);
-
-
 		window.display();//вывод всех изображений на экран
 	}
 	return 0;
@@ -212,13 +191,11 @@ bool showOptions(bool playing) {
 	start_sprite.setPosition(0, 0);
 
 	im_check_on.loadFromFile("check_on.png");
-	//im_check_on.createMaskFromColor(Color::White);
 	tx_check_on.loadFromImage(im_check_on);
 	sp_check_on.setTexture(tx_check_on);
 	sp_check_on.setPosition(580, 187);
 	
 	im_check_off.loadFromFile("check_off.png");
-	//im_check_off.createMaskFromColor(Color::White);
 	tx_check_off.loadFromImage(im_check_off);
 	sp_check_off.setTexture(tx_check_off);
 	sp_check_off.setPosition(580, 187);
@@ -257,8 +234,6 @@ bool showOptions(bool playing) {
 				else {
 					check_stats = true;
 				}
-				//window.draw(sp_check_on);
-				//check_stats = true;
 
 			}
 			window.display();
@@ -269,10 +244,6 @@ bool showOptions(bool playing) {
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 			return check_stats;
 		}
-		/*if (event.mouseButton.button == sf::Mouse::Right)
-		{
-		break;
-		}*/
 		
 		window.display();
 		//вывод всех изображений на экран
