@@ -6,9 +6,10 @@
 #include "engine.h"
 #include "Ball.h"
 #include "Boost.h"
-#include "wasp.h"
 #include "Camera.h"
 #include "Menu.h"
+
+#include "enemy.h"
 
 
 //¬ будущем вынести это из MAIN
@@ -49,9 +50,30 @@ int main()
 	B - по€вление шарика
 	F - место по€влени€ паука на карте
 	*/
-
+		std::list<enemy*> enemys;//для списка с врагами
+		std::list<enemy*>::iterator bb;
+		
+		
 		drawMap map_level1; // объ€вление объекта "уровень" отвечающего за начальную загрузку карты
+		map_level1.loadLevelFromFile(level_number);
+		
+		
 		Ball test;
+		
+		for (int i = 0; i < HEIGHT_MAP; i++) {
+			for (int j = 0; j < WIDTH_MAP; j++) {
+
+				if (TileMap[i][j] == 'A') {
+
+					enemys.push_back(new bee(j, i));
+					cout << i << "   " << j << endl;
+
+
+				}
+			}
+		}
+		
+		
 		Boost b1;
 		Camera cam;
 		Spike spike_test;
@@ -69,10 +91,9 @@ int main()
 		window.clear();//очищаем экран
 
 		menu_item = startMenu();//выводим меню
-		map_level1.loadLevelFromFile(level_number);
 
-		Spider spider("spider1.png", 'S', 0, 0, 43, 48);
-		Wasp wasp("wasp1.png", 'A', 0, 0, 35, 35);
+		//Spider spider("spider1.png", 'S', 0, 0, 43, 48);
+		//Wasp wasp("wasp1.png", 'A', 0, 0, 35, 35);
 
 		if (menu_item == 1) {
 			spike_test.find_spike();
@@ -115,7 +136,7 @@ int main()
 				
 				/*ќЋ≈√*/map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
 				/* ј“я*/
-				Clock clock;    //врем€ игры
+				/*Clock clock;    //врем€ игры
 				
 				float time = clock.getElapsedTime().asMicroseconds();
 				clock.restart();
@@ -127,7 +148,7 @@ int main()
 
 				spider.drawSpider();
 				spider.move_spid(time, test.getcoorginateX(), test.getcoorginateY(), test);
-
+*/
 				/*ќЋ≈√*/
 				cam.changeCameraPosition(test.getcoorginateX(), test.getcoorginateY());
 
@@ -159,13 +180,17 @@ int main()
 				spring.interactSpring(test.getcoorginateX(), test.getcoorginateY(), test);
 				
 				/*-----»Ћ№я----*/
-
+				// ј“я
+				for (bb = enemys.begin(); bb != enemys.end(); bb++) {
+					(*bb)->drawing();
+				}
 
 				/*јЌ“ќЌ*/
 				test.drawing_person();
 
 				window.display();//вывод всех изображений на экран
 				if (test.getLife() <= 0) {
+					
 					level_number = 2;
 					break;
 				}

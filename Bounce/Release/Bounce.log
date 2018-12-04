@@ -52,28 +52,17 @@ Boost.cpp(449): warning C4305: аргумент: усечение из "double" 
   Camera.cpp
   drawMaps.cpp
 drawMaps.cpp(50): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  enemy.cpp
+enemy.cpp(7): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+enemy.cpp(8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+enemy.cpp(12): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+enemy.cpp(13): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+enemy.cpp(26): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+enemy.cpp(27): warning C4305: =: усечение из "double" в "float"
+enemy.cpp(32): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
   main.cpp
-c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(24): warning C4305: инициализация: усечение из "double" в "float"
-main.cpp(120): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
   Menu.cpp
-  wasp.cpp
-c:\users\doc\desktop\bounce\bounce\bounce\wasp.h(24): warning C4305: инициализация: усечение из "double" в "float"
-wasp.cpp(16): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(17): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(20): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(27): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(36): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(54): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(55): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(58): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(59): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-wasp.cpp(122): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(123): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(159): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(160): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(187): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-wasp.cpp(188): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
   Создание кода
-  All 375 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 428 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe
