@@ -5,4 +5,4 @@
 
 int startMenu();
 int showInfo();
-int playMusic();
+bool showOptions(bool playing);
