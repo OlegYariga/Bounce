@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -6,7 +7,9 @@
 #include "Ball.h"
 #include "Boost.h"
 #include "wasp.h"
-
+#include "Camera.h"
+#include "Menu.h"
+#include "enemy.h"
 
 //В будущем вынести это из MAIN
 
@@ -17,13 +20,21 @@
 #endif // 
 
 int menu_item = 0;
+int level_number = 2;
 
-int startMenu();//прототип функции меню
 Clock clock1;
+
+
 
 //using namespace sf;  пространство имен
 int main()
 {
+	sf::Music Main_theme;
+	Main_theme.openFromFile("Main_theme.WAV");
+	Main_theme.setVolume(50);
+	Main_theme.setLoop(true);
+	Main_theme.play();
+
 	do { //глвный цикл программы (от вывода меню до завершения игры)
 
 	/*Описание массива, содержащего карту уровня:
@@ -31,36 +42,70 @@ int main()
 	0 - красные кирпичи (смещение = 96пкс в файле с рисунками)
 	' ' - коричневый "фон" (смещение = 0пкс)
 	R - резиновые плитки
-	b - "жуки" - место, которое должен занимать жук (в пределах которого он должен двигаться)
-	A - место появления жука на карте
+	A - место появления осы на карте
+	7 - ускорение
+	8 - переключение гравитации
+	2 - возврат на норм. гравитацию
+	^ - шипик
+	* - сердце
+	B - появление шарика
+	F - место появления паука на карте
 	*/
 
-
-	// Clock clock1;    //время игры
-	// int time,time_game;
-	// time= clock1.getElapsedTime().asMicroseconds();
-	// time = time / 800;
-	// time_game += time;
-
-
+		std::list<enemy*> enemys;
+		std::list<enemy*>::iterator bb;
 
 		drawMap map_level1; // объявление объекта "уровень" отвечающего за начальную загрузку карты
+		map_level1.loadLevelFromFile(level_number);
+		
 		Ball test;
-		Wasp wasp1;
+	
+		for (int i = 0; i < HEIGHT_MAP; i++) {
+			for (int j = 0; j < WIDTH_MAP; j++) {
+
+				if (TileMap[i][j] == 'A') {
+
+					enemys.push_back(new bee(j, i));
+					cout << i << "   " << j << endl;
+
+
+				}
+			}
+		}
+
+
+
+
 		Boost b1;
+		Camera cam;
+		Spike spike_test;
+		Door door_test;
+		HealthBar hpbar_test;
+		Key key;
+		GravityDown GD;
+		GravityUp GU;
+		SpeedUp SU;
+		Spring spring;
+		//музыка
 
-		/* //музыка
+		
+		window.setView(window.getDefaultView());//устанавливаем стандартное положение экрана
+		window.clear();//очищаем экран
 
-		sf::Music Main_theme;
-		Main_theme.openFromFile("Main_theme.WAV");
-		Main_theme.setLoop(true);
-		Main_theme.play();*/
+		menu_item = startMenu();//выводим меню
+		map_level1.loadLevelFromFile(level_number);
 
-
-		startMenu();
+	
 
 		if (menu_item == 1) {
-
+			spike_test.find_spike();
+			b1.findBoost();
+			door_test.findDoor();
+			key.findKey();
+			GD.findGD();
+			GU.findGU();
+			SU.findSU();
+			spring.findSpring();
 			while (window.isOpen())
 			{
 				sf::Event event;
@@ -71,7 +116,15 @@ int main()
 						menu_item = 4;
 					}
 				}
+				if (Keyboard::isKeyPressed(Keyboard::Escape)) {//выход в меню при нажатии клавиши Ecsape
+					
+					window.setView(window.getDefaultView());
+					window.clear();
+					window.display();
+					break;
+				}
 
+				window.setView(cam.ball_camera);//устанавливаем камеру
 				window.clear();//очищаем экран
 
 
@@ -82,183 +135,86 @@ int main()
 				/////////////////////////////////////////////////////////////////////
 				/////////////////////////////////////////////////////////////////////
 
-				map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
+				
+				/*ОЛЕГ*/map_level1.drawing_level();// вызываем метод вывода карты на экран (бесконечный цикл прорисовки)
+				/*КАТЯ*/
+
+			
+				/*ОЛЕГ*/
+				cam.changeCameraPosition(test.getcoorginateX(), test.getcoorginateY());
+
+				
+				/*ИЛЬЯ*/
+				spike_test.draw_spike();
+				
+				door_test.drawDoor();
+				bool doorIsOpen = door_test.interactDoor(test.getcoorginateX(), test.getcoorginateY());
+
+				
+				b1.drawBoost();
+				b1.interact_boost(test.getcoorginateX(), test.getcoorginateY(), test);
+				
+				key.drawKey();
+				key.interactKey(test.getcoorginateX(), test.getcoorginateY(), door_test);
+				
+				hpbar_test.update_hpbar(spike_test.interact(test.getcoorginateX(),test.getcoorginateY(),test));
+				hpbar_test.update_hpbar(b1.interact_boost(test.getcoorginateX(), test.getcoorginateY(),test));
+				hpbar_test.draw_hpbar(window);
+
+				GD.drawGD();
+				GD.interactGD(test.getcoorginateX(), test.getcoorginateY(), test);
+				GU.drawGU();
+				GU.interactGU(test.getcoorginateX(), test.getcoorginateY(), test);
+				SU.drawSU();
+				SU.interactSU(test.getcoorginateX(), test.getcoorginateY(), test);
+				spring.drawSpring();
+				spring.interactSpring(test.getcoorginateX(), test.getcoorginateY(), test);
+				
+				/*-----ИЛЬЯ----*/
 
 
-
-
-				window.draw(wasp1.killer_wasp);
-
-
-				wasp1.move_wasp();
+				/*АНТОН*/
 				test.drawing_person();
 
 
+				
+				for (bb = enemys.begin(); bb != enemys.end(); bb++) {
+					(*bb)->drawing();
+				}
 
-				window.draw(b1.sprite);
+
+				
+				
+
+
 
 				window.display();//вывод всех изображений на экран
+				if (test.getLife() <= 0) {
+					level_number = 2;
+					break;
+				}
+				
+				if (doorIsOpen) {
+					level_number++;
+					break;
+				}
 			}
 		}
 		if (menu_item == 2) {
-			
+			if (showOptions(Main_theme.getStatus())) {
+				Main_theme.play();
+			}
+			else {
+				Main_theme.stop();
+			}
+
 		}
 		if (menu_item == 3) {
-			
 		}
 
-		//system("pause");
-		// в дальнейшем, нужно переместить 
+		
 	}
 	while (menu_item!=4);
 	return 0;
 }
 
-//функция вывода главного меню. 
-//переменная menu_item - хранит выбранный параметр меню
-int startMenu() {
-	Image im_start, im_exit, im_option, im_info;
-	Texture start_text,tx_start,tx_exit,tx_option,tx_info;
-	Sprite start_sprite, sp_start, sp_exit, sp_option, sp_info;
-
-	start_text.loadFromFile("screensaver.jpg");
-	start_sprite.setTexture(start_text);
-	start_sprite.setPosition(0, 0);
-
-	//вывод пунктов меню
-
-	im_start.loadFromFile("menu_start.png");
-	im_start.createMaskFromColor(im_start.getPixel(0, 0));
-	tx_start.loadFromImage(im_start);
-	sp_start.setTexture(tx_start);
-	sp_start.setPosition(100,50);
-
-
-
-	im_option.loadFromFile("menu_options.png");
-	im_option.createMaskFromColor(im_option.getPixel(0, 0));
-	tx_option.loadFromImage(im_option);
-	sp_option.setTexture(tx_option);
-	sp_option.setPosition(100, 150);
-
-
-	im_info.loadFromFile("menu_info.png");
-	im_info.createMaskFromColor(im_info.getPixel(0, 0));
-	tx_info.loadFromImage(im_info);
-	sp_info.setTexture(tx_info);
-	sp_info.setPosition(100, 250);
-
-	im_exit.loadFromFile("menu_exit.png");
-	im_exit.createMaskFromColor(im_exit.getPixel(0, 0));
-	tx_exit.loadFromImage(im_exit);
-	sp_exit.setTexture(tx_exit);
-	sp_exit.setPosition(100, 350);
-
-
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed) {
-				window.close();
-				menu_item = 4;
-			}
-		}
-		//подкрашиваем пункты меню при наведении
-		{
-			if (IntRect(100, 50, 223, 50).contains(Mouse::getPosition(window)))
-			{
-				sp_start.setColor(Color::Blue);
-			}
-			else {
-				sp_start.setColor(Color::White);
-			}
-			
-			if (IntRect(100, 150, 266, 50).contains(Mouse::getPosition(window)))
-			{
-				sp_option.setColor(Color::Blue);
-			}
-			else {
-				sp_option.setColor(Color::White);
-			}
-
-			if (IntRect(100, 250, 147, 50).contains(Mouse::getPosition(window)))
-			{
-				sp_info.setColor(Color::Blue);
-			}
-			else {
-				sp_info.setColor(Color::White);
-			}
-
-			if (IntRect(100, 350, 163, 50).contains(Mouse::getPosition(window)))
-			{
-				sp_exit.setColor(Color::Blue);
-			}
-			else {
-				sp_exit.setColor(Color::White);
-			}
-
-		}
-
-		if (event.type == sf::Event::MouseButtonPressed)
-		{
-
-			if (IntRect(100, 50, 223, 50).contains(Mouse::getPosition(window))) 
-			{ 
-				//выходим в функцию main, чтобы запустить игру::
-				menu_item = 1;
-				break;
-			}
-
-			if (IntRect(100, 150, 266, 50).contains(Mouse::getPosition(window)))
-			{
-				//будем выполнять какую-то другую функцию. Пока просто подкрасим в красный цвет пункт
-				sp_option.setColor(Color::Red);
-				menu_item = 2;
-				break;
-			}
-
-			if (IntRect(100, 250, 147, 50).contains(Mouse::getPosition(window)))
-			{
-				//будем выполнять какую-то другую функцию. Пока просто подкрасим в красный цвет пункт
-				sp_info.setColor(Color::Yellow);
-				menu_item = 3;
-				break;
-			}
-
-			if (IntRect(100, 350, 163, 50).contains(Mouse::getPosition(window)))
-			{
-				//будем выполнять какую-то другую функцию. Пока просто подкрасим в красный цвет пункт
-				sp_exit.setColor(Color::Green);
-				menu_item = 4;
-				break;
-				//
-				//
-			}
-
-
-			/*if (event.mouseButton.button == sf::Mouse::Right)
-			{
-				break;
-			}*/
-		}
-
-		window.clear();//очищаем экран
-
-		window.draw(start_sprite);
-
-		window.draw(sp_start);
-		window.draw(sp_option);
-		window.draw(sp_info);
-		window.draw(sp_exit);
-
-		window.display();//вывод всех изображений на экран
-	}
-
-
-
-
-//выход из функции
-	return 0;
-}
