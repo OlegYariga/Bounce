@@ -68,7 +68,6 @@ int main()
 					enemys.push_back(new bee(j, i));
 					cout << i << "   " << j << endl;
 
-
 				}
 			}
 		}
@@ -183,6 +182,9 @@ int main()
 				// ¿“ﬂ
 				for (bb = enemys.begin(); bb != enemys.end(); bb++) {
 					(*bb)->drawing();
+					FloatRect ff = (*bb)->FL();
+					bee::Bullet bullet(ff);
+					bullet.drawing();
 				}
 
 				/*¿Õ“ŒÕ*/

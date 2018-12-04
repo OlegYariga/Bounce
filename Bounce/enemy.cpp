@@ -41,3 +41,45 @@ void bee::drawing() {
 	
 	window.draw(sprite);
 }
+
+FloatRect enemy::FL() {
+	return rect;
+}
+
+
+enemy::Bullet::Bullet(FloatRect rect) {
+	bullet_rect = rect;
+	std::cout << bullet_rect.left<< bullet_rect.top;
+	life = true;
+	t.loadFromFile("bullet.png");
+	sprite.setTexture(t);
+	dx = -0.1;
+}
+
+void enemy::Bullet::drawing() {
+	time = clock.getElapsedTime().asMicroseconds();
+	clock.restart();
+	time = time / 400;
+	sprite.setPosition(bullet_rect.left, bullet_rect.top);
+	bullet_rect.left = bullet_rect.left + dx * time;
+	collisionBullet();
+
+	window.draw(sprite);
+}
+
+void enemy::Bullet::collisionBullet() {
+
+	for (int i = (bullet_rect.top) / 32; i < (bullet_rect.top + 32) / 32; i++)
+		for (int j = (bullet_rect.left) / 32; j < (bullet_rect.left + 32) / 32; j++)
+		{
+			if (TileMap[i][j] == '0')
+			{
+				life = false;
+			}
+		}
+
+}
+
+enemy::Bullet::~Bullet() {
+	
+}
