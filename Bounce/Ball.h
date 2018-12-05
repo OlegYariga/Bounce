@@ -20,6 +20,8 @@ public:
 	float getcoorginateY();
 	void setInvertedGravity();
 	void setNormalGravity();
+	void SetDefPos();
+	FloatRect GetRect();
 	int getLife();
 private:
 	Image pers;

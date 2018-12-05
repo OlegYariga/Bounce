@@ -24,7 +24,7 @@ bee::bee(int x, int y) {
 	sprite.setTexture(t);
 	sprite.setTextureRect(IntRect(0, 0, 32, 32));
 	rect = FloatRect(x*32, y*32, 0, 0);
-	dx = -0.1;
+	dx = -0.05;
 	
 }
 
@@ -45,15 +45,19 @@ void bee::drawing() {
 FloatRect enemy::FL() {
 	return rect;
 }
+float enemy::DX() {
+	return dx;
+}
 
-
-enemy::Bullet::Bullet(FloatRect rect) {
+enemy::Bullet::Bullet(FloatRect rect, float loc_dx) {
 	bullet_rect = rect;
-	std::cout << bullet_rect.left<< bullet_rect.top;
+	//std::cout << bullet_rect.left<< bullet_rect.top;
 	life = true;
-	t.loadFromFile("bullet.png");
+	im.loadFromFile("bullet.png");
+	im.createMaskFromColor(Color::Black);
+	t.loadFromImage(im);
 	sprite.setTexture(t);
-	dx = -0.1;
+	dx = loc_dx*(-3);
 }
 
 void enemy::Bullet::drawing() {
@@ -83,3 +87,11 @@ void enemy::Bullet::collisionBullet() {
 enemy::Bullet::~Bullet() {
 	
 }
+
+void enemy::Bullet::destroyBall(Ball &ball) {
+		if ((((ball.getcoorginateX()) >= ((bullet_rect.left))) && ((ball.getcoorginateX()) <= ((bullet_rect.left)+10))) && (((ball.getcoorginateY()) >= (bullet_rect.top)) && ((ball.getcoorginateY()) <= (bullet_rect.top) + 32))) {
+			life = false;
+			ball.Damage();
+			return;
+		}
+	}
