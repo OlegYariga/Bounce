@@ -19,37 +19,37 @@ Ball.cpp(163): warning C4244: =: преобразование "int" в "float", 
 Ball.cpp(181): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 Ball.cpp(193): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Boost.cpp
-Boost.cpp(23): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(46): warning C4101: y: неиспользованная локальная переменная
-Boost.cpp(46): warning C4101: x: неиспользованная локальная переменная
-Boost.cpp(79): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(132): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(231): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(253): warning C4101: y: неиспользованная локальная переменная
-Boost.cpp(253): warning C4101: x: неиспользованная локальная переменная
-Boost.cpp(282): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(283): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Boost.cpp(284): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Boost.cpp(285): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-Boost.cpp(286): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-Boost.cpp(328): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(329): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Boost.cpp(330): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Boost.cpp(331): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-Boost.cpp(332): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-Boost.cpp(375): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(376): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Boost.cpp(377): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Boost.cpp(378): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-Boost.cpp(379): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-Boost.cpp(401): warning C4305: аргумент: усечение из "double" в "float"
-Boost.cpp(402): warning C4305: аргумент: усечение из "double" в "float"
-Boost.cpp(424): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Boost.cpp(425): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Boost.cpp(426): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Boost.cpp(427): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-Boost.cpp(428): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
-Boost.cpp(449): warning C4305: аргумент: усечение из "double" в "float"
+Boost.cpp(26): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(49): warning C4101: y: неиспользованная локальная переменная
+Boost.cpp(49): warning C4101: x: неиспользованная локальная переменная
+Boost.cpp(82): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(136): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(238): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(260): warning C4101: y: неиспользованная локальная переменная
+Boost.cpp(260): warning C4101: x: неиспользованная локальная переменная
+Boost.cpp(290): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(291): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(292): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(293): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(294): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(336): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(337): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(338): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(339): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(340): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(383): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(384): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(385): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(386): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(387): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(409): warning C4305: аргумент: усечение из "double" в "float"
+Boost.cpp(410): warning C4305: аргумент: усечение из "double" в "float"
+Boost.cpp(432): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Boost.cpp(433): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(434): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Boost.cpp(435): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(436): warning C4244: аргумент: преобразование "int" в "const float", возможна потеря данных
+Boost.cpp(457): warning C4305: аргумент: усечение из "double" в "float"
   Camera.cpp
   drawMaps.cpp
 drawMaps.cpp(50): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
@@ -67,6 +67,6 @@ enemy.cpp(77): warning C4244: инициализация: преобразова
   main.cpp
   Menu.cpp
   Создание кода
-  All 508 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 512 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe

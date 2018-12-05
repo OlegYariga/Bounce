@@ -5,6 +5,9 @@
 #include <vector>
 #include <list>
 
+sf::SoundBuffer b_openDoor;
+sf::Sound s_openDoor;
+
 Boost::Boost() {
 	name = "Buff";
 	buff_im.loadFromFile("heart_0.png");
@@ -121,6 +124,7 @@ Door::Door() {
 	door1.loadFromFile("door.png");
 	sprite_Door.setTexture(door1);
 	sprite_Door.setTextureRect(IntRect(0, 0, 64, 32));
+
 }
 
 void Door::findDoor() {
@@ -220,6 +224,9 @@ Key::Key() {
 	key_tx.loadFromImage(key_im);
 	sprite_Key.setTexture(key_tx);
 	sprite_Key.setTextureRect(IntRect(0, 0, 32, 32));
+
+	b_openDoor.loadFromFile("openDoor.ogg");// тут загружаем в буфер что то
+	s_openDoor.setBuffer(b_openDoor);
 }
 
 void Key::findKey() {
@@ -259,6 +266,7 @@ void Key::interactKey(float ballX, float ballY, Door &door) {
 			door.openDoor();
 			key_X.remove(*iterX);
 			key_Y.remove(*iterY);
+			s_openDoor.play();
 			return;
 		}
 		iterY++;
