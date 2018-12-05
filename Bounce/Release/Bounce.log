@@ -17,6 +17,7 @@ Ball.cpp(141): warning C4244: инициализация: преобразова
 Ball.cpp(154): warning C4244: =: преобразование "int" в "float", возможна потеря данных
 Ball.cpp(163): warning C4244: =: преобразование "int" в "float", возможна потеря данных
 Ball.cpp(181): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(193): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Boost.cpp
 Boost.cpp(23): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 Boost.cpp(46): warning C4101: y: неиспользованная локальная переменная
@@ -60,9 +61,12 @@ enemy.cpp(13): warning C4244: =: преобразование "int" в "float", 
 enemy.cpp(26): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 enemy.cpp(27): warning C4305: =: усечение из "double" в "float"
 enemy.cpp(32): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
+enemy.cpp(64): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
+enemy.cpp(76): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+enemy.cpp(77): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
   main.cpp
   Menu.cpp
   Создание кода
-  All 428 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 508 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe

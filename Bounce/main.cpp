@@ -53,25 +53,13 @@ int main()
 		std::list<enemy*> enemys;//для списка с врагами
 		std::list<enemy*>::iterator bb;
 		
+		std::list<enemy::Bullet*> bullets;//для списка с врагами
+		std::list<enemy::Bullet*>::iterator bullets_iter;
+
 		
 		drawMap map_level1; // объ€вление объекта "уровень" отвечающего за начальную загрузку карты
-		map_level1.loadLevelFromFile(level_number);
 		
 		
-		Ball test;
-		
-		for (int i = 0; i < HEIGHT_MAP; i++) {
-			for (int j = 0; j < WIDTH_MAP; j++) {
-
-				if (TileMap[i][j] == 'A') {
-
-					enemys.push_back(new bee(j, i));
-					cout << i << "   " << j << endl;
-
-
-				}
-			}
-		}
 		
 		
 		Boost b1;
@@ -96,6 +84,25 @@ int main()
 		//Wasp wasp("wasp1.png", 'A', 0, 0, 35, 35);
 
 		if (menu_item == 1) {
+
+			map_level1.loadLevelFromFile(level_number);
+			
+			Ball test;
+			test.SetDefPos();
+
+			for (int i = 0; i < HEIGHT_MAP; i++) {
+				for (int j = 0; j < WIDTH_MAP; j++) {
+
+					if (TileMap[i][j] == 'A') {
+
+						enemys.push_back(new bee(j, i));
+						cout << i << "   " << j << endl;
+
+					}
+				}
+			}
+
+
 			spike_test.find_spike();
 			b1.findBoost();
 			door_test.findDoor();
@@ -166,6 +173,36 @@ int main()
 				key.drawKey();
 				key.interactKey(test.getcoorginateX(), test.getcoorginateY(), door_test);
 				
+				for (bb = enemys.begin(); bb != enemys.end(); bb++) {
+					(*bb)->drawing();
+					if ((*bb)->shoot > 500) {
+						(*bb)->shoot = 0;
+						FloatRect ff = (*bb)->FL();
+						float loc_dx = (*bb)->DX();
+						bullets.push_back(new enemy::Bullet(ff, loc_dx));
+					}
+					(*bb)->shoot++;
+				}
+
+				for (bullets_iter = bullets.begin(); bullets_iter != bullets.end(); bullets_iter++) {
+					if ((*bullets_iter)->life) {
+
+						(*bullets_iter)->destroyBall(test);
+						(*bullets_iter)->drawing();
+					}
+					else {
+						delete((*bullets_iter));
+						bullets.remove(*bullets_iter);
+						break;
+					}
+				}
+
+
+
+
+
+
+
 				hpbar_test.update_hpbar(spike_test.interact(test.getcoorginateX(),test.getcoorginateY(),test));
 				hpbar_test.update_hpbar(b1.interact_boost(test.getcoorginateX(), test.getcoorginateY(),test));
 				hpbar_test.draw_hpbar(window);
@@ -181,9 +218,7 @@ int main()
 				
 				/*-----»Ћ№я----*/
 				// ј“я
-				for (bb = enemys.begin(); bb != enemys.end(); bb++) {
-					(*bb)->drawing();
-				}
+				
 
 				/*јЌ“ќЌ*/
 				test.drawing_person();
