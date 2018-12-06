@@ -17,7 +17,14 @@ void enemy::collision() {
 			
 }
 
-
+spider::spider(int x, int y) {
+	t.loadFromFile("spider1.png");
+	sprite.setTexture(t);
+	sprite.setTextureRect(IntRect(0, 0, 32, 32));
+	rect = FloatRect(x * 32, y * 32, 0, 0);
+	dx = -0.1;
+	currentFrame = 0;
+}
 
 bee::bee(int x, int y) {
 	t.loadFromFile("wasp1.png");
@@ -28,7 +35,7 @@ bee::bee(int x, int y) {
 	
 }
 
-void bee::drawing() {
+void enemy::drawing(float ballX, float ballY, Ball &ballhp) {
 	time = clock.getElapsedTime().asMicroseconds();
 	clock.restart();
 
@@ -39,7 +46,19 @@ void bee::drawing() {
 	rect.left = rect.left + dx * time;
 	collision();
 	
+	currentFrame += 0.005 * time; // для анимации 
+	if (currentFrame > 4)  currentFrame -= 4;
+	if (dx < 0) sprite.setTextureRect(IntRect(32 * int(currentFrame), 0, 32, 32));
+	if (dx > 0) sprite.setTextureRect(IntRect(32 * int(currentFrame) + 32, 0, -32, 32));
+
+
 	window.draw(sprite);
+
+
+
+	if ((ballY>=(rect.top-15))&&(ballY<=(rect.top+32+15))&&(ballX>=(rect.left-15)&&(ballX<=(rect.left+32+15)))) {
+		ballhp.Damage();
+	}
 }
 
 FloatRect enemy::FL() {

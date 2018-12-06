@@ -15,7 +15,11 @@ public:
 	Sprite sprite;
 	Clock clock;
 	float time;
-	virtual void drawing() = 0;
+
+	float currentFrame;
+
+	void drawing(float ballX, float ballY, Ball &ballhp);
+	
 	void collision();
 	FloatRect FL();
 	float DX();
@@ -46,15 +50,12 @@ public:
 class bee : public enemy {
 public:
 	bee(int x, int y);
-	void drawing();
 
-	
-	
 };
 
 class spider : public enemy {
 public:
-
+	spider(int x, int y);
 
 };
 

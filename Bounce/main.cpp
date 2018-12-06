@@ -99,6 +99,13 @@ int main()
 						cout << i << "   " << j << endl;
 
 					}
+					
+					if (TileMap[i][j] == 'S') {
+
+						enemys.push_back(new spider(j, i));
+					
+					}
+				
 				}
 			}
 
@@ -174,7 +181,7 @@ int main()
 				key.interactKey(test.getcoorginateX(), test.getcoorginateY(), door_test);
 				
 				for (bb = enemys.begin(); bb != enemys.end(); bb++) {
-					(*bb)->drawing();
+					(*bb)->drawing(test.getcoorginateX(), test.getcoorginateY(), test);
 					if ((*bb)->shoot > 500) {
 						(*bb)->shoot = 0;
 						FloatRect ff = (*bb)->FL();
