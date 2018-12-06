@@ -108,16 +108,12 @@ void Ball::drawing_person() {
 		}
 	}
 		
-	if (Keyboard::isKeyPressed(Keyboard::D)) {
-		setInvertedGravity();
-	}
+	
 	if (Keyboard::isKeyPressed(Keyboard::R)) {
 		rect.left = defrect.left;
 		rect.top = defrect.top;
 	}
-	if (Keyboard::isKeyPressed(Keyboard::F)) {
-		setNormalGravity();
-	}
+	
 	window.draw(sprite);
 }
 
