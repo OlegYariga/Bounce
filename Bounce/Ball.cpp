@@ -53,7 +53,7 @@ void Ball::drawing_person() {
 	a = sprite.getPosition().x;
 	b = sprite.getPosition().y;
 
-	GetDefPos();
+	//GetDefPos();
 
 
 	time = clock.getElapsedTime().asMicroseconds();
@@ -184,6 +184,24 @@ void Ball::GetDefPos() {
 	}
 }
 
+
+void Ball::SetDefPos() {
+	for (int i = 0; i < HEIGHT_MAP; i++) {
+		for (int j = 0; j < WIDTH_MAP; j++) {
+
+			if (TileMap[i][j] == 'B') {
+				defrect = FloatRect(j * 32, i * 32, 0, 0);
+				rect.left = defrect.left;
+				rect.top = defrect.top;
+
+			}
+		}
+	}
+}
+FloatRect Ball::GetRect() {
+	return rect;
+}
+
 void Ball::setInvertedGravity()
 {
 	sound_gravity_on.play();
@@ -200,6 +218,7 @@ void Ball::Damage() {
 	rect = defrect;
 	lifes--;
 	sound_damage.play();
+	return;
 }
 
 void Ball::Healing() {
