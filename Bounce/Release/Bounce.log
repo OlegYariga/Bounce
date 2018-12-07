@@ -1,23 +1,22 @@
 ﻿  Ball.cpp
-Ball.cpp(53): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Ball.cpp(54): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
-Ball.cpp(59): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
-Ball.cpp(75): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-Ball.cpp(80): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-Ball.cpp(93): warning C4305: аргумент: усечение из "double" в "float"
-Ball.cpp(97): warning C4305: аргумент: усечение из "double" в "float"
-Ball.cpp(103): warning C4305: аргумент: усечение из "double" в "float"
-Ball.cpp(107): warning C4305: аргумент: усечение из "double" в "float"
-Ball.cpp(122): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-Ball.cpp(123): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-Ball.cpp(127): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-Ball.cpp(128): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-Ball.cpp(136): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-Ball.cpp(137): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-Ball.cpp(150): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-Ball.cpp(159): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-Ball.cpp(177): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-Ball.cpp(189): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(55): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Ball.cpp(56): warning C4244: =: преобразование "const float" в "int", возможна потеря данных
+Ball.cpp(61): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
+Ball.cpp(77): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+Ball.cpp(82): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+Ball.cpp(95): warning C4305: аргумент: усечение из "double" в "float"
+Ball.cpp(99): warning C4305: аргумент: усечение из "double" в "float"
+Ball.cpp(105): warning C4305: аргумент: усечение из "double" в "float"
+Ball.cpp(109): warning C4305: аргумент: усечение из "double" в "float"
+Ball.cpp(124): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(125): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(129): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(130): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(138): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(139): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+Ball.cpp(152): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(161): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+Ball.cpp(181): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Boost.cpp
 Boost.cpp(26): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 Boost.cpp(49): warning C4101: y: неиспользованная локальная переменная
@@ -62,14 +61,14 @@ enemy.cpp(24): warning C4244: аргумент: преобразование "in
 enemy.cpp(25): warning C4305: =: усечение из "double" в "float"
 enemy.cpp(33): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 enemy.cpp(34): warning C4305: =: усечение из "double" в "float"
-enemy.cpp(39): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
-enemy.cpp(49): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+enemy.cpp(40): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
+enemy.cpp(50): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
 enemy.cpp(83): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
 enemy.cpp(95): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
 enemy.cpp(96): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
   main.cpp
   Menu.cpp
   Создание кода
-  All 513 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 506 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Создание кода завершено
   Bounce.vcxproj -> C:\Users\Doc\Desktop\Bounce\Bounce\Release\Bounce.exe

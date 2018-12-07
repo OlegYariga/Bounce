@@ -13,7 +13,6 @@ public:
 	void KeyUp(float a);
 	void CollisionX();
 	void CollisionY();
-	void GetDefPos();
 	void Damage();
 	void Healing();
 	float getcoorginateX();

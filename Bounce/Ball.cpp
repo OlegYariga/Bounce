@@ -25,6 +25,8 @@ Ball::Ball(){
 	sprite.setOrigin(15, 15);
 
 
+	
+
 	rect = FloatRect(0, 0, 0, 0);
 	defrect = FloatRect(0, 0, 0, 0);
 	onGround = false;
@@ -169,16 +171,6 @@ void Ball::CollisionY() {
 }
 
 
-void Ball::GetDefPos() {
-	for (int i = 0; i < HEIGHT_MAP; i++) {
-		for (int j = 0; j < WIDTH_MAP; j++) {
-			
-			if (TileMap[i][j] == 'B') {
-				defrect = FloatRect(j * 32, i * 32, 0, 0);
-			}
-		}
-	}
-}
 
 
 void Ball::SetDefPos() {

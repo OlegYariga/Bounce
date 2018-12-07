@@ -96,7 +96,7 @@ int main()
 					if (TileMap[i][j] == 'A') {
 
 						enemys.push_back(new bee(j, i));
-						cout << i << "   " << j << endl;
+						//cout << i << "   " << j << endl;
 
 					}
 					

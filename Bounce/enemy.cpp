@@ -32,6 +32,7 @@ bee::bee(int x, int y) {
 	sprite.setTextureRect(IntRect(0, 0, 32, 32));
 	rect = FloatRect(x*32, y*32, 0, 0);
 	dx = -0.05;
+	currentFrame = 0;
 	
 }
 
@@ -61,16 +62,15 @@ void enemy::drawing(float ballX, float ballY, Ball &ballhp) {
 	}
 }
 
-FloatRect enemy::FL() {
+FloatRect enemy::FL() {//передает в main положение врага
 	return rect;
 }
-float enemy::DX() {
+float enemy::DX() {//передает в main направление движения врага
 	return dx;
 }
 
 enemy::Bullet::Bullet(FloatRect rect, float loc_dx) {
-	bullet_rect = rect;
-	//std::cout << bullet_rect.left<< bullet_rect.top;
+	bullet_rect = rect;//получает координату врага
 	life = true;
 	im.loadFromFile("bullet.png");
 	im.createMaskFromColor(Color::Black);
