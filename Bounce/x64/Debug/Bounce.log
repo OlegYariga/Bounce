@@ -1,3 +1,0 @@
-﻿  main.cpp
-c:\program files\git\bounce\bounce\bounce\drawmaps.h(52): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  Bounce.vcxproj -> C:\Program Files\Git\Bounce\Bounce\x64\Debug\Bounce.exe
